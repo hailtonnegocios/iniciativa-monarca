@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="WebContent"/>
+	<classpathentry excluding="resources/js/bootstrap.js|resources/js/bootstrap.min.js|resources/js/flot/chart-data-flot.js|resources/js/flot/excanvas.min.js|resources/js/flot/jquery.flot.js|resources/js/flot/jquery.flot.pie.js|resources/js/flot/jquery.flot.resize.js|resources/js/flot/jquery.flot.tooltip.min.js|resources/js/jquery-1.10.2.js|resources/js/morris/chart-data-morris.js|resources/js/tablesorter/jquery.tablesorter.js|resources/js/tablesorter/tables.js" kind="src" path="WebContent"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>
