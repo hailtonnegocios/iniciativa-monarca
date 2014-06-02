@@ -13,6 +13,16 @@
 	<link href="resources/css/sb-admin.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- Parte do trecho alterada no bootstrap.min.css -->
+<!-- <style type="text/css">
+
+.col-lg-3 {
+  width: 27%;
+}
+
+</style>
+-->
     <div id="wrapper">
       <!-- Inicio SideBar : 
            O sidebar esta vinculado ao menu na lateral e o menu superior, 

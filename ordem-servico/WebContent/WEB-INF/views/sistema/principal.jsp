@@ -20,7 +20,6 @@
 -->
 	<br />
 	
-	
 	<c:if test="${usuarioPer == 'ADMIN' }" >
 	  <div class="row">
           <div class="col-lg-3">
@@ -47,7 +46,9 @@
                   </div>
                 </div>
               </a>
+              
             </div>
+            
           </div>
 </c:if>
 
@@ -90,7 +91,7 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <img src="resources/img/os.png"/>
+                   <img src="resources/img/os.png"/>
                   </div>
                   <div >
                     <p>Módulo de Ordem de Serviço</p>
@@ -121,7 +122,6 @@
                   </div>
                   <div>
                     <p>Módulo de Chamados</p>
-                    
                   </div>
                 </div>
               </div>
@@ -139,6 +139,37 @@
               </a>
             </div>
           </div>
+	          
+
+	          <div class="col-lg-3">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <img src="resources/img/teste.png"/>
+                  </div>
+                  <div >
+                    <p>Modulo de Exemplos</p>
+                  </div>
+                </div>
+              </div>
+              <a href="modelos">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Entrar
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+
 
 
 	<!-- Button trigger modal -->
