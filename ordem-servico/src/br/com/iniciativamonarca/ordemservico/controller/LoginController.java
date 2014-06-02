@@ -11,15 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.model.dao.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.FuncionarioDAO;
+import br.com.iniciativamonarca.ordemservico.model.dao.LoginDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Transactional
 @Controller
-public class FuncionarioController {
+public class LoginController {
 
 	@Autowired
-	FuncionarioDAO FuncDao;
+	LoginDAO FuncDao;
 
 	@RequestMapping("/")
 	public String Form(HttpSession session) {
