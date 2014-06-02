@@ -13,7 +13,7 @@ import br.com.iniciativamonarca.ordemservico.interfaceOS.InterfaceFuncionario;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Repository
-public class FuncionarioDAO implements InterfaceFuncionario {
+public class LoginDAO implements InterfaceFuncionario {
 
 	@PersistenceContext
 	EntityManager manager;

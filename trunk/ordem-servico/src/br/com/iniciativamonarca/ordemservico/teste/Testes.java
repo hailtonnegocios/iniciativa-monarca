@@ -14,7 +14,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.iniciativamonarca.ordemservico.model.dao.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.FuncionarioDAO;
+import br.com.iniciativamonarca.ordemservico.model.dao.LoginDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,7 +24,7 @@ import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 public class Testes {
 
 	@Autowired
-	FuncionarioDAO funcdao;
+	LoginDAO funcdao;
 
 	@Test
 	public void EfetuarLogin() {
