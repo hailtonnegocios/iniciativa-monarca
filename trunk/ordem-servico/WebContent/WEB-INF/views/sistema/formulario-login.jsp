@@ -23,7 +23,7 @@
 
 	<div class="container">
 		<div class="row">
-		<center><h1>Iniciativa21 - O.S</h1></center>
+		<center><h1>Ordem de Serviço</h1></center>
 			<div class="col-md-4 col-md-offset-4">
 				<div class="login-panel panel panel-default">
 					<div class="panel-heading">
