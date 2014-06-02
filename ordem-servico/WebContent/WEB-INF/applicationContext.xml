@@ -44,9 +44,9 @@
         <!-- <bean id="MySqlDataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
         <bean id="MySqlDataSource"  class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/ordemserviniciativa21" />
-		<property name="username" value="iniciativa21" />
-		<property name="password" value="admininiciativa21" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ordem_servico" />
+		<property name="username" value="iniciativa" />
+		<property name="password" value="iniciativa" />
 	</bean>
 
 	<!-- Criando um EntityManager -->
