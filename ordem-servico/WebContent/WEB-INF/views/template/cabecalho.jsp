@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Iniciativa21 - O.S</title>
+	<title>Iniciativa Monarca - O.S</title>
 	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 	<link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="resources/css/sb-admin.css" rel="stylesheet">
@@ -29,5 +29,5 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">INICIATIVA21</a>
+          <a class="navbar-brand" href="index.html">INICIATIVA MONARCA</a>
         </div>

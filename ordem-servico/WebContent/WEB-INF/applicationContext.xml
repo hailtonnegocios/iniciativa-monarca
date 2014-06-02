@@ -17,13 +17,13 @@
 		os pacotes pela tag bean como anteriormente, todas classes q ficarão dentro 
 		desse caminho reconhecerá as tag do spring, como por exemplo @Repository,@PersistenceContext,@Transactional, 
 		ele é um scanner vai ser um contexto -->
-	<context:component-scan base-package="br.com.iniciativa21.ordemservico" />
+	<context:component-scan base-package="br.com.iniciativamonarca.ordemservico" />
 
     <mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 
 	<mvc:interceptors>
-	  <bean class="br.com.iniciativa21.ordemservico.interceptor.AutorizadorInterceptor"/>
+	  <bean class="br.com.iniciativamonarca.ordemservico.interceptor.AutorizadorInterceptor"/>
 	</mvc:interceptors>
 
 	<!-- Persiste as annotations -->
