@@ -19,36 +19,20 @@
 	</div>
 
 	<br />
-
-	<!-- Button trigger modal -->
-	
-	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#myModal">Ordem de Serviço</button>
+-->
 
 
-	<!-- Modal -->
-	 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Ordem de Serviço</h4>
-				</div>
-				<div class="modal-body">
-				  Corpo da Ordem de Serviço !
-				
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">OK</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br />
+   <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              Este módulo tem o objetivo de ajudar os desenvolvedores, com alguns modelos de Cadastros , Componentes e Práticas para o aprendizado.
+            </div>
+            
+            
+            
+           <center> <img src="resources/img/ilustracao.png"/></center>
+
+
+
 		
 </div>
 <!--  Inicio :  Conteudo das paginas --> 
