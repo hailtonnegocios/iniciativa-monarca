@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
 
-<c:import url="../../template/cabecalho.jsp"/>
-<c:import url="../../template/sidebar_modelos.jsp"/>
+<c:import url="../template/cabecalho.jsp"/>
+<c:import url="../template/sidebar_modelos.jsp"/>
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -29,7 +29,7 @@
             
             
             
-           <center> <img src="resources/img/ilustracao.png"/></center>
+           <center><img src="resources/img/ilustracao.png" width="350px"/></center>
 
 
 
@@ -38,4 +38,4 @@
 <!--  Inicio :  Conteudo das paginas --> 
 
 
-<c:import url="../../template/footer.jsp"/>
+<c:import url="../template/footer.jsp"/>

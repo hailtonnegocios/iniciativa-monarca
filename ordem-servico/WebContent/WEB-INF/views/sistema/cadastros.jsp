@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
 
-<c:import url="../../template/cabecalho.jsp"/>
-<c:import url="../../template/sidebar_chamados.jsp"/>
+<c:import url="../template/cabecalho.jsp"/>
+<c:import url="../template/sidebar_cadastros.jsp"/>
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -23,7 +23,7 @@
 	<!-- Button trigger modal -->
 	 
 	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#myModal">Chamados</button>
+		data-target="#myModal">Cadastros</button>
 
 
 	<!-- Modal -->
@@ -35,10 +35,10 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="myModalLabel">Cadastros</h4>
 				</div>
 				<div class="modal-body">
-				  Corpo dos Chamados !
+				  Corpo dos Cadastros !
 				
 				</div>
 				<div class="modal-footer">
@@ -54,4 +54,4 @@
 <!--  Inicio :  Conteudo das paginas --> 
 
 
-<c:import url="../../template/footer.jsp"/>
+<c:import url="../template/footer.jsp"/>

@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
 
-<c:import url="../../template/cabecalho.jsp"/>
-<c:import url="../../template/sidebar_os.jsp"/>
+<c:import url="../template/cabecalho.jsp"/>
+<c:import url="../template/sidebar_os.jsp"/>
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -54,4 +54,4 @@
 <!--  Inicio :  Conteudo das paginas --> 
 
 
-<c:import url="../../template/footer.jsp"/>
+<c:import url="../template/footer.jsp"/>
