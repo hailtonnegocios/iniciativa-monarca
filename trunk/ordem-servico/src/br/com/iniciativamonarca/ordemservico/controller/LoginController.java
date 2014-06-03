@@ -31,26 +31,26 @@ public class LoginController {
 		Funcionario func = new Funcionario();
 		func = (Funcionario) session.getAttribute("usuarioLogado");
 		if (func.getPermissao().equals("ADMIN")) {
-			return "sistema/modulo_cadastros/cadastros";
+			return "sistema/cadastros";
 		} else
 			return "redirect:eflog";
 	}
 
 	@RequestMapping("/os")
 	public String FormOS(HttpSession session) {
-		return "sistema/modulo_os/os";
+		return "sistema/os";
 	}
 
 
 	@RequestMapping("/modelos")
 	public String FormCrudTeste(HttpSession session) {
-		return "sistema/modulo_modelos/modelos";
+		return "sistema/modelos";
 	}
 
 	
 	@RequestMapping("/chamados")
 	public String FormChamados(HttpSession session) {
-		return "sistema/modulo_chamados/chamados";
+		return "sistema/chamados";
 	}
 
 	@RequestMapping("loginForm")
