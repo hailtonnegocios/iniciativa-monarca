@@ -12,6 +12,7 @@
 	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 	<link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="resources/css/sb-admin.css" rel="stylesheet">
+	<link href="resources/css/jquery-ui-1.10.4.css" rel="stylesheet">
 </head>
 <body>
 

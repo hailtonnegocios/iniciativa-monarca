@@ -22,8 +22,9 @@ public class Exemplo_1 {
 	private String nome;
 	private String descricao;
 	private boolean status;
+	private String tipo;
 	
-	
+
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Calendar dat_cad;
@@ -79,4 +80,14 @@ public class Exemplo_1 {
 	public void setTamanhos(Exemplo_1Enum tamanhos) {
 		this.tamanhos = tamanhos;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	
 }

@@ -62,6 +62,7 @@
 
 	<!-- SB Admin Scripts - Include with every page -->
 	<script src="resources/js/sb-admin.js"></script>
+	<script src="resources/js/maskjquery.js" type="text/javascript"></script>
 
 
 </body>
