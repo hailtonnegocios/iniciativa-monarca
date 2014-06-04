@@ -1,4 +1,4 @@
-package br.com.iniciativamonarca.ordemservico.model.dao;
+package br.com.iniciativamonarca.ordemservico.model.dao.impl;
 
 import java.util.List;
 
@@ -9,11 +9,12 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.iniciativamonarca.ordemservico.interfaceOS.InterfaceFuncionario;
+import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceFuncionario;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Repository
-public class LoginDAO implements InterfaceFuncionario {
+public class LoginDAOImpl implements InterfaceFuncionario {
 
 	@PersistenceContext
 	EntityManager manager;
