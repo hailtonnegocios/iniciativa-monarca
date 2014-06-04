@@ -28,9 +28,7 @@ public class Exemplo_1Controller {
 
 	
 	@RequestMapping("cadexemplo")
-	public String FormCadExemplo(HttpSession session,Model model) {
-		
-		model.addAttribute("myEnum",Exemplo_1Enum.values());
+	public String FormCadExemplo(HttpSession session) {
 		return "sistema/cadexemplo";
 	}
 	
@@ -41,7 +39,6 @@ public class Exemplo_1Controller {
 		return "sistema/addexemplo";
 	}
 	
-
 	@RequestMapping("delexemplo")
 	public String deletar(Exemplo_1 exemplo){
 		try {
@@ -100,6 +97,17 @@ public class Exemplo_1Controller {
 		exe1.adicionar(exemplo1);
 		return "redirect:cadexemplo";
 	}
+
+	
+	
+	// Exemplos Ajax
+	
+	
+	@RequestMapping("cadajax")
+	public String FormAjax(HttpSession session) {
+		return "sistema/cadajax";
+	}
+
 	
 
 }
