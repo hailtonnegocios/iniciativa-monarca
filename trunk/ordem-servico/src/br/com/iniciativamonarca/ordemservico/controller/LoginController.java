@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.iniciativamonarca.ordemservico.model.dao.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.LoginDAO;
+import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAOImpl;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Transactional
@@ -19,7 +19,7 @@ import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 public class LoginController {
 
 	@Autowired
-	LoginDAO FuncDao;
+	LoginDAOImpl FuncDao;
 
 	@RequestMapping("/")
 	public String Form(HttpSession session) {

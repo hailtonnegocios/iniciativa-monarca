@@ -12,6 +12,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
+
 @Entity
 public class Exemplo_1 {
 	

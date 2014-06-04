@@ -1,4 +1,4 @@
-package br.com.iniciativamonarca.ordemservico.model.dao;
+package br.com.iniciativamonarca.ordemservico.exceptions;
 
 // teste
 public class DAOException extends Exception {

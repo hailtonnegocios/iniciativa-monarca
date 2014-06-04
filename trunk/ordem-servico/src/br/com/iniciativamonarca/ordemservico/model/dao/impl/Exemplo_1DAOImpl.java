@@ -1,4 +1,4 @@
-package br.com.iniciativamonarca.ordemservico.model.dao;
+package br.com.iniciativamonarca.ordemservico.model.dao.impl;
 
 import java.util.List;
 
@@ -8,11 +8,12 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.iniciativamonarca.ordemservico.interfaceOS.InterfaceExemplo_1;
+import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceExemplo_1;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1;
 
 @Repository
-public class Exemplo_1DAO implements InterfaceExemplo_1{
+public class Exemplo_1DAOImpl implements InterfaceExemplo_1{
 	
 	
 	@PersistenceContext

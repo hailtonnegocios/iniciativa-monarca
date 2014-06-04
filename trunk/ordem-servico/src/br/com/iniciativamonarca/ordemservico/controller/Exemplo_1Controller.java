@@ -13,10 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.iniciativamonarca.ordemservico.model.dao.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.Exemplo_1DAO;
+import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.impl.Exemplo_1DAOImpl;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1;
-import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1Enum;
+import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
 
 @Transactional
 @Controller
@@ -24,19 +24,19 @@ public class Exemplo_1Controller {
 	
 	
 	@Autowired
-	Exemplo_1DAO exe1;
+	Exemplo_1DAOImpl exe1;
 
 	
 	@RequestMapping("cadexemplo")
 	public String FormCadExemplo(HttpSession session) {
-		return "sistema/cadexemplo";
+		return "sistema/exemplo/cadexemplo";
 	}
 	
 	@RequestMapping("addexemplo")
 	public String FormCadastro(HttpSession session,Model model) {
 		
 		model.addAttribute("myEnum",Exemplo_1Enum.values());
-		return "sistema/addexemplo";
+		return "sistema/exemplo/addexemplo";
 	}
 	
 	@RequestMapping("delexemplo")
@@ -60,7 +60,7 @@ public class Exemplo_1Controller {
 			System.out.println("Erro na alteração !");
 		}
 		
-		return "sistema/altexemplo";
+		return "sistema/exemplo/altexemplo";
 	}
 	
 	
@@ -76,7 +76,7 @@ public class Exemplo_1Controller {
 	public String FormList(HttpSession session,Model model) {
 		List<Exemplo_1> lista_exemplo =  exe1.listar();
 		model.addAttribute("lista",lista_exemplo);
-		return "sistema/listexemplo";
+		return "sistema/exemplo/listexemplo";
 	}
 
 	@RequestMapping("addexe1")
@@ -105,7 +105,7 @@ public class Exemplo_1Controller {
 	
 	@RequestMapping("cadajax")
 	public String FormAjax(HttpSession session) {
-		return "sistema/cadajax";
+		return "sistema/exemplo/cadajax";
 	}
 
 	
