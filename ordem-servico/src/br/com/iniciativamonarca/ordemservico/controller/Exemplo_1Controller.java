@@ -53,6 +53,28 @@ public class Exemplo_1Controller {
 		return "redirect:listexemplo";
 	}
 	
+	
+	@RequestMapping("mostrarexemplo")
+	public String mostra(Long id,Model model){
+		try {
+			model.addAttribute("myEnum",Exemplo_1Enum.values());
+			model.addAttribute("list",exe1.buscarPorId(id));
+		} catch (DAOException e) {
+			System.out.println("Erro na alteração !");
+		}
+		
+		return "sistema/altexemplo";
+	}
+	
+	
+	@RequestMapping("alteraexemplo")
+	public String Formalterar(Exemplo_1 exemplo,Model model){
+		exe1.alterar(exemplo);
+		
+		return "redirect:listexemplo";
+	}
+	
+	
 	@RequestMapping("listexemplo")
 	public String FormList(HttpSession session,Model model) {
 		List<Exemplo_1> lista_exemplo =  exe1.listar();

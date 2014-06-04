@@ -55,7 +55,7 @@
 				<td>${list.descricao}</td>
 				<td>${list.tamanhos}</td>
 				<td>${list.tipo}</td>
-				<td><a href="">Alterar</a> <a href="delexemplo?id_exemplo=${list.id_exemplo}">Excluir</a></td>
+				<td><a href="mostrarexemplo?id=${list.id_exemplo}">Alterar</a> <a href="delexemplo?id_exemplo=${list.id_exemplo}">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>
