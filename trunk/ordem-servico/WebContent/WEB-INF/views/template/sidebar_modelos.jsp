@@ -3,7 +3,10 @@
     <!--  Menu Lateral -->
 	<ul class="nav navbar-nav side-nav">
 	<li class="active"><a href="eflog"><i class="fa fa-tasks"></i> Menu</a></li>
-	<li ><a href=cadexemplo><i class="fa fa-edit"></i> Cadastro Modelo</a></li>
+	
+	<li ><a href="cadexemplo"><i class="fa fa-edit"></i> Cadastro Modelo</a></li>
+	<li ><a href="cadajax"><i class="fa fa-edit"></i>Exemplos de Ajax</a></li>
+	<li ><a href="modelos"><i class="fa fa-edit"></i> Informações do Módulo</a></li>
 
 	</ul>
 
