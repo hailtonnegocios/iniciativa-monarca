@@ -4,8 +4,8 @@
 	<ul class="nav navbar-nav side-nav">
 	<li class="active"><a href="eflog"><i class="fa fa-tasks"></i> Menu</a></li>
 
-		<li><a href="charts.html"><i class="fa fa-edit"></i> Funcionário</a></li>
-		<li><a href="charts.html"><i class="fa fa-edit"></i> Cliente</a></li>
+		<li><a href=""><i class="fa fa-edit"></i> Funcionário</a></li>
+		<li><a href=""><i class="fa fa-edit"></i> Cliente</a></li>
 
 	</ul>
 
