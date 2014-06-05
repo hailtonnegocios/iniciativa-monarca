@@ -1,22 +1,29 @@
 package br.com.iniciativamonarca.ordemservico.controller;
 
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.Exemplo_1DAOImpl;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1;
 import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
+
+import com.google.gson.Gson;
 
 @Transactional
 @Controller
@@ -107,7 +114,28 @@ public class Exemplo_1Controller {
 	public String FormAjax(HttpSession session) {
 		return "sistema/exemplo/cadajax";
 	}
+	
+	
+	@RequestMapping("funcajax1") 
+	public void Ajax1(HttpSession session,HttpServletResponse resp) throws IOException{
+		String nome = "Nome Teste";
+		resp.getWriter().write(nome);
+		resp.setStatus(200);
+	}
+	
+	
+	@RequestMapping("funcajax2") 
+	public @ResponseBody String Ajax2(HttpServletRequest request, HttpServletResponse response)
+			throws Exception{
 
+		Exemplo_1 exemplo =  exe1.buscarPorId(35L);
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(exemplo);
+		return json; 
+	}
+
+	
 	
 
 }
