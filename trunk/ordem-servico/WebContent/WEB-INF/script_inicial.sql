@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `ordem_servico`
+CREATE DATABASE  IF NOT EXISTS `ordem_servico`;
 USE `ordem_servico`;
 
 DROP TABLE IF EXISTS `usuario`;
