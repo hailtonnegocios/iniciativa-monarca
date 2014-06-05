@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
 
-<c:url value="template/cabecalho.jsp" var="cabecalho" />
-<c:url value="template/sidebar_os.jsp" var="sidebar" />
-<c:url value="template/footer.jsp" var="footer" />
+<c:url value="../template/cabecalho.jsp" var="cabecalho" />
+<c:url value="../template/sidebar_chamados.jsp" var="sidebar" />
+<c:url value="../template/footer.jsp" var="footer" />
 
 <c:import url="${cabecalho}"/>
 <c:import url="${sidebar}"/>
@@ -25,9 +25,9 @@
 	<br />
 
 	<!-- Button trigger modal -->
-	
+	 
 	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#myModal">Ordem de Serviço</button>
+		data-target="#myModal">Chamados</button>
 
 
 	<!-- Modal -->
@@ -39,10 +39,10 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Ordem de Serviço</h4>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 				</div>
 				<div class="modal-body">
-				  Corpo da Ordem de Serviço !
+				  Corpo dos Chamados !
 				
 				</div>
 				<div class="modal-footer">
