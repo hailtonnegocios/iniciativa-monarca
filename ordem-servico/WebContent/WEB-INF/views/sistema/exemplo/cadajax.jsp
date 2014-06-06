@@ -16,16 +16,22 @@
     <br><br>
     <div id="ajax1" class="alert alert-danger alert-dismissable" style="width:300px;hidth:100px;"></div>
     
-    <div>
-    <button id="btnTeste2" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcajax2") - Retorno de uma Objeto</button><br><br>
-    <div id="carregando"><img  src="resources/img/carregando.gif"></div>
+    <button id="btnTeste2" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcajax2") - Retorno de uma Objeto</button>
+    <br><br>
+    <div id="carregando"><img  src="resources/img/carregando_2.gif"></div>
     <div id="ajax2" class="alert alert-danger alert-dismissable" style="height:190px;">
+    </div>
+
     
-    
-    
+    <div>
+    <button id="btnTeste3" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcajax3") - Retorno de uma Lista</button>
+    <br><br>
+    <div id="carregando2"><img  src="resources/img/carregando_2.gif"></div>
+    <div id="ajax3" class="alert alert-danger alert-dismissable">
     </div>
     <br>
     </div>
+    
     
 
 

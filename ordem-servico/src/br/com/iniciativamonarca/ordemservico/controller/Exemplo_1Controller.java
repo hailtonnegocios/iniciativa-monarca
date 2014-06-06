@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.EnumType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -115,27 +116,40 @@ public class Exemplo_1Controller {
 		return "sistema/exemplo/cadajax";
 	}
 	
-	
 	@RequestMapping("funcajax1") 
-	public void Ajax1(HttpSession session,HttpServletResponse resp) throws IOException{
+	public void Ajax1(HttpServletResponse resp) throws IOException{
 		String nome = "Nome Teste";
 		resp.getWriter().write(nome);
 		resp.setStatus(200);
 	}
 	
-	
 	@RequestMapping("funcajax2") 
-	public @ResponseBody String Ajax2(HttpServletRequest request, HttpServletResponse response)
+	public @ResponseBody String Ajax2()
 			throws Exception{
 
-		Exemplo_1 exemplo =  exe1.buscarPorId(35L);
 		Gson gson = new Gson();
+		Exemplo_1 exemplo = new Exemplo_1();
+		
+		exemplo.setId_exemplo(1L);
+		exemplo.setNome("Produto Teste");
+		exemplo.setTamanhos(Exemplo_1Enum.MEDIO);
+		exemplo.setDescricao("Descrição Teste");
+		exemplo.setTipo("Compra");
+		exemplo.setStatus(true);
+		
+		Calendar cal = Calendar.getInstance();
+		exemplo.setDat_cad(cal);
 		
 		String json = gson.toJson(exemplo);
 		return json; 
 	}
 
-	
-	
-
+	@RequestMapping("funcajax3") 
+	public @ResponseBody String Ajax3()
+			throws Exception{
+		Gson gson = new Gson();
+		List<Exemplo_1> exemplo = exe1.listar();
+		String lista = gson.toJson(exemplo);
+		return lista; 
+	}
 }

@@ -56,7 +56,7 @@
 			$("#ajax1").toggle("up");
 		});
 	
-	
+  	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax2
 		$("#ajax2").hide();
 		$("#carregando").hide();
 		$("#btnTeste2").click(function() {
@@ -74,6 +74,34 @@
 		    $("#ajax2").toggle("up");
 		});
 	
+
+		
+  	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax3
+		$("#ajax3").hide();
+		$("#carregando2").hide();
+		$("#btnTeste3").click(function() {
+			$("#carregando2").show();
+			$.post("funcajax3", {}, function(data) {
+			  var t = "";
+			  obj = JSON.parse(data);
+			  $("#ajax3").html("");
+			  for(var i=0;i < obj.length;i++){
+				  t = t +'<br><br>'+
+				        'ID: '+obj[i].id_exemplo+'<br>'+
+						'NOME: '+obj[i].nome+'<br>'+
+						'DESCRIÇÃO: '+obj[i].descricao+'<br>'+
+						'STATUS: '+obj[i].status+'<br>'+
+						'TIPO: '+obj[i].tipo;+'<br><br>';
+			  }
+			  $("#ajax3").html('Retorno:'+t);
+			  $("#carregando2").hide();
+		    });
+		    $("#ajax3").toggle("up");
+		});
+
+		
+		
+		
 		
 		
 	/*
