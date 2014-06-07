@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
+import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
 
 @Entity
 public class Exemplo_1 {
@@ -24,7 +25,11 @@ public class Exemplo_1 {
 	private String nome;
 	private String descricao;
 	private boolean status;
-	private String tipo;
+	@Enumerated(EnumType.STRING)
+	private Exemplo_1Enum tamanhos;
+	@Enumerated(EnumType.STRING)
+	private TipoProdutoEnum tipo;
+
 	
 
 	@DateTimeFormat(pattern="dd/MM/yyyy")
@@ -40,8 +45,6 @@ public class Exemplo_1 {
 		this.dat_cad = dat_cad;
 	}
 
-	@Enumerated(EnumType.STRING)
-	private Exemplo_1Enum tamanhos;
 
 	public Long getId_exemplo() {
 		return id_exemplo;
@@ -82,14 +85,17 @@ public class Exemplo_1 {
 	public void setTamanhos(Exemplo_1Enum tamanhos) {
 		this.tamanhos = tamanhos;
 	}
-	
-	public String getTipo() {
+
+	public TipoProdutoEnum getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoProdutoEnum tipo) {
 		this.tipo = tipo;
 	}
+
+	
+
 
 	
 }

@@ -23,6 +23,7 @@ import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.Exemplo_1DAOImpl;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1;
 import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
+import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
 
 import com.google.gson.Gson;
 
@@ -32,11 +33,11 @@ public class Exemplo_1Controller {
 	
 	
 	@Autowired
-	Exemplo_1DAOImpl exe1;
+	Exemplo_1DAOImpl exemploDao;
 
 	
-	@RequestMapping("cadexemplo")
-	public String FormCadExemplo(HttpSession session) {
+	@RequestMapping("cadastroExe")
+	public String cadastroExemplo(HttpSession session) {
 		return "sistema/exemplo/cadexemplo";
 	}
 	
@@ -44,13 +45,14 @@ public class Exemplo_1Controller {
 	public String FormCadastro(HttpSession session,Model model) {
 		
 		model.addAttribute("myEnum",Exemplo_1Enum.values());
+		model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
 		return "sistema/exemplo/addexemplo";
 	}
 	
 	@RequestMapping("delexemplo")
 	public String deletar(Exemplo_1 exemplo){
 		try {
-			exe1.remover(exemplo);
+			exemploDao.remover(exemplo);
 		} catch (DAOException e) {
 			System.out.println("Erro ao deletar");
 		}
@@ -63,7 +65,8 @@ public class Exemplo_1Controller {
 	public String mostra(Long id,Model model){
 		try {
 			model.addAttribute("myEnum",Exemplo_1Enum.values());
-			model.addAttribute("list",exe1.buscarPorId(id));
+			model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
+			model.addAttribute("exemplo1Selecionado",exemploDao.buscarPorId(id));
 		} catch (DAOException e) {
 			System.out.println("Erro na alteração !");
 		}
@@ -74,7 +77,7 @@ public class Exemplo_1Controller {
 	
 	@RequestMapping("alteraexemplo")
 	public String Formalterar(Exemplo_1 exemplo,Model model){
-		exe1.alterar(exemplo);
+		exemploDao.alterar(exemplo);
 		
 		return "redirect:listexemplo";
 	}
@@ -82,7 +85,7 @@ public class Exemplo_1Controller {
 	
 	@RequestMapping("listexemplo")
 	public String FormList(HttpSession session,Model model) {
-		List<Exemplo_1> lista_exemplo =  exe1.listar();
+		List<Exemplo_1> lista_exemplo =  exemploDao.listar();
 		model.addAttribute("lista",lista_exemplo);
 		return "sistema/exemplo/listexemplo";
 	}
@@ -102,7 +105,7 @@ public class Exemplo_1Controller {
 			exemplo1.setDat_cad(data);
 		}
 		
-		exe1.adicionar(exemplo1);
+		exemploDao.adicionar(exemplo1);
 		return "redirect:cadexemplo";
 	}
 
@@ -134,7 +137,7 @@ public class Exemplo_1Controller {
 		exemplo.setNome("Produto Teste");
 		exemplo.setTamanhos(Exemplo_1Enum.MEDIO);
 		exemplo.setDescricao("Descrição Teste");
-		exemplo.setTipo("Compra");
+		exemplo.setTipo(TipoProdutoEnum.COMPRA);
 		exemplo.setStatus(true);
 		
 		Calendar cal = Calendar.getInstance();
@@ -148,7 +151,7 @@ public class Exemplo_1Controller {
 	public @ResponseBody String Ajax3()
 			throws Exception{
 		Gson gson = new Gson();
-		List<Exemplo_1> exemplo = exe1.listar();
+		List<Exemplo_1> exemplo = exemploDao.listar();
 		String lista = gson.toJson(exemplo);
 		return lista; 
 	}

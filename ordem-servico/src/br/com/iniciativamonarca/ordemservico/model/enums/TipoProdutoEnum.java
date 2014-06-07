@@ -1,16 +1,16 @@
 package br.com.iniciativamonarca.ordemservico.model.enums;
 
-public enum Exemplo_1Enum {
+public enum TipoProdutoEnum {
 	
-	PEQUENO(1, "Pequena de Mais"),
-	MEDIO(2, "Média"),
-	GRANDE(3, "Grande");
+	REVENDA(1, "Revenda"),
+	COMPRA(2, "Compra"),
+	TROCA(2, "Troca");
 
 	
 	private int codigo;
 	private String descricao;
 	
-	private Exemplo_1Enum(int codigo, String descricao) {
+	private TipoProdutoEnum(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
