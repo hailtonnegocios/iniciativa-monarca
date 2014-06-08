@@ -21,6 +21,8 @@ import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 @ContextConfiguration(locations = { "file:WebContent/WEB-INF/applicationContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional
+//Teste commit google code;
+
 public class Testes {
 
 	@Autowired
