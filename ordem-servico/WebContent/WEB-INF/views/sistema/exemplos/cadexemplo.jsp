@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:import url="../template/cabecalho.jsp" />
-<c:import url="../template/sidebar_modelos.jsp" />
+<c:import url="../template/sidebar.jsp" />
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -14,8 +14,8 @@
 	</div>
 
 
-    <a href="addexemplo" class="btn btn-primary" role="button">Cadastrar Produto</a>
-    <a href="listexemplo" class="btn btn-danger" role="button">Listar Produto</a>
+    <a href="adicionaExe" class="btn btn-primary" role="button">Cadastrar Produto</a>
+    <a href="listaExe" class="btn btn-danger" role="button">Listar Produto</a>
 
 </div>
 

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:import url="../template/cabecalho.jsp" />
-<c:import url="../template/sidebar_modelos.jsp" />
+<c:import url="../template/sidebar.jsp" />
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">

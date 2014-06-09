@@ -12,25 +12,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAOImpl;
+import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
+import br.com.iniciativamonarca.ordemservico.model.enums.CadastrosSidebarEnum;
+import br.com.iniciativamonarca.ordemservico.model.enums.ChamadosSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
+import br.com.iniciativamonarca.ordemservico.model.enums.OsSidebarEnum;
 
 @Transactional
 @Controller
 public class LoginController {
 
 	@Autowired
-	LoginDAOImpl FuncDao;
+	LoginDAO funcDao;
 
 	@RequestMapping("/")
-	public String Form(HttpSession session) {
+	public String form(HttpSession session) {
 		return "redirect:loginForm";
 	}
 
 	@RequestMapping("/cadastros")
-	public String FormCad(HttpSession session) {
+	public String formCadastros(HttpSession session,Model model) {
 		Funcionario func = new Funcionario();
+		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
 		func = (Funcionario) session.getAttribute("usuarioLogado");
 		if (func.getPermissao().equals("ADMIN")) {
 			return "sistema/cadastros/cadastros";
@@ -39,25 +43,27 @@ public class LoginController {
 	}
 
 	@RequestMapping("/os")
-	public String FormOS(HttpSession session) {
+	public String formOs(HttpSession session,Model model) {
+		model.addAttribute("listamenu", OsSidebarEnum.values());
 		return "sistema/os/os";
 	}
 
 
-	@RequestMapping("/modelos")
-	public String FormCrudTeste(HttpSession session,Model model) {
+	@RequestMapping("/exemplos")
+	public String formExemplos(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
-		return "sistema/exemplo/modelos";
+		return "sistema/exemplos/exemplos";
 	}
 
 	
 	@RequestMapping("/chamados")
-	public String FormChamados(HttpSession session) {
+	public String formChamados(HttpSession session,Model model) {
+		model.addAttribute("listamenu", ChamadosSidebarEnum.values());
 		return "sistema/chamados/chamados";
 	}
 
 	@RequestMapping("loginForm")
-	public String loginForm(HttpSession session) {
+	public String formLogin(HttpSession session) {
 		if (session.getAttribute("usuarioLogado") != null) {
 			return "redirect:eflog";
 		}
@@ -73,8 +79,8 @@ public class LoginController {
 		}
 
 		try {
-			if (!FuncDao.efetuarLogin(funcionario).isEmpty()) {
-				List<Funcionario> f = FuncDao.efetuarLogin(funcionario);
+			if (!funcDao.efetuarLogin(funcionario).isEmpty()) {
+				List<Funcionario> f = funcDao.efetuarLogin(funcionario);
 				Funcionario func = new Funcionario();
 
 				func.setId_usuario(f.get(0).getId_usuario());

@@ -1,17 +1,13 @@
 package br.com.iniciativamonarca.ordemservico.controller;
 
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.EnumType;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,110 +16,94 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.impl.Exemplo_1DAOImpl;
-import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo_1;
+import br.com.iniciativamonarca.ordemservico.model.dao.impl.ExemploDAO;
+import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
+import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
-import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
 import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
 
 import com.google.gson.Gson;
 
 @Transactional
 @Controller
-public class Exemplo_1Controller {
-	
+public class ExemploController {
 	
 	@Autowired
-	Exemplo_1DAOImpl exemploDao;
-
+	ExemploDAO exemploDao;
 	
 	@RequestMapping("cadastroExe")
 	public String cadastroExemplo(HttpSession session,Model model) {
 	model.addAttribute("listamenu", ExemploSidebarEnum.values());
-  	  return "sistema/exemplo/cadexemplo";
+  	  return "sistema/exemplos/cadexemplo";
 	}
 	
-	@RequestMapping("addexemplo")
-	public String FormCadastro(HttpSession session,Model model) {
+	@RequestMapping("adicionaExe")
+	public String adicionaExemplo(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
-		model.addAttribute("myEnum",Exemplo_1Enum.values());
+		model.addAttribute("myEnum",TamanhosEnum.values());
 		model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
-		return "sistema/exemplo/addexemplo";
+		return "sistema/exemplos/addexemplo";
 	}
 	
-	@RequestMapping("delexemplo")
-	public String deletar(Exemplo_1 exemplo,Model model){
+	@RequestMapping("deletaExe")
+	public String deletaExemplo(Exemplo exemplo,Model model){
 		try {
-			model.addAttribute("listamenu", ExemploSidebarEnum.values());
 			exemploDao.remover(exemplo);
 		} catch (DAOException e) {
 			System.out.println("Erro ao deletar");
 		}
-		
-		return "redirect:listexemplo";
+		return "redirect:listaExe";
 	}
 	
-	
-	@RequestMapping("mostrarexemplo")
-	public String mostra(Long id,Model model){
+	@RequestMapping("mostraExe")
+	public String mostraExemplo(Long id,Model model){
 		try {
 			model.addAttribute("listamenu", ExemploSidebarEnum.values());
 			
-			model.addAttribute("myEnum",Exemplo_1Enum.values());
+			model.addAttribute("myEnum",TamanhosEnum.values());
 			model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
 			model.addAttribute("exemplo1Selecionado",exemploDao.buscarPorId(id));
 		} catch (DAOException e) {
 			System.out.println("Erro na alteração !");
 		}
-		
-		return "sistema/exemplo/altexemplo";
+		return "sistema/exemplos/altexemplo";
 	}
 	
-	
-	@RequestMapping("alteraexemplo")
-	public String Formalterar(Exemplo_1 exemplo,Model model){
-		model.addAttribute("listamenu", ExemploSidebarEnum.values());
+	@RequestMapping("alteraExe")
+	public String alteraExemplo(Exemplo exemplo,Model model){
 		exemploDao.alterar(exemplo);
-		return "redirect:listexemplo";
+		return "redirect:listaExe";
 	}
 	
-	
-	@RequestMapping("listexemplo")
-	public String FormList(HttpSession session,Model model) {
-		List<Exemplo_1> lista_exemplo =  exemploDao.listar();
+	@RequestMapping("listaExe")
+	public String listaExemplo(HttpSession session,Model model) {
+		List<Exemplo> lista_exemplo =  exemploDao.listar();
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("lista",lista_exemplo);
-		return "sistema/exemplo/listexemplo";
+		return "sistema/exemplos/listexemplo";
 	}
 
-	@RequestMapping("addexe1")
-	public String Adicionar(HttpSession session,Exemplo_1 exemplo1,Model model) {
-		model.addAttribute("listamenu", ExemploSidebarEnum.values());
+	@RequestMapping("salvaExe")
+	public String salvaExemplo(HttpSession session,Exemplo exemplo1,Model model) {
 		if (exemplo1.getDat_cad() != null) {
-			
+
 			Calendar data = Calendar.getInstance();
-			
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			sdf.format(exemplo1.getDat_cad().getTime());
-			
 			data.setTime(sdf.getCalendar().getTime());
 			
 			exemplo1.setDat_cad(data);
 		}
-		
 		exemploDao.adicionar(exemplo1);
-		return "redirect:cadexemplo";
+		return "redirect:cadastroExe";
 	}
-
-	
 	
 	// Exemplos Ajax
 	
-	
-	@RequestMapping("cadajax")
-	public String FormAjax(HttpSession session,Model model) {
+	@RequestMapping("cadastroAjax")
+	public String cadastroAjax(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
-		return "sistema/exemplo/cadajax";
+		return "sistema/exemplos/cadajax";
 	}
 	
 	@RequestMapping("funcajax1") 
@@ -139,11 +119,11 @@ public class Exemplo_1Controller {
 			throws Exception{
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		Gson gson = new Gson();
-		Exemplo_1 exemplo = new Exemplo_1();
+		Exemplo exemplo = new Exemplo();
 		
 		exemplo.setId_exemplo(1L);
 		exemplo.setNome("Produto Teste");
-		exemplo.setTamanhos(Exemplo_1Enum.MEDIO);
+		exemplo.setTamanhos(TamanhosEnum.MEDIO);
 		exemplo.setDescricao("Descrição Teste");
 		exemplo.setTipo(TipoProdutoEnum.COMPRA);
 		exemplo.setStatus(true);
@@ -160,7 +140,7 @@ public class Exemplo_1Controller {
 			throws Exception{
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		Gson gson = new Gson();
-		List<Exemplo_1> exemplo = exemploDao.listar();
+		List<Exemplo> exemplo = exemploDao.listar();
 		String lista = gson.toJson(exemplo);
 		return lista; 
 	}

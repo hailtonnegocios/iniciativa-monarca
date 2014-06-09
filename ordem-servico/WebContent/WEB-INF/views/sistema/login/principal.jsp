@@ -157,7 +157,7 @@
                   </div>
                 </div>
               </div>
-              <a href="modelos">
+              <a href="exemplos">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
