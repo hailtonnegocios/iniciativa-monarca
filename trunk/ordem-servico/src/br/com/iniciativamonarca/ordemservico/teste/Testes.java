@@ -36,10 +36,10 @@ public class Testes {
 			func.setEmail("hailtonnegocios@gmail.com");
 			func.setSenha("12345");
 
-			List<Funcionario> f = funcdao.efetuarLogin(func);
+			Funcionario f = funcdao.efetuarLogin(func);
 
-			System.out.println(f.get(0).getEmail().toString());
-			System.out.println(f.get(0).getSenha().toString());
+			System.out.println(f.getEmail().toString());
+			System.out.println(f.getSenha().toString());
 
 		} catch (DAOException e) {
 			System.out.println(e);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
@@ -67,22 +67,17 @@ public class LoginDAO implements InterfaceFuncionario {
 		}
 	}
 
-	public List<Funcionario> efetuarLogin(Funcionario funcionario)
+	public Funcionario efetuarLogin(Funcionario funcionario)
 			throws DAOException {
 		try {
-			TypedQuery<Funcionario> query = manager.createQuery(
-					"SELECT f FROM Funcionario f " + "WHERE f.email = :email  "
-							+ " AND f.senha  = :senha ", Funcionario.class);
-
-			query.setParameter("email", funcionario.getEmail().toString());
-			query.setParameter("senha", funcionario.getSenha().toString());
-			List<Funcionario> u = query.getResultList();
-
-			return u;
-
+			Query query = manager.createQuery(
+					  "SELECT f FROM Funcionario f WHERE email = :email AND senha = :senha");
+					  query.setParameter("email", funcionario.getEmail());
+					  query.setParameter("senha", funcionario.getSenha());
+					  
+					  Funcionario func = (Funcionario) query.getSingleResult();
+			return func;
 		} catch (Exception r) {
-			// throw new
-			// DAOException("Erro de SQL ao validar Usuario !!! : "+r);
 			throw new DAOException("Erro ao validar Usuario !");
 		}
 

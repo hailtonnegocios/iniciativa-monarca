@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
 <c:url value="../template/cabecalho.jsp" var="cabecalho" />
@@ -10,6 +11,10 @@
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
+
+        
+  <div style="margin-left:35%;"> <h1><fmt:message key="sistema.titulo.modulo" /></h1></div>
+
 
 	<!-- <div class="row">
 	 
@@ -34,7 +39,7 @@
                     <img src="resources/img/cadastros_os.png"/>
                   </div>
                   <div >
-                    <p>Módulo de Cadastros</p>
+                    <p>Cadastros</p>
                   </div>
                 </div>
               </div>
@@ -66,7 +71,7 @@
                     <img src="resources/img/cadastros_os_bloq.png"/>
                   </div>
                   <div >
-                    <p>Módulo de Cadastros</p>
+                    <p>Cadastros</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +103,7 @@
                    <img src="resources/img/os.png"/>
                   </div>
                   <div >
-                    <p>Módulo de Ordem de Serviço</p>
+                    <p>Ordem de Serviço</p>
                   </div>
                 </div>
               </div>
@@ -125,7 +130,7 @@
                     <img src="resources/img/chamados.png"/>
                   </div>
                   <div>
-                    <p>Módulo de Chamados</p>
+                    <p>Chamados</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +158,7 @@
                     <img src="resources/img/teste.png"/>
                   </div>
                   <div >
-                    <p>Modulo de Exemplos</p>
+                    <p>Exemplos</p>
                   </div>
                 </div>
               </div>
