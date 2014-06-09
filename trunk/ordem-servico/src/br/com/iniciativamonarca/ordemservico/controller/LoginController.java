@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAOImpl;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
+import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
 
 @Transactional
 @Controller
@@ -43,7 +45,8 @@ public class LoginController {
 
 
 	@RequestMapping("/modelos")
-	public String FormCrudTeste(HttpSession session) {
+	public String FormCrudTeste(HttpSession session,Model model) {
+		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		return "sistema/exemplo/modelos";
 	}
 
