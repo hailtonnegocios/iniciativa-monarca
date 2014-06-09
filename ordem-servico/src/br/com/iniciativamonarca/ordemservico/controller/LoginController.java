@@ -27,12 +27,12 @@ public class LoginController {
 	LoginDAO funcDao;
 
 	@RequestMapping("/")
-	public String form(HttpSession session) {
+	public String formlogin(HttpSession session) {
 		return "redirect:loginForm";
 	}
 
 	@RequestMapping("/cadastros")
-	public String formCadastros(HttpSession session,Model model) {
+	public String solicitaModuloCadastros(HttpSession session,Model model) {
 		Funcionario func = new Funcionario();
 		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
 		func = (Funcionario) session.getAttribute("usuarioLogado");
@@ -43,27 +43,27 @@ public class LoginController {
 	}
 
 	@RequestMapping("/os")
-	public String formOs(HttpSession session,Model model) {
+	public String solicitaModuloOs(HttpSession session,Model model) {
 		model.addAttribute("listamenu", OsSidebarEnum.values());
 		return "sistema/os/os";
 	}
 
 
 	@RequestMapping("/exemplos")
-	public String formExemplos(HttpSession session,Model model) {
+	public String solicitaModuloExemplos(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		return "sistema/exemplos/exemplos";
 	}
 
 	
 	@RequestMapping("/chamados")
-	public String formChamados(HttpSession session,Model model) {
+	public String solicitaModuloChamados(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ChamadosSidebarEnum.values());
 		return "sistema/chamados/chamados";
 	}
 
 	@RequestMapping("loginForm")
-	public String formLogin(HttpSession session) {
+	public String solicitaLogin(HttpSession session) {
 		if (session.getAttribute("usuarioLogado") != null) {
 			return "redirect:eflog";
 		}
@@ -79,20 +79,12 @@ public class LoginController {
 		}
 
 		try {
-			if (!funcDao.efetuarLogin(funcionario).isEmpty()) {
-				List<Funcionario> f = funcDao.efetuarLogin(funcionario);
-				Funcionario func = new Funcionario();
-
-				func.setId_usuario(f.get(0).getId_usuario());
-				func.setEmail(f.get(0).getEmail());
-				func.setPermissao(f.get(0).getPermissao());
-				func.setSenha(f.get(0).getSenha());
-
+			Funcionario func = funcDao.efetuarLogin(funcionario);
+			if (func!= null) {
 				session.setAttribute("usuarioLogado", func);
-
 				func = (Funcionario) session.getAttribute("usuarioLogado");
 
-				req.setAttribute("usuarioLog", func.getEmail());
+				req.setAttribute("usuarioLog", func.getNome());
 				req.setAttribute("usuarioPer", func.getPermissao());
 				req.setAttribute("msgErro", null);
 				return "sistema/login/principal";
@@ -108,7 +100,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	public String efetuaLogout(HttpSession session) {
 		session.invalidate();
 		return "redirect:loginForm";
 	}

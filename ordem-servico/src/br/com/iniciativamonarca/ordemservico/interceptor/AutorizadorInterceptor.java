@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 import br.com.iniciativamonarca.ordemservico.model.entity.Usuario;
 
 public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
@@ -18,25 +19,23 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		if (uri.endsWith("loginForm") || uri.endsWith("eflog")
 				|| uri.contains("resources")) {
 			if (request.getSession().getAttribute("usuarioLogado") != null) {
-				Usuario usu = (Usuario) request.getSession().getAttribute(
-						"usuarioLogado");
-				request.setAttribute("usuarioLog", usu.getEmail());
-				request.setAttribute("usuarioPer", usu.getPermissao());
+				Funcionario func = (Funcionario) request.getSession()
+						.getAttribute("usuarioLogado");
+				request.setAttribute("usuarioLog", func.getNome());
+				request.setAttribute("usuarioPer", func.getPermissao());
 			}
-
 			return true;
 		}
 
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
 
-			Usuario usu = (Usuario) request.getSession().getAttribute(
+			Funcionario usu = (Funcionario) request.getSession().getAttribute(
 					"usuarioLogado");
-			request.setAttribute("usuarioLog", usu.getEmail());
+			request.setAttribute("usuarioLog", usu.getNome());
 			request.setAttribute("usuarioPer", usu.getPermissao());
 
 			return true;
 		}
-
 		response.sendRedirect("loginForm");
 		return false;
 	}

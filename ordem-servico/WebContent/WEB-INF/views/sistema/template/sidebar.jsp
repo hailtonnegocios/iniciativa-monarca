@@ -5,7 +5,7 @@
     <!--  Menu Lateral -->
     <c:if test="${not empty listamenu}" >
 	<ul class="nav navbar-nav side-nav">
-	<li class="active"><a href="eflog"><i class="fa fa-tasks"></i> Menu</a></li>
+	<!-- <li class="active"><a href="eflog"><i class="fa fa-tasks"></i> Menu</a></li>-->
       <c:forEach items="${listamenu}" var="listamenu">
          <li ><a href="${listamenu.referencia}"><i class="fa fa-edit"></i>${listamenu.nome}</a></li> 
       </c:forEach>	
