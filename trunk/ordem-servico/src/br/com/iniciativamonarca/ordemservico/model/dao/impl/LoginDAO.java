@@ -14,7 +14,7 @@ import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceFuncionario;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Repository
-public class LoginDAOImpl implements InterfaceFuncionario {
+public class LoginDAO implements InterfaceFuncionario {
 
 	@PersistenceContext
 	EntityManager manager;

@@ -12,11 +12,11 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.iniciativamonarca.ordemservico.model.enums.Exemplo_1Enum;
+import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
 
 @Entity
-public class Exemplo_1 {
+public class Exemplo {
 	
 	
 	@Id
@@ -26,7 +26,7 @@ public class Exemplo_1 {
 	private String descricao;
 	private boolean status;
 	@Enumerated(EnumType.STRING)
-	private Exemplo_1Enum tamanhos;
+	private TamanhosEnum tamanhos;
 	@Enumerated(EnumType.STRING)
 	private TipoProdutoEnum tipo;
 
@@ -78,11 +78,11 @@ public class Exemplo_1 {
 		this.status = status;
 	}
 
-	public Exemplo_1Enum getTamanhos() {
+	public TamanhosEnum getTamanhos() {
 		return tamanhos;
 	}
 
-	public void setTamanhos(Exemplo_1Enum tamanhos) {
+	public void setTamanhos(TamanhosEnum tamanhos) {
 		this.tamanhos = tamanhos;
 	}
 

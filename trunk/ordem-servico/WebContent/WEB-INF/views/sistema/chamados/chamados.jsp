@@ -2,7 +2,7 @@
 
 
 <c:url value="../template/cabecalho.jsp" var="cabecalho" />
-<c:url value="../template/sidebar_chamados.jsp" var="sidebar" />
+<c:url value="../template/sidebar.jsp" var="sidebar" />
 <c:url value="../template/footer.jsp" var="footer" />
 
 <c:import url="${cabecalho}"/>

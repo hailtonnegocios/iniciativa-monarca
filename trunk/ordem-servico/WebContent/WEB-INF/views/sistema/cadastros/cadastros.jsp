@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 
 <c:url value="../template/cabecalho.jsp" var="cabecalho" />
-<c:url value="../template/sidebar_cadastros.jsp" var="sidebar" />
+<c:url value="../template/sidebar.jsp" var="sidebar" />
 <c:url value="../template/footer.jsp" var="footer" />
 
 <c:import url="${cabecalho}"/>

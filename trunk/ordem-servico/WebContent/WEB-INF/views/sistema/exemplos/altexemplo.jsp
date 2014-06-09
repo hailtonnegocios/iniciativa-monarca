@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <c:import url="../template/cabecalho.jsp" />
-<c:import url="../template/sidebar_modelos.jsp" />
+<c:import url="../template/sidebar.jsp" />
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -12,7 +12,7 @@
 		Exemplo 1 - Alteração do Produto
 	</div>
 
-	<form action="alteraexemplo" method="post">
+	<form action="alteraExe" method="post">
 
 		<label>
 			<fmt:message key="sistema.modelo.campo.ativado" />
@@ -25,10 +25,11 @@
 		<label>
 			<fmt:message key="sistema.modelo.campo.tipo" />
 		</label>
+		<label class="radio-inline">
 		<c:forEach items="${tiposProdutos}" var="tipoProduto" varStatus="indice">
-			<input name="tipo" id="radio${indice.index}" value="${tipoProduto}" ${tipoProduto.descricao == exemplo1Selecionado.tipo.descricao? 'checked':''} type="radio"/> ${tipoProduto.descricao}<br>
+			<input name="tipo" id="radio${indice.index}" value="${tipoProduto}" ${tipoProduto.descricao == exemplo1Selecionado.tipo.descricao? 'checked':''} type="radio"/>${tipoProduto.descricao}<br>
 		</c:forEach>
-		
+		</label>
 		<br> <br>
 
 		<label>Código do Produto</label>

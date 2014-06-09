@@ -4,7 +4,7 @@ public enum TipoProdutoEnum {
 	
 	REVENDA(1, "Revenda"),
 	COMPRA(2, "Compra"),
-	TROCA(2, "Troca");
+	TROCA(3, "Troca");
 
 	
 	private int codigo;

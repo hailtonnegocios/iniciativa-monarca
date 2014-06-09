@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <c:import url="../template/cabecalho.jsp" />
-<c:import url="../template/sidebar_modelos.jsp" />
+<c:import url="../template/sidebar.jsp" />
 
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
@@ -55,7 +55,7 @@
 				<td>${list.descricao}</td>
 				<td>${list.tamanhos.descricao}</td>
 				<td>${list.tipo.descricao}</td>
-				<td><a href="mostrarexemplo?id=${list.id_exemplo}">Alterar</a> <a href="delexemplo?id_exemplo=${list.id_exemplo}">Excluir</a></td>
+				<td><a href="mostraExe?id=${list.id_exemplo}">Alterar</a> <a href="deletaExe?id_exemplo=${list.id_exemplo}">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>
