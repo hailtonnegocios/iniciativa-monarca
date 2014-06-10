@@ -23,7 +23,7 @@
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 		Exemplo 1 - Cadastro de Produtos
 	</div>
-	<form action="salvaExe" method="post">
+	<form action="salvaExemplos" method="post">
 		<label>
 			<fmt:message key="sistema.modelo.campo.ativado" />
 		</label>

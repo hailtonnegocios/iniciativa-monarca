@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="ini" %>
 
 <c:import url="../template/cabecalho.jsp" />
 <c:import url="../template/sidebar.jsp" />
@@ -55,10 +56,20 @@
 				<td>${list.descricao}</td>
 				<td>${list.tamanhos.descricao}</td>
 				<td>${list.tipo.descricao}</td>
-				<td><a href="mostraExe?id=${list.id_exemplo}">Alterar</a> <a href="deletaExe?id_exemplo=${list.id_exemplo}">Excluir</a></td>
+				<td>
+				  <a href="mostraExemplos?id=${list.id_exemplo}" title="Alterar" class="btn btn-small btn-primary" 
+				  role="button" class="btn">
+				  <i class="fa fa-edit"></i></a>
+
+                  <ini:iniciativaModal metodoNaController="deletaExemplos" idAserExcluido="${list.id_exemplo}"
+                    nomeDoObjetoASerExcluido="Exemplo"/>
+
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
+	
+	
 </div>
 <!--  Inicio :  Conteudo das paginas -->
 

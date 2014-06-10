@@ -14,8 +14,8 @@
 	</div>
 
 
-    <a href="adicionaExe" class="btn btn-primary" role="button">Cadastrar Produto</a>
-    <a href="listaExe" class="btn btn-danger" role="button">Listar Produto</a>
+    <a href="adicionaExemplos" class="btn btn-primary" role="button">Cadastrar Produto</a>
+    <a href="listaExemplos" class="btn btn-danger" role="button">Listar Produto</a>
 
 </div>
 

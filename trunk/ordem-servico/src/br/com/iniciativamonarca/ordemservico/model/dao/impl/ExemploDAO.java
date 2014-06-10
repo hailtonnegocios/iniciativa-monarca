@@ -42,9 +42,9 @@ public class ExemploDAO implements InterfaceExemplo{
 	}
 
 	@Override
-	public void remover(Exemplo exe) throws DAOException {
+	public void remover(Long id) throws DAOException {
 		try {
-			Exemplo exeRemover = buscarPorId(exe.getId_exemplo());
+			Exemplo exeRemover = buscarPorId(id);
 			manager.remove(exeRemover);
 		} catch (Exception e) {
 			throw new DAOException("Erro ao remover Exemplo_1");

@@ -43,7 +43,7 @@
                   </div>
                 </div>
               </div>
-              <a href="cadastros">
+              <a href="moduloCadastros">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -107,7 +107,7 @@
                   </div>
                 </div>
               </div>
-              <a href="os">
+              <a href="moduloOs">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -134,7 +134,7 @@
                   </div>
                 </div>
               </div>
-              <a href="chamados">
+              <a href="moduloChamados">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -162,7 +162,7 @@
                   </div>
                 </div>
               </div>
-              <a href="exemplos">
+              <a href="moduloExemplos">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">

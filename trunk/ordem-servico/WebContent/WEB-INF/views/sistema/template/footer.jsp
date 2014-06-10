@@ -17,7 +17,6 @@
 		<script src="resources/js/maskjquery.js" type="text/javascript"></script>
 		<script src="resources/js/func_ordemservico.js" type="text/javascript"></script>
 
-
-		
+        
 </body>
 </html>

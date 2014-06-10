@@ -10,7 +10,7 @@ public interface InterfaceExemplo {
 	void adicionar(Exemplo f);
 	void alterar(Exemplo f);
 	void salvar(Exemplo f) throws DAOException;
-	void remover(Exemplo f) throws DAOException;
+	void remover(Long id) throws DAOException;
 	List<Exemplo> listar();
 	Exemplo buscarPorId(Long id) throws DAOException;
 
