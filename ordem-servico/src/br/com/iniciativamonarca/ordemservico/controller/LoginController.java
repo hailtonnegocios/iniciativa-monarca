@@ -1,7 +1,5 @@
 package br.com.iniciativamonarca.ordemservico.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -32,7 +30,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("/cadastros")
-	public String solicitaModuloCadastros(HttpSession session,Model model) {
+	public String abreModuloCadastros(HttpSession session,Model model) {
 		Funcionario func = new Funcionario();
 		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
 		func = (Funcionario) session.getAttribute("usuarioLogado");
@@ -43,27 +41,27 @@ public class LoginController {
 	}
 
 	@RequestMapping("/os")
-	public String solicitaModuloOs(HttpSession session,Model model) {
+	public String abreModuloOs(HttpSession session,Model model) {
 		model.addAttribute("listamenu", OsSidebarEnum.values());
 		return "sistema/os/os";
 	}
 
 
 	@RequestMapping("/exemplos")
-	public String solicitaModuloExemplos(HttpSession session,Model model) {
+	public String abreModuloExemplos(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		return "sistema/exemplos/exemplos";
 	}
 
 	
 	@RequestMapping("/chamados")
-	public String solicitaModuloChamados(HttpSession session,Model model) {
+	public String abreModuloChamados(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ChamadosSidebarEnum.values());
 		return "sistema/chamados/chamados";
 	}
 
 	@RequestMapping("loginForm")
-	public String solicitaLogin(HttpSession session) {
+	public String loginForm(HttpSession session) {
 		if (session.getAttribute("usuarioLogado") != null) {
 			return "redirect:eflog";
 		}
@@ -71,22 +69,15 @@ public class LoginController {
 	}
 
 	@RequestMapping("eflog")
-	public String efetuaLogin(Funcionario funcionario, HttpSession session,
-			HttpServletRequest req) {
-
+	public String efetuaLogin(Funcionario funcionario, HttpSession session,HttpServletRequest req) {
 		if (session.getAttribute("usuarioLogado") != null) {
 			return "sistema/login/principal";
 		}
-
 		try {
-			Funcionario func = funcDao.efetuarLogin(funcionario);
-			if (func!= null) {
-				session.setAttribute("usuarioLogado", func);
-				func = (Funcionario) session.getAttribute("usuarioLogado");
-
-				req.setAttribute("usuarioLog", func.getNome());
-				req.setAttribute("usuarioPer", func.getPermissao());
-				req.setAttribute("msgErro", null);
+		
+			funcionario = funcDao.efetuarLogin(funcionario);
+			if (funcionario!= null) {
+				session.setAttribute("usuarioLogado", funcionario);
 				return "sistema/login/principal";
 			} else {
 				req.setAttribute("msgErro", "Usuario invalido !");
@@ -96,7 +87,6 @@ public class LoginController {
 			req.setAttribute("msgErro", e.getMessage());
 			return "forward:loginForm";
 		}
-
 	}
 
 	@RequestMapping("logout")
