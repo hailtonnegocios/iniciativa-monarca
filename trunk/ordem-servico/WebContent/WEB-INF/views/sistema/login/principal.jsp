@@ -29,7 +29,7 @@
 -->
 	<br />
 	
-	<c:if test="${usuarioPer == 'ADMIN' }" >
+	<c:if test="${usuarioLogado.permissao == 'ADMIN' }" >
 	  <div class="row">
           <div class="col-lg-3">
             <div class="panel panel-info">
@@ -61,7 +61,7 @@
           </div>
 </c:if>
 
-	<c:if test="${usuarioPer == 'FUNC' }" >
+	<c:if test="${usuarioLogado.permissao == 'FUNC' }" >
 	  <div class="row">
           <div class="col-lg-3">
             <div class="panel panel-danger">
