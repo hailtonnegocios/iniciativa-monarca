@@ -29,46 +29,15 @@ public class LoginController {
 		return "redirect:loginForm";
 	}
 
-	@RequestMapping("/cadastros")
-	public String abreModuloCadastros(HttpSession session,Model model) {
-		Funcionario func = new Funcionario();
-		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
-		func = (Funcionario) session.getAttribute("usuarioLogado");
-		if (func.getPermissao().equals("ADMIN")) {
-			return "sistema/cadastros/cadastros";
-		} else
-			return "redirect:eflog";
-	}
-
-	@RequestMapping("/os")
-	public String abreModuloOs(HttpSession session,Model model) {
-		model.addAttribute("listamenu", OsSidebarEnum.values());
-		return "sistema/os/os";
-	}
-
-
-	@RequestMapping("/exemplos")
-	public String abreModuloExemplos(HttpSession session,Model model) {
-		model.addAttribute("listamenu", ExemploSidebarEnum.values());
-		return "sistema/exemplos/exemplos";
-	}
-
-	
-	@RequestMapping("/chamados")
-	public String abreModuloChamados(HttpSession session,Model model) {
-		model.addAttribute("listamenu", ChamadosSidebarEnum.values());
-		return "sistema/chamados/chamados";
-	}
-
 	@RequestMapping("loginForm")
 	public String loginForm(HttpSession session) {
 		if (session.getAttribute("usuarioLogado") != null) {
-			return "redirect:eflog";
+			return "redirect:efetuaLogin";
 		}
 		return "sistema/login/formulario-login";
 	}
 
-	@RequestMapping("eflog")
+	@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Funcionario funcionario, HttpSession session,HttpServletRequest req) {
 		if (session.getAttribute("usuarioLogado") != null) {
 			return "sistema/login/principal";

@@ -6,20 +6,21 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.ExemploDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
-import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
+import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
 
 import com.google.gson.Gson;
@@ -31,31 +32,33 @@ public class ExemploController {
 	@Autowired
 	ExemploDAO exemploDao;
 	
-	@RequestMapping("cadastroExe")
-	public String cadastroExemplo(HttpSession session,Model model) {
+	
+	@RequestMapping("cadastroExemplos")
+	public String cadastroExemplo(Model model) {
 	model.addAttribute("listamenu", ExemploSidebarEnum.values());
   	  return "sistema/exemplos/cadexemplo";
 	}
 	
-	@RequestMapping("adicionaExe")
-	public String adicionaExemplo(HttpSession session,Model model) {
+	@RequestMapping("adicionaExemplos")
+	public String adicionaExemplo(Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("myEnum",TamanhosEnum.values());
 		model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
 		return "sistema/exemplos/addexemplo";
 	}
 	
-	@RequestMapping("deletaExe")
-	public String deletaExemplo(Exemplo exemplo,Model model){
+	
+	@RequestMapping("deletaExemplos")
+	public String deletaExemplo(Long id,Model model){
 		try {
-			exemploDao.remover(exemplo);
+			exemploDao.remover(id);
 		} catch (DAOException e) {
 			System.out.println("Erro ao deletar");
 		}
-		return "redirect:listaExe";
+		return "redirect:listaExemplos";
 	}
 	
-	@RequestMapping("mostraExe")
+	@RequestMapping("mostraExemplos")
 	public String mostraExemplo(Long id,Model model){
 		try {
 			model.addAttribute("listamenu", ExemploSidebarEnum.values());
@@ -69,22 +72,22 @@ public class ExemploController {
 		return "sistema/exemplos/altexemplo";
 	}
 	
-	@RequestMapping("alteraExe")
+	@RequestMapping("alteraExemplos")
 	public String alteraExemplo(Exemplo exemplo,Model model){
 		exemploDao.alterar(exemplo);
-		return "redirect:listaExe";
+		return "redirect:listaExemplos";
 	}
 	
-	@RequestMapping("listaExe")
-	public String listaExemplo(HttpSession session,Model model) {
+	@RequestMapping("listaExemplos")
+	public String listaExemplo(Model model) {
 		List<Exemplo> lista_exemplo =  exemploDao.listar();
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("lista",lista_exemplo);
 		return "sistema/exemplos/listexemplo";
 	}
 
-	@RequestMapping("salvaExe")
-	public String salvaExemplo(HttpSession session,Exemplo exemplo1,Model model) {
+	@RequestMapping("salvaExemplos")
+	public String salvaExemplo(Exemplo exemplo1,Model model) {
 		if (exemplo1.getDat_cad() != null) {
 
 			Calendar data = Calendar.getInstance();
@@ -95,28 +98,27 @@ public class ExemploController {
 			exemplo1.setDat_cad(data);
 		}
 		exemploDao.adicionar(exemplo1);
-		return "redirect:cadastroExe";
+		return "redirect:cadastroExemplos";
 	}
 	
 	// Exemplos Ajax
 	
 	@RequestMapping("cadastroAjax")
-	public String cadastroAjax(HttpSession session,Model model) {
+	public String cadastroAjax(Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		return "sistema/exemplos/cadajax";
 	}
 	
-	@RequestMapping("funcajax1") 
-	public void Ajax1(HttpServletResponse resp,Model model) throws IOException{
+	@RequestMapping("funcAjax1") 
+	public void funcAjax1(HttpServletResponse resp,Model model) throws IOException{
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		String nome = "Nome Teste";
 		resp.getWriter().write(nome);
 		resp.setStatus(200);
 	}
 	
-	@RequestMapping("funcajax2") 
-	public @ResponseBody String Ajax2(Model model)
-			throws Exception{
+	@RequestMapping("funcAjax2") 
+	public @ResponseBody String funcAjax2(Model model) throws Exception{
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		Gson gson = new Gson();
 		Exemplo exemplo = new Exemplo();
@@ -135,9 +137,8 @@ public class ExemploController {
 		return json; 
 	}
 
-	@RequestMapping("funcajax3") 
-	public @ResponseBody String Ajax3(Model model)
-			throws Exception{
+	@RequestMapping("funcAjax3") 
+	public @ResponseBody String funcAjax3(Model model) throws Exception{
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		Gson gson = new Gson();
 		List<Exemplo> exemplo = exemploDao.listar();

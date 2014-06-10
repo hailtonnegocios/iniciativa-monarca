@@ -12,7 +12,7 @@
 		Exemplo 1 - Alteração do Produto
 	</div>
 
-	<form action="alteraExe" method="post">
+	<form action="alteraExemplos" method="post">
 
 		<label>
 			<fmt:message key="sistema.modelo.campo.ativado" />

@@ -30,7 +30,7 @@
 						<h3 class="panel-title">Please Sign In</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form" action="eflog" method="post">
+						<form role="form" action="efetuaLogin" method="post">
 							<fieldset>
 								<div class="form-group">
 									<input	class="form-control" placeholder="login" type="text" name="email" autofocus>

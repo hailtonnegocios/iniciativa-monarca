@@ -1,18 +1,19 @@
+		  
+
 
           // Mascara no campo
           $(".data").mask("99/99/9999");
 
           // Deixar o datepicker em portugues
           $(".data").datepicker({
-        	changeYear: true,
-		    dateFormat: 'dd/mm/yy',
+  	        dateFormat: 'dd/mm/yy',
 		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
 		    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
 		    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
 		    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 		    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
 		    nextText: 'Próximo',
-		    prevText: 'Anterior'
+		    prevText: 'Anterior',changeYear: true
 		});
 
           /*
@@ -29,10 +30,8 @@
 		// $("#carregando").delay(200).show(0);
 		// Delay ao fechar a div
 		// $("#carregando").delay(200).hide(0);
-
-
-
-
+          
+          
 	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax1
 		$("#ajax1").hide();
 		$("#btnTeste1").click(function() {
@@ -85,10 +84,8 @@
 		    $("#ajax3").toggle("up");
 		});
 
-		
-		
-		
-		
+
+
 		
 	/*
 	 * 
