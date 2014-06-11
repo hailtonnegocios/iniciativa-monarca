@@ -1,20 +1,33 @@
-		  
+
+		  //  Iniciar nos anos de 1990          
+ 		  var d = new Date(90,0,1);
+
+          // Deixar o datepicker em portugues
+          $(".data").datepicker({
+              defaultDate:d, //set the default date to Jan 1st 1990
+		      changeMonth: true,
+		      changeYear: true,
+		      todayHighlight: true,
+              yearRange: '1930:2050',
+              dateFormat: 'dd/mm/yy',
+  		      dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+		      dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+		      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+		      monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+		      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+	      });
 
 
           // Mascara no campo
           $(".data").mask("99/99/9999");
 
-          // Deixar o datepicker em portugues
-          $(".data").datepicker({
-  	        dateFormat: 'dd/mm/yy',
-		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-		    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-		    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-		    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-		    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-		    nextText: 'Próximo',
-		    prevText: 'Anterior',changeYear: true
-		});
+
+
+
+
+
+
+
 
           /*
 			 * Lista de efeitos com o datepicker 1 -show 2 -slideDown 3 -fadeIn
