@@ -107,6 +107,7 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+/* Mudança no atributo color , foi tirado o inherit,pois o datpicker não selecionava o ano e nem o mes */
 button,
 input,
 optgroup,
@@ -114,7 +115,7 @@ select,
 textarea {
   margin: 0;
   font: inherit;
-  color: inherit;
+  color: ;
 }
 button {
   overflow: visible;
