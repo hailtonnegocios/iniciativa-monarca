@@ -1,10 +1,10 @@
 
 		  //  Iniciar nos anos de 1990          
- 		  var d = new Date(90,0,1);
+ 		  // var d = new Date(90,0,1);
 
           // Deixar o datepicker em portugues
           $(".data").datepicker({
-              defaultDate:d, //set the default date to Jan 1st 1990
+           // defaultDate:d,
 		      changeMonth: true,
 		      changeYear: true,
 		      todayHighlight: true,
