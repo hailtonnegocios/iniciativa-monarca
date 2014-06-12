@@ -10,11 +10,11 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Repository;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceFuncionario;
+import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @Repository
-public class LoginDAO implements InterfaceFuncionario {
+public class LoginDAO implements InterfaceDAO<Funcionario> {
 
 	@PersistenceContext
 	EntityManager manager;
@@ -42,9 +42,9 @@ public class LoginDAO implements InterfaceFuncionario {
 	}
 
 	@Override
-	public void remover(Funcionario f) throws DAOException {
+	public void remover(Long id) throws DAOException {
 		try {
-			Funcionario funcRemover = buscarPorId(f.getId_usuario());
+			Funcionario funcRemover = buscarPorId(id);
 			manager.remove(funcRemover);
 		} catch (Exception e) {
 			throw new DAOException("Erro ao remover funcionario");

@@ -145,4 +145,31 @@ public class ExemploController {
 		String lista = gson.toJson(exemplo);
 		return lista; 
 	}
+	
+	
+	@RequestMapping("funcAjax4") 
+	public @ResponseBody String funcAjax4(Model model) throws Exception{
+		model.addAttribute("listamenu", ExemploSidebarEnum.values());
+		Gson gson = new Gson();
+		List<Exemplo> exemplo = exemploDao.listar();
+		String lista = gson.toJson(exemplo);
+		return lista; 
+	}
+
+	
+	@RequestMapping("deletaExemplosAjax")
+	public String deletaExemploAjax(Long id,Model model){
+		try {
+			exemploDao.remover(id);
+		} catch (DAOException e) {
+			System.out.println("Erro ao deletar");
+		}
+		
+		return "redirect:cadastroAjax";
+		 
+	}
+
+	
+	
+	
 }

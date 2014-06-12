@@ -48,7 +48,7 @@
 	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax1
 		$("#ajax1").hide();
 		$("#btnTeste1").click(function() {
-			$.post("funcajax1", {}, function(resposta) {
+			$.post("funcAjax1", {}, function(resposta) {
 					$("#ajax1").html('Retorno: '+resposta);
 			});
 			$("#ajax1").toggle("up");
@@ -59,7 +59,7 @@
 		$("#carregando").hide();
 		$("#btnTeste2").click(function() {
 			$("#carregando").show();
-			$.post("funcajax2", {}, function(data) {
+			$.post("funcAjax2", {}, function(data) {
 			  var obj = JSON.parse(data);
 			  $("#ajax2").html('Retorno: <br><br>'+
 						'ID: '+obj.id_exemplo+'<br>'+
@@ -79,7 +79,7 @@
 		$("#carregando2").hide();
 		$("#btnTeste3").click(function() {
 			$("#carregando2").show();
-			$.post("funcajax3", {}, function(data) {
+			$.post("funcAjax3", {}, function(data) {
 			  var t = "";
 			  obj = JSON.parse(data);
 			  $("#ajax3").html("");
@@ -96,6 +96,114 @@
 		    });
 		    $("#ajax3").toggle("up");
 		});
+		
+		
+		
+  	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax3
+		$("#ajax4").hide();
+		$("#carregando3").hide();
+		$("#btnTeste4").click(function() {
+			$("#carregando3").show();
+			$.post("funcAjax4", {}, function(data) {
+				//alert(data);
+			  var html_text = "";
+			  obj = JSON.parse(data);
+			  $("#ajax4").html("");
+			  html_text = "<input class=\"form-control\" type=\"text\"  /><br>" +
+			  		      "<button class=\"btn btn-danger\">Pesquisar</button><br><br>";
+			  
+			  html_text = html_text+ "<table class=\"table table-hover\"><tr>"+
+			                     "<td class=\"info\">Status</td>"+
+			                     "<td class=\"info\">ID</td>"+
+			                     "<td class=\"info\">DATA</td>"+
+			                     "<td class=\"info\">NOME</td>"+
+			                     "<td class=\"info\">DESCRIÇÃO</td>"+
+			                     "<td class=\"info\">TAMANHO</td>"+
+			                     "<td class=\"info\">TIPO</td>"+
+			                     "<td class=\"info\">ACAO</td></tr>";
+			  
+			     
+			  for(var i=0;i < obj.length;i++){
+			     html_text = html_text +
+			     
+  		         '<tr>'+
+				     '<td'+ (obj[i].status? ' class=\"success\" ': '  class=\"danger\" ')+'>'+(obj[i].status? 'Ativo': 'Inativo')+'</td>'+      
+					 '<td>'+obj[i].id_exemplo+'</td>'+
+					 '<td>'+obj[i].dat_cad.dayOfMonth+'/'+obj[i].dat_cad.month+'/'+obj[i].dat_cad.year+'</td>'+
+					 '<td>'+obj[i].nome+'</td>'+
+					 '<td>'+obj[i].descricao+'</td>'+
+					 '<td>'+obj[i].tamanhos+'</td>'+
+					 '<td>'+obj[i].tipo+'</td>'+
+					 '<td>'+
+					     '<a href=\"mostraExemplos?id='+obj[i].id_exemplo+
+					     '\" title=\"Alterar\" class=\"btn btn-small btn-primary\" role=\"button\" class=\"btn\">'+
+					     ' <i class=\"fa fa-edit\"></i></a> '+
+
+ 
+		                 '<a href=\"#myModal'+obj[i].id_exemplo+'\"	id=\"'+obj[i].id_exemplo+'\" name=\"'+
+		                 obj[i].id_exemplo+'\" onclick=\"atualizarHiddenExemploASerExcluido'+
+		                 obj[i].id_exemplo+'('+obj[i].id_exemplo+');\"'+
+	             		 'class=\"btn btn-small btn-danger\" role=\"button\" class=\"btn\"'+
+	             		 '	data-toggle=\"modal\" title=\"Excluir\">'+ 
+	             		 '<i class=\"fa fa-share-square-o\"></i></a>'+
+             		
+             		     '<input type=\"hidden\" id=\"exemploASerExcluido'+obj[i].id_exemplo+'\">'+
+   
+             		
+	             		    '<div class=\"modal fade\" id=\"myModal'+obj[i].id_exemplo+'\" tabindex=\"-1\" role=\"dialog\"'+
+	             			'aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">'+
+	             			'<div class=\"modal-dialog\">'+
+	             				'<div class=\"modal-content\">'+
+	             					'<div class=\"modal-header\">'+
+	             						'<button type=\"button\" class=\"close\" data-dismiss=\"modal\"'+
+	             							'aria-hidden=\"true\">&times;</button>'+
+	             						'<h3>Atenção!</h3>'+
+	             					'</div>'+
+	             					'<div class=\"modal-body\">'+
+	             						'<p>Tem certeza que deseja excluir este Exemplo?</p>'+
+	             					'</div>'+
+	             					'<div class=\"modal-footer\">'+
+	             						'<a id=\"linkExclusao'+obj[i].id_exemplo+'\" class=\"btn btn-danger\" onclick=\"excluirExemplo'+obj[i].id_exemplo+'();\">Excluir</a>'+
+	             						'<button class=\"btn\" data-dismiss=\"modal\" aria-hidden=\"true\">Cancelar</button>'+
+	             					'</div>'+
+	             				'</div>'+
+	             			'</div>'+
+	             		'</div>'+
+	                 
+	             
+	             		
+	   			     '<script type="text/javascript">'+
+				     
+	          	    ' function atualizarHiddenExemploASerExcluido'+obj[i].id_exemplo+'(valor1) {'+
+	          		  ' $(\"#exemploASerExcluido'+obj[i].id_exemplo+'\").val(valor1);'+
+	          	     '}'+
+
+	          	     'function excluirExemplo'+obj[i].id_exemplo+'() {'+
+	          	        '$(\"#linkExclusao'+obj[i].id_exemplo+'\").attr(\"href\",\"deletaExemplosAjax?id=\"+$(\"#exemploASerExcluido'+obj[i].id_exemplo+'\").val());'+
+	          	        '$(\"#linkExclusao'+obj[i].id_exemplo+'\").click();'+
+	          	        
+	          	     '}'+
+	              		
+	 			     '</script>'+
+
+	             		
+	             		
+					     '</td></tr>';
+			     
+			     
+			     
+			     
+				 
+			  }
+			  $("#ajax4").html(html_text+"</table>");
+			  $("#carregando3").hide();
+		    });
+		    $("#ajax4").toggle("up");
+		});
+
+		
+		
+		
 
 
 

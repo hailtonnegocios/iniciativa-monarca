@@ -147,7 +147,7 @@ public class Testes {
 			Assert.assertNotNull(func);
 			Assert.assertNotNull(func.getId_usuario());
 
-			funcdao.remover(func);
+			funcdao.remover(func.getId_usuario());
 		} catch (DAOException e) {
 			System.out.println(e);
 		}
