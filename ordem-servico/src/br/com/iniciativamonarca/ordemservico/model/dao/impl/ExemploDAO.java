@@ -9,11 +9,11 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Repository;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceExemplo;
+import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
 
 @Repository
-public class ExemploDAO implements InterfaceExemplo{
+public class ExemploDAO implements InterfaceDAO<Exemplo>{
 	
 	
 	@PersistenceContext
