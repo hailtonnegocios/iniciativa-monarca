@@ -16,28 +16,28 @@
 		Exemplos com Ajax
 	</div>
     
-    <button id="btnTeste1" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax1") - Retorno de uma String</button>
+    <button id="btnTeste1"  class="btn btn-primary form-control data">Requisição feita com ajax ao RequestMapping("funcAjax1") - Retorno de uma String</button>
     <br><br>
     <div id="ajax1" class="alert alert-danger alert-dismissable" style="width:300px;hidth:100px;"></div>
     
-    <button id="btnTeste2" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax2") - Retorno de uma Objeto</button>
+    <button id="btnTeste2" class="btn btn-primary form-control data">Requisição feita com ajax ao RequestMapping("funcAjax2") - Retorno de uma Objeto</button>
     <br><br>
     <div id="carregando1"><img  src="resources/img/carregando.gif"></div>
     <div id="ajax2" class="alert alert-danger alert-dismissable" style="height:190px;"></div>
     
     <div>
-    <button id="btnTeste3" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax3") - Retorno de uma Lista</button>
+    <button id="btnTeste3" class="btn btn-primary form-control data">Requisição feita com ajax ao RequestMapping("funcAjax3") - Retorno de uma Lista</button>
     <br><br>
       <div id="carregando2"><img  src="resources/img/carregando.gif"></div>
       <div id="ajax3" class="alert alert-danger alert-dismissable"></div>
     </div>
     
     <div>
-    <button id="btnTeste4" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax4") - Retorno de uma tabela com pesquisa</button>
+    <button id="btnTeste4" class="btn btn-primary form-control data">Requisição feita com ajax ao RequestMapping("funcAjax4") - Retorno de uma tabela com pesquisa</button>
 <br><br>
      
      <fieldset>
-     <div id="tabela_pesquisar">
+     <div id="tabela_pesquisar" >
      
      <legend><b>Pesquisar Exemplos</b></legend>
     
@@ -64,7 +64,7 @@
      </table>
      
      <div id="carregando3" align="center"><img  src="resources/img/carregando.gif"></div>
-     <div id="ajax4"></div>
+     <div id="ajax4" class="table-responsive"></div>
      
     <br>
     </div>
