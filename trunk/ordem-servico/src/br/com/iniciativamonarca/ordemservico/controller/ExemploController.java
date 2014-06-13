@@ -158,15 +158,19 @@ public class ExemploController {
 
 	
 	@RequestMapping("deletaExemplosAjax")
-	public String deletaExemploAjax(Long id,Model model){
+	public @ResponseBody String deletaExemploAjax(Long id,Model model) throws Exception{
+		String lista;
 		try {
 			exemploDao.remover(id);
+			Gson gson = new Gson();
+			List<Exemplo> exemplo = exemploDao.listar();
+			lista = gson.toJson(exemplo);
+			return lista;
 		} catch (DAOException e) {
 			System.out.println("Erro ao deletar");
+			return "Vazia !!";
 		}
 		
-		return "redirect:cadastroAjax";
-		 
 	}
 
 	

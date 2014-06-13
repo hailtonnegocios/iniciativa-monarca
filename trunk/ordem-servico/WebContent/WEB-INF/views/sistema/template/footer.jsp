@@ -3,9 +3,13 @@
 
 
 		<!-- JavaScript -->
+		
+		
 		<script src="resources/js/jquery-1.10.2.js"></script>
 		<script src="resources/js/jquery-ui-1.10.4.js"></script>
 		<script src="resources/js/bootstrap.js"></script>
+			
+		
 		
 		<!-- Page Specific Plugins -->
 		<script
@@ -16,6 +20,7 @@
 		<script src="resources/js/tablesorter/tables.js"></script>
 		<script src="resources/js/maskjquery.js" type="text/javascript"></script>
 		<script src="resources/js/func_ordemservico.js" type="text/javascript"></script>
+		
 
         
 </body>
