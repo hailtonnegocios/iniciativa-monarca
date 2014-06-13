@@ -14,6 +14,9 @@
 	<link href="resources/css/sb-admin.css" rel="stylesheet">
 	<link href="resources/css/jquery-ui-1.10.4.css" rel="stylesheet">
 	<link rel="shortcut icon" href="resources/img/favicon.ico">
+	<!-- <script src="resources/js/plugin_modal.js"></script>-->
+
+	
 </head>
 <body>
 
