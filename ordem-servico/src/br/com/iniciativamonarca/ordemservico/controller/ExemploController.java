@@ -155,20 +155,31 @@ public class ExemploController {
 		String lista = gson.toJson(exemplo);
 		return lista; 
 	}
+	
+	
+	@RequestMapping("listaLike")
+	public @ResponseBody String listaLike(String tipo_pesq ,String name_pesq,Model model){
+		Gson gson = new Gson();
+		List<Exemplo> exemplo = exemploDao.listarLike(tipo_pesq, name_pesq);
+		String lista = gson.toJson(exemplo);
+		
+		return lista;
+	}
+	
 
 	
 	@RequestMapping("deletaExemplosAjax")
-	public @ResponseBody String deletaExemploAjax(Long id,Model model) throws Exception{
+	public @ResponseBody String deletaExemploAjax(String tipo_pesq,String name_pesq,Long id,Model model) throws Exception{
 		String lista;
 		try {
 			exemploDao.remover(id);
 			Gson gson = new Gson();
-			List<Exemplo> exemplo = exemploDao.listar();
+			List<Exemplo> exemplo = exemploDao.listarLike(tipo_pesq, name_pesq);
 			lista = gson.toJson(exemplo);
 			return lista;
 		} catch (DAOException e) {
 			System.out.println("Erro ao deletar");
-			return "Vazia !!";
+			return "Erro ao consultar exemplo !!";
 		}
 		
 	}

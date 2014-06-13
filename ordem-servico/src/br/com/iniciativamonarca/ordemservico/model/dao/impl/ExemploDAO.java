@@ -57,6 +57,19 @@ public class ExemploDAO implements InterfaceDAO<Exemplo>{
 		return manager.createQuery("SELECT exe from Exemplo exe")
 				.getResultList();
 	}
+	
+	
+	
+	public List<Exemplo> listarLike(String tipo_pesq,String name_pesq ) {
+		if(!tipo_pesq.equals("Todos")){
+		return manager.createQuery("SELECT exemplo from Exemplo exemplo WHERE exemplo."+tipo_pesq+" like'"+name_pesq+"%' ")
+				.getResultList();
+		}else
+			return manager.createQuery("SELECT exe from Exemplo exe")
+					.getResultList();
+		
+		
+	}
 
 	@Override
 	public Exemplo buscarPorId(Long id) throws DAOException {
