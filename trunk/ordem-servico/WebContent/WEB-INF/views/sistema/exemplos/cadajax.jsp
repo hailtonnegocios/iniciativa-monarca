@@ -22,31 +22,54 @@
     
     <button id="btnTeste2" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax2") - Retorno de uma Objeto</button>
     <br><br>
-    <div id="carregando"><img  src="resources/img/carregando_2.gif"></div>
+    <div id="carregando1"><img  src="resources/img/carregando.gif"></div>
     <div id="ajax2" class="alert alert-danger alert-dismissable" style="height:190px;"></div>
     
     <div>
     <button id="btnTeste3" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax3") - Retorno de uma Lista</button>
     <br><br>
-      <div id="carregando2"><img  src="resources/img/carregando_2.gif"></div>
+      <div id="carregando2"><img  src="resources/img/carregando.gif"></div>
       <div id="ajax3" class="alert alert-danger alert-dismissable"></div>
     </div>
     
     <div>
-    <button id="btnTeste4" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax4") - Retorno de uma Lista com pesquisa</button>
+    <button id="btnTeste4" class="btn btn-primary">Requisição feita com ajax ao RequestMapping("funcAjax4") - Retorno de uma tabela com pesquisa</button>
 <br><br>
+     
+     <fieldset>
      <div id="tabela_pesquisar">
-     <input class="form-control" id="input_pesq" type="text"  /><br>  
-     <button class="btn btn-danger" id="btn_pesq">Pesquisar</button><br><br>
      
+     <legend><b>Pesquisar Exemplos</b></legend>
+    
+     <table class="table">
+     <tr class="active">
+     <th>Filtro</th><th>Campo de Pesquisa</th><th></th>
+     </tr>
+     <tr>
+     <td>
+     <select class="form-control" id="select_val">
+       <option value="Todos">Pesquisar Todos</option>
+       <option value="id_exemplo">Código</option>
+       <option value="nome">Nome</option>
+       <option value="descricao">Descrição</option>
+     </select>
+     </td>
+     <td>
+       <input class="form-control" type="text" id="name_pesq"  />
+     </td>  
+     <td>
+       <button class="btn btn-danger" id="btn_pesq">Pesquisar</button>
+     </td>
+     </tr>
+     </table>
      
-     <div id="carregando3"><img  src="resources/img/carregando_2.gif"></div>
+     <div id="carregando3" align="center"><img  src="resources/img/carregando.gif"></div>
      <div id="ajax4"></div>
      
     <br>
     </div>
     </div>
-    
+    </fieldset>
 
     <input type="hidden" id="ASerExcluido">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"	aria-labelledby="myModalLabel" aria-hidden="true">

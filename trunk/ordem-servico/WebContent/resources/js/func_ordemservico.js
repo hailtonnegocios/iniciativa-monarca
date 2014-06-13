@@ -1,8 +1,11 @@
+//  ---------------------------  FUNÇÕES RELACIONADAS AO COMPONENTE DATEPICKER DO JQUERY --------------------------------
 
-		  //  Iniciar nos anos de 1990          
- 		  // var d = new Date(90,0,1);
 
-          // Deixar o datepicker em portugues
+		  //  INICIAR A DATA DO DATE PICKER SETADO COM O ANO EM 1990          
+
+          // var d = new Date(90,0,1);
+
+          // DEIXAR O DATEPICKER EM PORTUGUES
           $(".data").datepicker({
            // defaultDate:d,
 		      changeMonth: true,
@@ -18,7 +21,7 @@
 	      });
 
 
-          // Mascara no campo
+          // MASCARA NO CAMPO DE DATA
           $(".data").mask("99/99/9999");
 
 
@@ -37,37 +40,41 @@
 		  // Delay ao fechar a div
 		  // $("#carregando").delay(200).hide(0);
           
+
+//  ---------------------------  FUNÇÕES RELACIONADAS A TELA DE EXEMPLOS COM AJAX --------------------------------                             
           
-		    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax1
-			$("#ajax1").hide();
-			$("#btnTeste1").click(function() {
-				$.post("funcAjax1", {}, function(resposta) {
-						$("#ajax1").html('Retorno: '+resposta);
-				});
-				$("#ajax1").toggle("up");
-			});
+          
+	      // AO CLICAR NO PRIMEIRO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax1 NO CONTROLLER
+          
+		  $("#ajax1").hide();
+		  $("#btnTeste1").click(function() {
+			 $.post("funcAjax1", {}, function(resposta) {
+					$("#ajax1").html('Retorno: '+resposta);
+			 });
+			   $("#ajax1").toggle("up");
+		  });
 		
-	  	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax2
-			$("#ajax2").hide();
-			$("#carregando").hide();
-			$("#btnTeste2").click(function() {
-				$("#carregando").show();
+		  // AO CLICAR NO SEGUNDO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax2 NO CONTROLLER
+		  
+		  $("#ajax2").hide();
+		  $("#carregando1").hide();
+		  $("#btnTeste2").click(function() {
+			  $("#carregando1").show();
 				$.post("funcAjax2", {}, function(data) {
-				  var obj = JSON.parse(data);
-				  $("#ajax2").html('Retorno: <br><br>'+
-							'ID: '+obj.id_exemplo+'<br>'+
-							'NOME: '+obj.nome+'<br>'+
-							'DESCRIÇÃO: '+obj.descricao+'<br>'+
-							'STATUS: '+obj.status+'<br>'+
-							'TIPO: '+obj.tipo);
-				  $("#carregando").hide();
+				 var obj = JSON.parse(data);
+				 $("#ajax2").html('Retorno: <br><br>'+
+						'ID: '+obj.id_exemplo+'<br>'+
+						'NOME: '+obj.nome+'<br>'+
+						'DESCRIÇÃO: '+obj.descricao+'<br>'+
+						'STATUS: '+obj.status+'<br>'+
+						'TIPO: '+obj.tipo);
+				    $("#carregando1").hide();
 			    });
-			    $("#ajax2").toggle("up");
+			     $("#ajax2").toggle("up");
 			});
-		
-	
-			
-	  	    // Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax3
+
+		    // AO CLICAR NO TERCEIRO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax3 NO CONTROLLER
+		  
 			$("#ajax3").hide();
 			$("#carregando2").hide();
 			$("#btnTeste3").click(function() {
@@ -90,87 +97,107 @@
 			    $("#ajax3").toggle("up");
 			});
 			
-			
-		// Ao clicar no botão será mandado uma requisição via ajax ao controller requisitando o método funcajax4
-		$("#ajax4").hide();
-		$("#tabela_pesquisar").hide();
-		$("#carregando3").hide();
-	    
-		$("#btnTeste4").click(function() {
-		      $("#tabela_pesquisar").toggle("up");
-		      $("#ajax4").hide();
-        });
-			
-		$("#btn_pesq").click(function() {
-			$("#carregando3").show();
-			   $.post("funcAjax4", {}, function(data) {
-			       var html_text = "";
-			       obj = JSON.parse(data);
-			       $("#ajax4").html("");
-			       $("#ajax4").html(Tabela_Exemplos(html_text));
-			       $("#carregando3").hide();
-		       });
-	        $("#ajax4").toggle("slide");
-		});
+  		    // AO CLICAR NO QUARTO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax4 NO CONTROLLER
+
+			$("#ajax4").hide();
+			$("#tabela_pesquisar").hide();
+			$("#carregando3").hide();
+		    
+			$("#btnTeste4").click(function() {
+				  $("#name_pesq").val("");
+				  $("#select_val").val("Todos")
+			      $("#tabela_pesquisar").toggle("up");
+			      $("#ajax4").hide();
+	        });
 				
+			$("#btn_pesq").click(function() {
+				if ($("#name_pesq").val() != "" || $("#select_val").val() == "Todos"){
+				$("#carregando3").show();
+				   $.post("listaLike", {tipo_pesq:$("#select_val").val() , name_pesq:$("#name_pesq").val() }, function(data) {
+				       var html_text = "";
+				       obj = JSON.parse(data);
+				       $("#ajax4").html("");
+
+				       //inserindo a tabela na div #ajax4
+				       $("#ajax4").html(Tabela_Exemplos(html_text));
+
+				       $("#carregando3").hide();
+			       });
+		        $("#ajax4").show();
+				}else{
+					$("#ajax4").html("<center><div style=\"color:red;\">Sem Resultados !!</div></center>");
+					$("#ajax4").show();
+				}
+				
+					
+			});
 		
-		// Ao clicar no botao do modal ,executará essa rotina para excluir o exemplo
-		function excluirComModal() {
-		   $("#ajax2").val("");
-		   var html_text = "";
-		   $.post("deletaExemplosAjax", {id : $('#ASerExcluido').val()}, function(data) {
-		      obj = JSON.parse(data);
-		      $("#ajax4").html("");
-		      $("#ajax4").html(Tabela_Exemplos(html_text));
-		      $("#carregando3").hide();
-			  // tirar a tela de opacidade de fundo do modal
-		      $(".modal-backdrop").css('position','inherit'); 
-		      $("#btncancelar").click();
-		   });
-		}
-				
-		function Tabela_Exemplos(html_text){
-		   html_text = html_text+ "<table class=\"table table-hover\">" +
-		                          " <tr>"+
-						          " <td class=\"info\">Status</td>"+
-						          " <td class=\"info\">ID</td>"+
-						          " <td class=\"info\">DATA</td>"+
-						          " <td class=\"info\">NOME</td>"+
-						          " <td class=\"info\">DESCRIÇÃO</td>"+
-						          " <td class=\"info\">TAMANHO</td>"+
-						          " <td class=\"info\">TIPO</td>"+
-					              " <td class=\"info\">ACAO</td></tr>";
-					  
-		   for(var i=0;i < obj.length;i++){
-			   html_text = html_text +
-			   ' <tr>'+
-			   ' <td'+ (obj[i].status? ' class=\"success\" ': '  class=\"danger\" ')+'>'+(obj[i].status? 'Ativo': 'Inativo')+'</td>'+      
-			   ' <td>'+obj[i].id_exemplo+'</td>'+
-			   ' <td>'+(obj[i].dat_cad != undefined?obj[i].dat_cad.dayOfMonth:'__')+'/'+
-				      (obj[i].dat_cad != undefined?obj[i].dat_cad.month:'__')+'/'+
-				      (obj[i].dat_cad != undefined?obj[i].dat_cad.year:'__')+'</td>'+
-			   ' <td>'+obj[i].nome+'</td>'+
-			   ' <td>'+obj[i].descricao+'</td>'+
-			   ' <td>'+obj[i].tamanhos+'</td>'+
-			   ' <td>'+obj[i].tipo+'</td>'+
-			   ' <td>'+
-						
-			   ' <a href=\"mostraExemplos?id='+obj[i].id_exemplo+
-			   ' \" title=\"Alterar\" class=\"btn btn-small btn-primary\" role=\"button\" class=\"btn\">'+
-			   ' <i class=\"fa fa-edit\"></i></a> '+
-						
-			   ' <a href=\"#myModal\"	id=\"'+obj[i].id_exemplo+'\" name=\"'+
-			   obj[i].id_exemplo+'\" onclick=\"atualizarHiddenASerExcluido('+obj[i].id_exemplo+');\"'+
-			   ' class=\"btn btn-small btn-danger\" role=\"button\" class=\"btn\"'+
-			   ' data-toggle=\"modal\" title=\"Excluir\">'+ 
-			   ' <i class=\"fa fa-share-square-o\"></i></a>';
+			// AO CLICAR NO BOTÃO DO MODAL A ROTINA ABAIXO SERÁ EXECUTADA  
+	
+			function excluirComModal() {
+			   $("#ajax2").val("");
+			   var html_text = "";
+			   $.post("deletaExemplosAjax", {tipo_pesq:$("#select_val").val(),name_pesq:$("#name_pesq").val(),id : $('#ASerExcluido').val()}, function(data) {
+			      obj = JSON.parse(data);
+			      $("#ajax4").html("");
+
+ 		          //inserindo a tabela na div #ajax4			      
+			      $("#ajax4").html(Tabela_Exemplos(html_text));
+			      $("#carregando3").hide();
+
+			      // tirar a tela de opacidade de fundo do modal
+			      $(".modal-backdrop").css('position','inherit'); 
+			      $("#btncancelar").click();
+			      
+			   });
 			}
-						
-			html_text+'</td></tr></table>';
-			return html_text;
-		}
+		
+			// CRIAÇÃO DA TABELA DE EXEMPLOS COM O RETORNO DO AJAX
+			
+			function Tabela_Exemplos(html_text){
+			   html_text = html_text+ "<table class=\"table table-hover\">" +
+			                          " <tr>"+
+							          " <th class=\"info\">Status</th>"+
+							          " <th class=\"info\">Código</th>"+
+							          " <th class=\"info\">Data</th>"+
+							          " <th class=\"info\">Nome</th>"+
+							          " <th class=\"info\">Descrição</th>"+
+							          " <th class=\"info\">Tamanho</th>"+
+							          " <th class=\"info\">Tipo</th>"+
+						              " <th class=\"info\">Ação</th></tr>";
+						  
+			   for(var i=0;i < obj.length;i++){
+				   html_text = html_text +
+				   ' <tr>'+
+				   ' <td'+ (obj[i].status? ' class=\"success\" ': '  class=\"danger\" ')+'>'+(obj[i].status? 'Ativo': 'Inativo')+'</td>'+      
+				   ' <td>'+obj[i].id_exemplo+'</td>'+
+				   ' <td>'+(obj[i].dat_cad != undefined?obj[i].dat_cad.dayOfMonth:'__')+'/'+
+					       (obj[i].dat_cad != undefined?obj[i].dat_cad.month:'__')+'/'+
+					       (obj[i].dat_cad != undefined?obj[i].dat_cad.year:'__')+'</td>'+
+				   ' <td>'+obj[i].nome+'</td>'+
+				   ' <td>'+obj[i].descricao+'</td>'+
+				   ' <td>'+obj[i].tamanhos+'</td>'+
+				   ' <td>'+obj[i].tipo+'</td>'+
+				   ' <td>'+
+							
+				 //  ' <a href=\"mostraExemplos?id='+obj[i].id_exemplo+
+				 //  ' \" title=\"Alterar\" class=\"btn btn-small btn-primary\" role=\"button\" class=\"btn\">'+
+				 //  ' <i class=\"fa fa-edit\"></i></a> '+
+							
+				   ' <a href=\"#myModal\"	id=\"'+obj[i].id_exemplo+'\" name=\"'+
+				     obj[i].id_exemplo+'\" onclick=\"atualizarHiddenASerExcluido('+obj[i].id_exemplo+');\"'+
+				   ' class=\"btn btn-small btn-danger\" role=\"button\" class=\"btn\"'+
+				   ' data-toggle=\"modal\" title=\"Excluir\">'+ 
+				   ' <i class=\"fa fa-share-square-o\"></i></a>';
+				}
+							
+				html_text+'</td></tr></table>';
+				return html_text;
+			}
 				
-		function atualizarHiddenASerExcluido(valor) {
-		  $('#ASerExcluido').val(valor);
-		}
+			// ATUALIZA O VALOR DO INPUT COM HIDDEN NA TELA
+			
+			function atualizarHiddenASerExcluido(valor) {
+			  $('#ASerExcluido').val(valor);
+			}
 		

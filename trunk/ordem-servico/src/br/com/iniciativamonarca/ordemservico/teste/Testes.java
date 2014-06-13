@@ -14,7 +14,9 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.impl.ExemploDAO;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAO;
+import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,8 +29,30 @@ public class Testes {
 
 	@Autowired
 	LoginDAO funcdao;
+	
+	@Autowired
+	ExemploDAO exemplodao;
 
+	
+	
 	@Test
+	public void ListarLike(){
+		
+		List<Exemplo> exe =  exemplodao.listarLike("id_exemplo","1549");
+		System.out.println(exe);
+		
+		for (Exemplo func : exe) {
+			System.out.println(func.getNome());
+		}
+
+		
+		
+		
+		
+	}
+	
+
+	@Ignore
 	public void EfetuarLogin() {
 		try {
 			Funcionario func = new Funcionario();
@@ -111,7 +135,7 @@ public class Testes {
 
 	}
 
-	@Test
+	@Ignore
 	public void BuscaPorId() {
 		try {
 			Funcionario func = new Funcionario();
@@ -154,7 +178,7 @@ public class Testes {
 
 	}
 
-	@Test
+	@Ignore
 	public void Listar() {
 		try {
 			List<Funcionario> f = funcdao.listar();
