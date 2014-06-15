@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.InterfaceDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
+import br.com.iniciativamonarca.ordemservico.util.ClassUtilitaria;
 
 @Repository
 public class LoginDAO implements InterfaceDAO<Funcionario> {
@@ -73,7 +74,7 @@ public class LoginDAO implements InterfaceDAO<Funcionario> {
 			Query query = manager.createQuery(
 					  "SELECT f FROM Funcionario f WHERE email = :email AND senha = :senha");
 					  query.setParameter("email", funcionario.getEmail());
-					  query.setParameter("senha", funcionario.getSenha());
+					  query.setParameter("senha", ClassUtilitaria.encriptarSenha(funcionario.getSenha()));
 					  
 					  Funcionario func = (Funcionario) query.getSingleResult();
 			return func;
