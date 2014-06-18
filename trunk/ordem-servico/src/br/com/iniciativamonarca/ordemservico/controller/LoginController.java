@@ -6,16 +6,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
-import br.com.iniciativamonarca.ordemservico.model.enums.CadastrosSidebarEnum;
-import br.com.iniciativamonarca.ordemservico.model.enums.ChamadosSidebarEnum;
-import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
-import br.com.iniciativamonarca.ordemservico.model.enums.OsSidebarEnum;
 
 @Transactional
 @Controller
