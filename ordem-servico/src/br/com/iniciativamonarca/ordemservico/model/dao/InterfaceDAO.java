@@ -1,8 +1,8 @@
 package br.com.iniciativamonarca.ordemservico.model.dao;
 
 import java.util.List;
+
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
-import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
 
 public interface InterfaceDAO <T> {
 	
