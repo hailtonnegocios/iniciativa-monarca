@@ -75,7 +75,7 @@ public class ExemploController {
 	@RequestMapping("alteraExemplos")
 	public String alteraExemplo(Exemplo exemplo,Model model){
 		exemploDao.alterar(exemplo);
-		return "redirect:listaExemplos";
+		return "redirect:cadastroExemplos";
 	}
 	
 	@RequestMapping("listaExemplos")
@@ -83,8 +83,18 @@ public class ExemploController {
 		List<Exemplo> lista_exemplo =  exemploDao.listar();
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("lista",lista_exemplo);
-		return "sistema/exemplos/listexemplo";
+		return "sistema/exemplos/cadexemplo";
 	}
+	
+	@RequestMapping("listaLike")
+	public @ResponseBody String listaLike(String tipo_pesq ,String name_pesq,Model model){
+		Gson gson = new Gson();
+		List<Exemplo> exemplo = exemploDao.listarLike(tipo_pesq, name_pesq);
+		String lista = gson.toJson(exemplo);
+		
+		return lista;
+	}
+
 
 	@RequestMapping("salvaExemplos")
 	public String salvaExemplo(Exemplo exemplo1,Model model) {
@@ -155,18 +165,6 @@ public class ExemploController {
 		String lista = gson.toJson(exemplo);
 		return lista; 
 	}
-	
-	
-	@RequestMapping("listaLike")
-	public @ResponseBody String listaLike(String tipo_pesq ,String name_pesq,Model model){
-		Gson gson = new Gson();
-		List<Exemplo> exemplo = exemploDao.listarLike(tipo_pesq, name_pesq);
-		String lista = gson.toJson(exemplo);
-		
-		return lista;
-	}
-	
-
 	
 	@RequestMapping("deletaExemplosAjax")
 	public @ResponseBody String deletaExemploAjax(String tipo_pesq,String name_pesq,Long id,Model model) throws Exception{

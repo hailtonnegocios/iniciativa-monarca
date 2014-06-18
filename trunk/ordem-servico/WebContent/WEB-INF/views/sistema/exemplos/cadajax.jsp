@@ -71,25 +71,6 @@
     </div>
     </fieldset>
 
-    <input type="hidden" id="ASerExcluido">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"	aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-		  <div class="modal-content">
-		  <div class="modal-header">
-		   	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		   	<h3>Atenção!</h3>
-		    </div>
-		  <div class="modal-body">
-		    <p>Tem certeza que deseja excluir este Exemplo?</p>
-		  </div>
-		  <div class="modal-footer">
-		  	<a id="linkExclusao" class="btn btn-danger" onclick="excluirComModal();">Excluir</a>
-		  	<button class="btn" id="btncancelar" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-		  </div>
-     	  </div>
-       </div>
-    </div>
-
 </div>
 </div>
 
