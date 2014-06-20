@@ -9,7 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
@@ -22,7 +27,10 @@ public class Exemplo {
 	@Id
 	@GeneratedValue
 	private Long id_exemplo;
+	
+	@NotBlank(message="{exemplo.nome.vazio}")
 	private String nome;
+	@NotBlank(message="{exemplo.descricao.vazio}")
 	private String descricao;
 	private boolean status;
 	@Enumerated(EnumType.STRING)
@@ -32,8 +40,10 @@ public class Exemplo {
 
 	
 
+	@NotNull(message="{exemplo.dat_cad.vazio}")
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
+	@Past
 	private Calendar dat_cad;
 	
 	

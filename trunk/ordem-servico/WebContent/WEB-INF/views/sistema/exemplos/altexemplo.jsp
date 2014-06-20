@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 
 <c:import url="../template/cabecalho.jsp" />
 <c:import url="../template/sidebar.jsp" />
@@ -42,12 +44,14 @@
 			<fmt:message key="sistema.modelo.campo.nome" />
 		</label>
 		<input class="form-control" type="text" name="nome" id="nome" value="${exemplo1Selecionado.nome}" />
+		<form:errors path="exemplo.nome" cssStyle="color:red;"/>
 		<br>
 
 		<label>
 			<fmt:message key="sistema.modelo.campo.descricao" />
 		</label>
 		<textarea class="form-control" name="descricao" id="descricao">${exemplo1Selecionado.descricao}</textarea>
+		<form:errors path="exemplo.descricao" cssStyle="color:red;"/>
 		<br>
 
 		<label>
@@ -66,8 +70,7 @@
 		<div style="width: 200px;">
 			<input name="dat_cad" id="dat_cad" class="form-control data" value="<fmt:formatDate value="${exemplo1Selecionado.dat_cad.time}"
  				  pattern="dd/MM/yyyy" />" />
-
-
+            <form:errors path="exemplo.dat_cad" cssStyle="color:red;"/>
 		</div>
 		<br>
 
