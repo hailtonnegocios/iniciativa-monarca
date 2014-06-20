@@ -5,12 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -71,9 +74,12 @@ public class ExemploController {
 	}
 	
 	@RequestMapping("alteraExemplos")
-	public String alteraExemplo(Exemplo exemplo,Model model){
+	public String alteraExemplo(@Valid Exemplo exemplo,BindingResult result){
+		if(! result.hasErrors()){
 		exemploDao.alterar(exemplo);
 		return "redirect:cadastroExemplos";
+		}
+		return "forward:mostraExemplos?id="+exemplo.getId_exemplo();
 	}
 	
 	@RequestMapping("listaExemplos")
@@ -95,18 +101,25 @@ public class ExemploController {
 
 
 	@RequestMapping("salvaExemplos")
-	public String salvaExemplo(Exemplo exemplo1,Model model) {
-		if (exemplo1.getDat_cad() != null) {
-
-			Calendar data = Calendar.getInstance();
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			sdf.format(exemplo1.getDat_cad().getTime());
-			data.setTime(sdf.getCalendar().getTime());
+	public String salvaExemplo(@Valid Exemplo exemplo1,BindingResult result,Model model) {
+		if(! result.hasErrors()){
 			
-			exemplo1.setDat_cad(data);
+			if (exemplo1.getDat_cad() != null) {
+
+				Calendar data = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				sdf.format(exemplo1.getDat_cad().getTime());
+				data.setTime(sdf.getCalendar().getTime());
+				
+				exemplo1.setDat_cad(data);
+			}
+	
+			exemploDao.adicionar(exemplo1);
+			
+			return "redirect:cadastroExemplos";
+		}else{
+			return "forward:adicionaExemplos";
 		}
-		exemploDao.adicionar(exemplo1);
-		return "redirect:cadastroExemplos";
 	}
 	
 	// Exemplos Ajax
