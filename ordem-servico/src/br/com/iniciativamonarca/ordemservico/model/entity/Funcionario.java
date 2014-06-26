@@ -1,7 +1,5 @@
 package br.com.iniciativamonarca.ordemservico.model.entity;
 
-import java.util.List;
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
