@@ -19,6 +19,6 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES 
-('Funcionario',1,'admin@gmail.com','ADMIN','827ccb0eea8a706c4c34a16891f84e7b','111.111.111-11','Senhor Administrador','Teste','Rua x, nº 111','121.212-6'),
-('Funcionario',2,'func@gmail.com','FUNC','827ccb0eea8a706c4c34a16891f84e7b','387.322.048-07','Senhor Funcionário','Compra','Rua y, nro 3','36.222.112-4');
+('Funcionario',1,'admin@gmail.com','ADMIN','827ccb0eea8a706c4c34a16891f84e7b','111.111.111-11','Jd. Teste','Guarulhos','A-21','Teste logradouro','284','Av','SP','Senhor Administrador','36.222.113-4','Teste Administrador',NULL,NULL,NULL),
+('Funcionario',2,'func@gmail.com','FUNC','827ccb0eea8a706c4c34a16891f84e7b','387.322.048-07','Jd. Teste','Guarulhos','B-23','Teste logradouro','284','Av','SP','Senhor Funcionário','36.222.112-4','Teste Func',NULL,NULL,NULL);
 UNLOCK TABLES;
