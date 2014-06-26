@@ -5,17 +5,25 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `FROM_CLASS` varchar(31) NOT NULL,
   `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
-  `permissao` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `permissao` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `cpf` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  `logradouro` varchar(255) DEFAULT NULL,
+  `numero` varchar(255) DEFAULT NULL,
+  `tipo_logradouro` varchar(255) DEFAULT NULL,
+  `uf` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `setor` varchar(255) DEFAULT NULL,
-  `endereco` varchar(255) DEFAULT NULL,
   `rg` varchar(255) DEFAULT NULL,
+  `setor` varchar(255) DEFAULT NULL,
+  `resultado` varchar(255) DEFAULT NULL,
+  `resultado_txt` varchar(255) DEFAULT NULL,
+  `cep` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
-
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES 
