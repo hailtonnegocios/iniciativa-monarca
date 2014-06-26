@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
 
