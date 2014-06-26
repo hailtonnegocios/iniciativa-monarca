@@ -17,7 +17,7 @@ import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 public class LoginController {
 
 	@Autowired
-	LoginDAO funcDao;
+	LoginDAO usuDao;
 
 	@RequestMapping("/")
 	public String formlogin(HttpSession session) {
@@ -39,7 +39,7 @@ public class LoginController {
 		}
 		try {
 		
-			funcionario = funcDao.efetuarLogin(funcionario);
+			funcionario = usuDao.efetuarLogin(funcionario);
 			if (funcionario!= null) {
 				session.setAttribute("usuarioLogado", funcionario);
 				return "sistema/login/principal";
