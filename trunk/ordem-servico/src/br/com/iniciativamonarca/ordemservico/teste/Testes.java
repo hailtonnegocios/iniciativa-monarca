@@ -1,6 +1,7 @@
 package br.com.iniciativamonarca.ordemservico.teste;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
@@ -73,8 +74,11 @@ public class Testes {
 
 	@Test
 	public void AdicionaFuncionario() {
+		
 		Funcionario func = new Funcionario();
-
+        List<String> tel = new ArrayList<String>();  
+        List<String> cel = new ArrayList<String>();
+		
 		func.setNome("Nome Teste2");
 		func.setRg("36.222.112-4");
 		func.setCpf("387.322.048-07");
@@ -82,6 +86,14 @@ public class Testes {
 		func.setSetor("Setor Teste2");
 		func.setEmail("teste2@gmail.com");
 		func.setSenha("827ccb0eea8a706c4c34a16891f84e7b");
+		
+        tel.add("2453-2391");
+        tel.add("2451-2391");
+        func.setTelefones(tel);
+        
+        cel.add("95449-6507");
+        cel.add("98214-2921");
+		func.setCelulares(cel);
 
 		// Retorno do WebService com o Endereço 
 		try {
@@ -180,7 +192,7 @@ public class Testes {
 	public void Remover() {
 		try {
 			Funcionario func = new Funcionario();
-			func.setId_usuario(15l);
+			func.setId_usuario(14l);
 
 			Assert.assertNotNull(func);
 			Assert.assertNotNull(func.getId_usuario());
