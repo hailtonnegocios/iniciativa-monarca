@@ -30,7 +30,10 @@ import br.com.iniciativamonarca.ordemservico.webservices.WebServiceEndereco;
 @ContextConfiguration(locations = { "file:WebContent/WEB-INF/applicationContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional
-// Teste commit google code;
+
+
+// vamos colocar um teste para ver se esta linkando no google code ok
+
 public class Testes {
 
 	@Autowired
