@@ -35,10 +35,10 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-aspects-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar" sourcepath="C:/Users/Hailton/.m2/repository/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar" sourcepath="C:/Users/Hailton/.m2/repository/org/springframework/spring-web/4.0.0.RELEASE/spring-web-4.0.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance-1.0.jar"/>
