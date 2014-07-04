@@ -15,6 +15,7 @@
 
 
     <a href="adicionaExemplos" class="btn btn-primary" role="button">Cadastrar Produto</a>
+        
    <!--  <a href="listaExemplos" class="btn btn-danger" role="button">Listar Produto</a>-->
 
 <br /><br />  <br/>
@@ -42,6 +43,7 @@
      </td>  
      <td>
        <button class="btn btn-danger" id="btn_pesquisar">Pesquisar</button>
+       
      </td>
      </tr>
      </table>
@@ -72,6 +74,28 @@
      	  </div>
        </div>
     </div>
+
+
+
+    <div class="modal fade" id="myModal_exclusaoLista" tabindex="-1" role="dialog"	aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+		  <div class="modal-content">
+		  <div class="modal-header">
+		   	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		   	<h3>Atenção !</h3>
+		    </div>
+		  <div class="modal-body">
+		    <p>Tem certeza que deseja excluir os itens marcados?</p>
+		  </div>
+		  <div class="modal-footer">
+		  	<a id="linkExclusaoLista" class="btn btn-danger" onclick="excluirComModal_list();">Sim</a>
+		  	<button class="btn" id="btncancelarmodal2" data-dismiss="modal" aria-hidden="true">Não</button>
+		  </div>
+     	  </div>
+       </div>
+    </div>
+
+
 
 
 

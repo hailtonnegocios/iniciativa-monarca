@@ -8,6 +8,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -193,6 +195,32 @@ public class ExemploController {
 	}
 
 	
-	
+  @RequestMapping("deletaExemplosAjaxListaJson")
+  public @ResponseBody String deletaExemplosAjaxListaJson(String ListaJson,String tipo_pesq,String name_pesq)throws Exception{
+	  try{
+		  Gson gson = new Gson();
+		  
+		  // Transforma a String em um JsonObject
+		  JSONObject jsonObject = new JSONObject(ListaJson);
+		  
+		  // Recebe o Json com a lista exemplo
+		  JSONArray ListaIdExemplos = jsonObject.getJSONArray("exemplo");
+		  
+		  // Percorre a lista removendo do banco todos os IDs vindo do JSON
+		  for(int i=0;i<ListaIdExemplos.length();i++){
+		    JSONObject IdExemplos = ListaIdExemplos.getJSONObject(i);
+		    exemploDao.remover(IdExemplos.getLong("id_exemplo"));
+		  }
+		  
+		  // Retorna para tela a Lista atualizada
+  		  List<Exemplo> exemplo = exemploDao.listarLike(tipo_pesq, name_pesq);
+  		  String lista = gson.toJson(exemplo);
+		  
+  		  return lista;
+  	  
+	  }catch(DAOException e){
+		  return "Erro ao consultar exemplo !!";
+	  }
+  } 
 	
 }
