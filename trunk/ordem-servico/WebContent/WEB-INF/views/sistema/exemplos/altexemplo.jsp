@@ -9,10 +9,16 @@
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
 
-	<div class="alert alert-success alert-dismissable">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		Exemplo 1 - Alteração do Produto
-	</div>
+	<div class="bs-example">
+		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+			<li class="active"><a href="#cadastrarexemplo" data-toggle="tab">Alterar Exemplo
+			</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active in" id="cadastrarexemplo">
+				<br>
+				<div class="panel panel-default">
+					<div class="panel-body">
 
 	<form action="alteraExemplos" method="post">
 
@@ -76,6 +82,8 @@
 
 		<button class="btn btn-primary">Salvar</button>
 	</form>
+	
+	</div></div></div>
 </div>
 <!--  Inicio :  Conteudo das paginas -->
 
