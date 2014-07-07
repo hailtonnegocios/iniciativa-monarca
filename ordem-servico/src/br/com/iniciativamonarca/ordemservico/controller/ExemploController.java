@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
@@ -36,8 +37,17 @@ public class ExemploController {
 	
 	
 	@RequestMapping("cadastroExemplos")
-	public String cadastroExemplo(Model model) {
+	public String cadastroExemplo(Model model,@RequestParam(required=false) boolean success) {
 	model.addAttribute("listamenu", ExemploSidebarEnum.values());
+	model.addAttribute("listamenu", ExemploSidebarEnum.values());
+	model.addAttribute("myEnum",TamanhosEnum.values());
+	model.addAttribute("tiposProdutos",TipoProdutoEnum.values());
+	
+	if(success){
+      model.addAttribute("mensagem","S");
+	}else
+	  model.addAttribute("mensagem","N");
+
   	  return "sistema/exemplos/cadexemplo";
 	}
 	
@@ -117,7 +127,7 @@ public class ExemploController {
 	
 			exemploDao.adicionar(exemplo1);
 			
-			return "redirect:cadastroExemplos";
+			return "redirect:cadastroExemplos?success=true";
 		}else{
 			return "forward:adicionaExemplos";
 		}

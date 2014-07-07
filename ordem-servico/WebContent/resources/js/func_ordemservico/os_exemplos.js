@@ -1,6 +1,18 @@
 //  ---------------------------  FUNÇÕES RELACIONADAS A TELA DE EXEMPLOS COM AJAX --------------------------------  
-          
-          
+
+         $(function() {
+             var tempo = 5;
+               setInterval(function() {
+                  tempo--;
+                 // $('#seconds').text(tempo);
+                  if (tempo == 0) {
+                     //window.location.href = 'cadastroExemplos';
+                	 $('#seconds').text("");
+                	 clearInterval(tempo);
+                  }
+               }, 1000);
+          });  
+         
 	      // AO CLICAR NO PRIMEIRO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax1 NO CONTROLLER
 		  $("#ajax1").hide();
 		  $("#btnTeste1").click(function() {
@@ -266,7 +278,8 @@
 				  
 				  if(flag){
 					  for(i=0;i<inputs.length;i++){
-					    if(inputs[i].type=='checkbox'){
+						// vão ser marcados somente os check que iniciam com id = check, ou seja, se caso outro check estiver com outro id não será marcado  
+					    if((inputs[i].type=='checkbox')  && ((inputs[i].id).substring(0, 5) == 'check')){
 					    	inputs[i].checked=true;
 					    	$('#label_check').text("Desmarcar Todos");
 					    }
@@ -294,7 +307,8 @@
 				  
 				  valor = "{\"exemplo\":[";
 				  for(i=0;i<inputs.length;i++){
-				    if(inputs[i].type=='checkbox'){
+				    // vão ser marcados somente os check que iniciam com id = check, ou seja, se caso outro check estiver com outro id não será marcado
+				    if((inputs[i].type=='checkbox') && ((inputs[i].id).substring(0, 5) == 'check')){
 				      if(inputs[i].checked==true){
 				        valor+="{\id_exemplo\:"+inputs[i].value+"},";
 				      }
