@@ -67,15 +67,21 @@
 				if ($("#name_pesq").val() != "" || $("#select_val").val() == "Todos"){
 				$("#carregando3").show();
 				   $.post("listaLike", {tipo_pesq:$("#select_val").val() , name_pesq:$("#name_pesq").val() }, function(data) {
-				       var html_text = "";
-				       obj = JSON.parse(data);
-				       $("#ajax4").html("");
-
-				       //inserindo a tabela na div #ajax4
-				       $("#ajax4").html(Tabela_Exemplos_Ajax(html_text));
-
-				       $("#carregando3").hide();
-			       });
+						  var html_text = "";
+						  obj = JSON.parse(data);
+						  
+						  if(obj.length > 0){
+						       $("#ajax4").html("");
+		
+						       //inserindo a tabela na div #ajax4
+						       $("#ajax4").html(Tabela_Exemplos_Ajax(html_text));
+		
+						       $("#carregando3").hide();
+ 					      }else{
+ 					    	  $("#ajax4").html("<center><div style=\"color:red;\">Sem Resultados na consulta !!</div></center>");
+ 					    	  $("#carregando3").hide();
+ 					      }
+				   });
 		        $("#ajax4").show();
 				}else{
 					$("#ajax4").html("<center><div style=\"color:red;\">Sem Resultados !!</div></center>");
@@ -95,14 +101,17 @@
 				$("#carregando3").show();
 				   $.post("listaLike", {tipo_pesq:$("#select_val").val() , name_pesq:$("#name_pesquisar").val() }, function(data) {
 				       var html_text = "";
-				       
 				       obj = JSON.parse(data);
-				       $("#lista_de_exemplos").html("");
 
-				       //inserindo a tabela na div #lista_de_exemplos
-				       $("#lista_de_exemplos").html(Tabela_Exemplos(html_text));
-
-				       $("#carregando3").hide();
+				       if(obj.length > 0){
+					       $("#lista_de_exemplos").html("");
+					       //inserindo a tabela na div #lista_de_exemplos
+					       $("#lista_de_exemplos").html(Tabela_Exemplos(html_text));
+					       $("#carregando3").hide();
+					    }else{
+					       $("#lista_de_exemplos").html("<center><div style=\"color:red;\">Sem Resultados na consulta !!</div></center>");
+					       $("#carregando3").hide();
+ 					    }
 			       });
 		        $("#lista_de_exemplos").show();
 				}else{
@@ -138,6 +147,7 @@
 			function excluirComModal_list() {
 			   $("#ajax2").val("");
 			   var html_text = "";
+			   
 			   $.post("deletaExemplosAjaxListaJson", {tipo_pesq:$("#select_val").val(),name_pesq:$("#name_pesquisar").val(),ListaJson : retornaListadeId_exemplo_no_FormatoJson()}, function(data) {
 			      
 				  obj = JSON.parse(data);
@@ -187,6 +197,16 @@
 				return html_text;
 			}
 
+			//VAI VERIFICAR SE A LISTA POSSUI ITENS SELECIONADOS
+			function verificaComboboxMarcada(){
+				if(retornaSelecionados() == 0){
+					$('#chamaModalVerificaSelecionados').click();
+					
+				}else{
+					$('#chamaModalExcluirLista').click();
+				}
+			}
+			
 
 			// CRIAÇÃO DA TABELA DE EXEMPLOS COM O RETORNO DO AJAX COM OS BOTÕES DE ALTERAR E EXCLUIR			
 			function Tabela_Exemplos(html_text,mostra_btnalt_btnexc){
@@ -201,7 +221,7 @@
 	                   // Link para Excluir todos os checkbox marcados pelo usuario
 	                   "<span>" +
 	                   "  <img src=\"resources/img/del_icon.png\" style=\"padding-right:10px;\">" +
-	                   "  <a href=\"#myModal_exclusaoLista\" data-toggle=\"modal\" role=\"button\">Excluir itens selecionados</a>" +
+	                   "  <a href=\"#\" onclick=\"javascript:verificaComboboxMarcada(); \" role=\"button\">Excluir itens selecionados</a>" +
 	                   "</span>"+
 	                   
 	                   " <br><br>" +
@@ -249,6 +269,24 @@
 			}
 
 			
+			// RETORNA A QUANTIDADE DE ITENS MARCADOS NA LISTA
+			function retornaSelecionados(){
+				  var inputs, i, selecionado=0;
+
+				  // pegar todas as tagName input para varrer todos que tiverem o tipo checkbox
+				  inputs = document.getElementsByTagName('input');
+				  
+				  for(i=0;i<inputs.length;i++){
+				    // vão ser marcados somente os check que iniciam com id = check, ou seja, se caso outro check estiver com outro id não será marcado
+				    if((inputs[i].type=='checkbox') && ((inputs[i].id).substring(0, 5) == 'check')){
+				      if(inputs[i].checked==true){
+                         selecionado++;
+				      }
+				    }
+				  }
+				  return selecionado;
+			}
+
 			// MARCAR TODOS OS CHECKBOX
 			var flag = true;
 			function marcar_e_desmarcarTodosOsCheckbox(){
