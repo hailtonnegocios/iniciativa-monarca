@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,9 +29,13 @@ public class Exemplo {
 	private Long id_exemplo;
 	
 	@NotBlank(message="{exemplo.nome.vazio}")
+	@Size(max=80,message="{exemplo.nome.limite.tamanho}")
 	private String nome;
+	
 	@NotBlank(message="{exemplo.descricao.vazio}")
+	@Size(max=350,message="{exemplo.descricao.limite.tamanho}")
 	private String descricao;
+	
 	private boolean status;
 	@Enumerated(EnumType.STRING)
 	private TamanhosEnum tamanhos;

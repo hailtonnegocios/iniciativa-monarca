@@ -1,17 +1,5 @@
 //  ---------------------------  FUNÇÕES RELACIONADAS A TELA DE EXEMPLOS COM AJAX --------------------------------  
 
-         $(function() {
-             var tempo = 5;
-               setInterval(function() {
-                  tempo--;
-                 // $('#seconds').text(tempo);
-                  if (tempo == 0) {
-                     //window.location.href = 'cadastroExemplos';
-                	 $('#seconds').text("");
-                	 clearInterval(tempo);
-                  }
-               }, 1000);
-          });  
          
 	      // AO CLICAR NO PRIMEIRO EXEMPLO SERÁ MANDADA UMA REQUISIÇÃO AO MÉTODO  funcAjax1 NO CONTROLLER
 		  $("#ajax1").hide();
@@ -165,13 +153,6 @@
 			      
 			   });
 			}
-
-			
-			
-			
-			
-			
-			
 			
 			
 			
@@ -327,6 +308,16 @@
 			function atualizarHiddenASerExcluido(valor) {
 			  $('#ASerExcluido').val(valor);
 			}
-			
-			
-			
+
+	        // Tempo de espera da mensagem na tela
+            $(function() {
+	            var tempo = 5;
+	            var rotina_de_tempo = setInterval(function() {
+	              tempo--;
+                  if (tempo == 0) {
+	                $('#seconds').text("");
+	                clearInterval(rotina_de_tempo);
+	              }
+	            }, 500);
+	        });  
+
