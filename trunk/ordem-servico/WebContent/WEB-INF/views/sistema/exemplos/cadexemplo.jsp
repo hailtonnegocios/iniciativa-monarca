@@ -115,10 +115,9 @@
 							<tr>
 								<td>
 	 							  <select class="form-control" id="select_val">
-									<option value="Todos">Pesquisar Todos</option>
-									<option value="id_exemplo">Código</option>
-									<option value="nome">Nome</option>
-									<option value="descricao">Descrição</option>
+	 							  <c:forEach var="filtro" items="${filtro}">
+	 							      <option value="${filtro.descricao}">${filtro.nome}</option>
+	 							  </c:forEach>
 								   </select>
 								</td>
 								<td><input class="form-control" type="text"	id="name_pesquisar" /></td>
@@ -173,8 +172,32 @@
 			</div>
 		</div>
 
+
+        <!-- MODAL DO LINK DE VERIFICAÇÃO DE ITENS MARCADOS -->
+		<div class="modal fade" id="myModalVerificaSelecionado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>Atenção !</h3>
+					</div>
+					<div class="modal-body">
+						<p>A lista não possui itens selecionados !</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" id="btncancelarmodal2" data-dismiss="modal"	aria-hidden="true">OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
 		<!-- INPUT PARA COLOCAR O ID DO ITEM A SER EXCLUIDO DA LISTA -->
 		<input type="hidden" id="ASerExcluido">
+		<a href="#myModal_exclusaoLista" data-toggle="modal"  type="hidden" id="chamaModalExcluirLista"></a>
+		<a href="#myModalVerificaSelecionado" data-toggle="modal"  type="hidden" id="chamaModalVerificaSelecionados"></a>
 		
     </div>
 </div>

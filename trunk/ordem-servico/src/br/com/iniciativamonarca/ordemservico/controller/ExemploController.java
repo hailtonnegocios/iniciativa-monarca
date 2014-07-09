@@ -16,14 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.ExemploDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Exemplo;
+import br.com.iniciativamonarca.ordemservico.model.enums.ExemploFiltroDePesquisa;
 import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.TamanhosEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.TipoProdutoEnum;
@@ -43,6 +42,7 @@ public class ExemploController {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("myEnum", TamanhosEnum.values());
 		model.addAttribute("tiposProdutos", TipoProdutoEnum.values());
+		model.addAttribute("filtro", ExemploFiltroDePesquisa.values());
 
 		return "sistema/exemplos/cadexemplo";
 	}
