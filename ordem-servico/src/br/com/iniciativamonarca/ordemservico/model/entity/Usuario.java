@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "FROM_CLASS", discriminatorType = DiscriminatorType.STRING)
+// commit teste no google code
 public abstract class Usuario {
 
 	@Id
