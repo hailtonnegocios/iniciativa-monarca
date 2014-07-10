@@ -8,7 +8,7 @@
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
     
-    <!-- COMPONENTE DE ABA -->
+    <!-- COMPONENTE DE ABA - Hailton -->
 	<div class="bs-example">
 		
 		<!-- ABA DE INCLUIR E PESQUISAR -->
