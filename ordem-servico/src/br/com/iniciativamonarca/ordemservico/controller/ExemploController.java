@@ -67,7 +67,7 @@ public class ExemploController {
 			// redireciona algum atributo ou valor para o metodo do redirect na
 			// hora do return
 			// assim não será necessario concatenar o parametro no return
-			redirectAttributes.addFlashAttribute("mensagem", "S");
+			redirectAttributes.addFlashAttribute("mensagem", "Produto "+ exemplo1.getNome().split(" ")[0] +" salvo com sucesso!");
 
 			return "redirect:cadastroExemplos";
 		} else {
