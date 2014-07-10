@@ -17,11 +17,11 @@
 			<li><a href="#pesquisarexemplo" data-toggle="tab">Pesquisar</a></li>
 		</ul>
 		
-		<c:if test="${mensagem =='S'}">
+		<c:if test="${mensagem != null}">
 		
 		    <!-- MENSAGEM DE RETORNO DO CADASTRO -->
 			<div id="seconds">
-				<div class="alert alert-info alert-dismissable">Registro salvo com sucesso !</div>
+				<div class="alert alert-info alert-dismissable">${mensagem}</div>
 			</div>
 		</c:if>
 		
