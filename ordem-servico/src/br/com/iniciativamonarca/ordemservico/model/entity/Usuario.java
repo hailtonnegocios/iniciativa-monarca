@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @DiscriminatorColumn(name = "FROM_CLASS", discriminatorType = DiscriminatorType.STRING)
 // commit teste no google code -> Alteracao no projeto local
 // commit teste no google code -> Alteracao no Google code
-//Teste 15/07/2014
+// Teste Hailton 15/07/2014
 public abstract class Usuario {
 
 	@Id
