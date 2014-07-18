@@ -1,6 +1,7 @@
 package br.com.iniciativamonarca.ordemservico.model.entity;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Cliente {
 		
 		private String bairro;
 		private String CEP;
-		private String celular;
+		private List <String> celular; 
 		private String cidade;
 		private String complemento;
 		private Calendar data_nasc;
@@ -26,7 +27,7 @@ public class Cliente {
 		private String estado;
 		private String nome;
 		private String numero;
-		private String telefone;
+		private  List <String> telefone;
 		private String cpf;
 		private String rg;
 		
@@ -50,12 +51,7 @@ public class Cliente {
 		public void setCEP(String cEP) {
 			CEP = cEP;
 		}
-		public String getCelular() {
-			return celular;
-		}
-		public void setCelular(String celular) {
-			this.celular = celular;
-		}
+
 		public String getCidade() {
 			return cidade;
 		}
@@ -104,10 +100,17 @@ public class Cliente {
 		public void setNumero(String numero) {
 			this.numero = numero;
 		}
-		public String getTelefone() {
+
+		public List<String> getCelular() {
+			return celular;
+		}
+		public void setCelular(List<String> celular) {
+			this.celular = celular;
+		}
+		public List<String> getTelefone() {
 			return telefone;
 		}
-		public void setTelefone(String telefone) {
+		public void setTelefone(List<String> telefone) {
 			this.telefone = telefone;
 		}
 		public String getCpf() {
