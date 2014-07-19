@@ -1,7 +1,7 @@
 package br.com.iniciativamonarca.ordemservico.model.enums;
 
 public enum CadastrosSidebarEnum {
-	 item1("Funcionário",""),
+	 item1("Funcionário","cadastroFuncionario"),
      item2("Clientes","");
 	 
 	 private String referencia;
