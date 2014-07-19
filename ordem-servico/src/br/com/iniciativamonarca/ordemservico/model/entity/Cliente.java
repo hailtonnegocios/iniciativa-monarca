@@ -3,6 +3,7 @@ package br.com.iniciativamonarca.ordemservico.model.entity;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ public class Cliente {
 		
 		private String bairro;
 		private String CEP;
+		@ElementCollection
 		private List <String> celular; 
 		private String cidade;
 		private String complemento;
@@ -27,6 +29,7 @@ public class Cliente {
 		private String estado;
 		private String nome;
 		private String numero;
+		@ElementCollection
 		private  List <String> telefone;
 		private String cpf;
 		private String rg;

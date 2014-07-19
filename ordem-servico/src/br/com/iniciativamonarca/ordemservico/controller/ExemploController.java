@@ -41,7 +41,6 @@ public class ExemploController {
 	@RequestMapping(value = "cadastroExemplos")
 	public String cadastroExemplo(Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
-		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		model.addAttribute("myEnum", TamanhosEnum.values());
 		model.addAttribute("tiposProdutos", TipoProdutoEnum.values());
 		model.addAttribute("filtro", ExemploFiltroDePesquisa.values());
