@@ -21,20 +21,6 @@
 	      });
 
 
-          // MASCARA NO CAMPO DE DATA
-          $(".data").mask("99/99/9999");
-
-          // MASCARA NO CAMPO DE RG
-          $(".rg").mask("99.999.999-9");
-
-          // MASCARA NO CAMPO DE CPF
-          $(".cpf").mask("999.999.999-99");
-          
-          // MASCARA NO CAMPO DE CEP
-          $(".cep").mask("99999-999");
-          
-          
-
          /*
 		  *  Lista de efeitos com o datepicker 1 -show 2 -slideDown 3 -fadeIn
 		  *  4 -blind 5 -bounce 6 -clip 7 -drop 8 -fold 9 -slide

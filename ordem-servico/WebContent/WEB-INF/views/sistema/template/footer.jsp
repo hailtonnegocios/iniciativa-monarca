@@ -22,6 +22,7 @@
 		<script src="resources/js/func_ordemservico/os_exemplos.js" type="text/javascript"></script>
 		<script src="resources/js/func_ordemservico/os_funcionario.js" type="text/javascript"></script>
 		<script src="resources/js/func_ordemservico/os_datepicker.js" type="text/javascript"></script>
+		<script src="resources/js/func_ordemservico/os_mascaras.js" type="text/javascript"></script>
 		<script src="resources/js/placeholder_no_ie.js" type="text/javascript"></script>
 		
 

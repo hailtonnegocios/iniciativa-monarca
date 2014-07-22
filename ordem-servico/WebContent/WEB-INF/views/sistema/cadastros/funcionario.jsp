@@ -36,107 +36,31 @@
 							<table>
  							       <tr>
 				                    <td colspan="2">
-					                    <div style="padding-bottom:10px;">
-							                 <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Nome do Funcionário" />
-							                <!--  <form:errors path="" cssStyle="color:red;" />-->
+					                    <div style="padding:0 10px 10px 0;width:400px">
+							                 <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Nome Completo" />
 							            </div>
 							          </td>
-							       </tr>
-							       <tr>
 							          <td>
-							              <div style="padding:0 10px 0 0">
+							              <div style="padding:0 10px 10px 0">
 							            	<input class="form-control rg" maxlength="80" type="text" name="rg" id="rg" value="" placeholder="Rg" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              	
 							              </div>
 							          </td>
 							          <td>
-							             <div>
+							             <div style="padding:0 10px 10px 0">
 							            	<input class="form-control cpf" maxlength="80" type="text" name="cpf" id="cpf" value="" placeholder="Cpf" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              	
 							             </div>
 							          </td>
 							          </tr>
-							          <tr>
-							            <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_1" value="" placeholder="Telefone 1" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							            <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_2" value="" placeholder="Telefone 2" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							             <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_3" value="" placeholder="Telefone 2" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							            </tr>
-							            <tr>
-							            <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_1" value="" placeholder="Celular 1" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							            <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_2" value="" placeholder="Celular 2" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							             <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_3" value="" placeholder="Celular 3" />
-							              	<!--<form:errors path="" cssStyle="color:red;" />-->
-							              </div>
-							            </td>
-							            </tr>
+							          <tr><td><form:errors path="funcionario.nome" cssStyle="color:red;" /><td><td><td><td><td></tr>
 							</table>
-							</fieldset>
-							<br>
-                            <fieldset>
-                              <legend><b>Login</b></legend>
-                                    <table>
-    							        <tr>
-							            <td>
-							               <div style="padding: 15px 10px 0 0">
-							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="" placeholder="Usuário" />
-							              	  <!--<form:errors path="" cssStyle="color:red;" />-->
-							               </div>
-							            </td>
-							            <td>
-							               <div style="padding: 15px 10px 0 0">
-							            	  <input class="form-control" maxlength="80" type="password" name="senha" id="senha" value="" placeholder="Senha" />
-							              	  <!--<form:errors path="" cssStyle="color:red;" />-->
-							               </div>
-							            </td>
-							          <td>
-							          <div style="padding:0 10px 10px 0;width:200px">
-							          <label>Permissão</label>
-							          <select class="form-control" name="permissao" id="permissao">
-							             <option value="ADMIN">ADMIN</option>
-							             <option value="FUNC">FUNC</option>
-							          </select>
-							        </div>
-							        </td>
-							            
-							            </tr>
-                                     </table>  
-                            </fieldset>
-                            <br>
-                            <fieldset>	
-                                <legend><b>Endereço</b></legend>
                                 <table>
                                      <tr>
                                      <td>													         
-							             <div>
+							             <div style="padding: 0 0 0 0px">
                                              <input class="form-control cep" maxlength="80" type="text" name="endereco.cep" id="cep" value="" placeholder="Cep" onblur="javascript:consultaEndereco();" />
-							                 <!--<form:errors path="" cssStyle="color:red;" />-->
+							                
 							             </div>
 							         </td>
 							         <td>
@@ -151,25 +75,21 @@
                                      <td>													         
 							            <div style="padding:10px 10px 10px 0;width:90px">
                                            <input class="form-control" maxlength="80" type="text" name="endereco.tipo_logradouro" id="tipo_logradouro" value="" placeholder="Logra." />
-							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:450px">
                                             <input class="form-control" maxlength="80" type="text" name="endereco.logradouro" id="logradouro" value="" placeholder="Endereço" />
-							               <!-- <form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
                                            <input class="form-control" maxlength="80" type="text" name="endereco.numero" id="numero" value="" placeholder="Nº" />
-							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
                                            <input class="form-control" maxlength="80" type="text" name="endereco.complemento" id="complemento" value="" placeholder="Compl" />
-							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         </tr>
@@ -179,26 +99,49 @@
 							          <td>
 							             <div style="padding:0 10px 0 0;width:70px">
                                             <input class="form-control" maxlength="80" type="text" name="endereco.uf" id="uf" value="" placeholder="UF" />
-							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
                                             <input class="form-control" maxlength="80" type="text" name="endereco.cidade" id="cidade" value="" placeholder="Cidade" />
-							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
                                             <input class="form-control" maxlength="80" type="text" name="endereco.bairro" id="bairro" value="" placeholder="Bairro" />
-							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          </tr>
 							     </table>
-                            </fieldset>
-                            <br>
-                            <fieldset>
+							     <table>
+							     	 <tr>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_1" value="" placeholder="Telefone" />
+							              </div>
+							            </td>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_2" value="" placeholder="Telefone Aux." />
+							              </div>
+							            </td>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_1" value="" placeholder="Celular" />
+							              </div>
+							            </td>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_2" value="" placeholder="Celular Aux." />
+							              </div>
+							            </td>
+							            </tr>
+							     </table>
+							     
+                             </fieldset>
+                             <br>
+                             
+                                                         <fieldset>
                             <legend><b>Setor</b></legend>
                             
                             <table>                            
@@ -215,8 +158,42 @@
 							     </tr>
                             </table>                      
                             </fieldset>
-							<br>
-							<button class="btn btn-success">Salvar</button>
+                            <fieldset>
+                              <legend><b>Autenticação</b></legend>
+                                    <table>
+    							        <tr>
+							            <td>
+							               <div style="padding: 15px 10px 0 0;width:350px;">
+							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="" placeholder="Email" />
+							               </div>
+							            </td>
+							            <td>
+							               <div style="padding: 15px 10px 0 0">
+							            	  <input class="form-control" maxlength="80" type="password" name="senha" id="senha" value="" placeholder="Senha" />
+							              	  
+							               </div>
+							            </td>
+							          <td>
+							          <div style="padding:0 10px 10px 0;width:200px">
+							          <label>Permissão</label>
+							          <select class="form-control" name="permissao" id="permissao">
+							             <option value="ADMIN">ADMIN</option>
+							             <option value="FUNC">FUNC</option>
+							          </select>
+							        </div>
+							        </td>
+							        </tr>
+							          <tr>
+							              <td><form:errors path="funcionario.email" cssStyle="color:red;" /></td>
+							              <td><form:errors path="funcionario.senha" cssStyle="color:red;" /></td>
+							              <td><form:errors path="funcionario.permissao" cssStyle="color:red;" /></td>
+							          </tr>
+                                     </table>  
+                            </fieldset>
+                            <br>
+                            <div align="center">
+							<button class="btn btn-danger" >Salvar</button>
+							</div>
 						</form>
 				    </div>
 			    </div>
