@@ -9,6 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "FROM_CLASS", discriminatorType = DiscriminatorType.STRING)
@@ -22,10 +24,13 @@ public abstract class Usuario {
 	Long id_usuario;
 
 	@NotNull
+	@NotBlank(message="{usuario.email.vazio}")
 	String email;
 	@NotNull
+	@NotBlank(message="{usuario.senha.vazio}")
 	String senha;
 	@NotNull
+	@NotBlank(message="{usuario.permissao.vazio}")
 	String permissao;
 
 	public String getEmail() {

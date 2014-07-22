@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.iniciativamonarca.ordemservico.criptografia.Criptografia;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.FuncionarioDAO;
@@ -26,18 +27,25 @@ public class FuncionarioController {
 	FuncionarioDAO funcdao;
 
 	
-	@RequestMapping("cadastroFuncionario")
+	@RequestMapping(value = "cadastroFuncionario")
 	public String cadastroFuncionario(Model model){
 		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
 		return "sistema/cadastros/funcionario";
 	}
 
+	
+	// A ordem dos argumentos tem que seguir como o metodo abaixo , pois quando eu uso o @Valid
+	// tenho que colocar essa annotation em frente ao objeto e o proximo argumento tem que ser o BindingResult,se tiver
+	// qualquer argumento depois do objeto sem ser o bindingResult ele não funciona
 	@RequestMapping("adicionaFuncionario")
-	public String adicionaFuncionario(Funcionario funcionario,Model model) {
+	public String adicionaFuncionario(@Valid Funcionario funcionario,BindingResult result,Model model,
+			RedirectAttributes redirectAttributes) {
+		
+		
+		if (!result.hasErrors()) {
 		
 		List<String> celulares = new ArrayList<String>();
 		List<String> telefones = new ArrayList<String>();
-		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
 		
 			// Retirar os valores em branco das listas
 		    for (int i=0; i < funcionario.getCelulares().size();i++) {
@@ -50,7 +58,8 @@ public class FuncionarioController {
 		    	     telefones.add(funcionario.getTelefones().get(i).toString());
 		    	}
 			}
-
+		    
+		    
 		    funcionario.setCelulares(celulares);
 		    funcionario.setTelefones(telefones);
 	
@@ -62,7 +71,13 @@ public class FuncionarioController {
 			}
 
 		    funcdao.adicionar(funcionario);
-			return "sistema/cadastros/funcionario";
+		    
+		    redirectAttributes.addFlashAttribute("mensagem", "Funcionário "+ funcionario.getNome().split(" ")[0] +" salvo com sucesso!");
+		    
+			return "redirect:cadastroFuncionario";
+		}else{
+			return "forward:cadastroFuncionario";
+		}
 	}
 
 	@RequestMapping("mostraFuncionario")

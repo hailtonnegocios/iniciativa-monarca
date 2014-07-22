@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,7 +31,7 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
 	}
 
 	@Override
-	public void adicionar(Funcionario f) {
+	public void adicionar(@Valid Funcionario f) {
 		manager.persist(f);
 	}
 
