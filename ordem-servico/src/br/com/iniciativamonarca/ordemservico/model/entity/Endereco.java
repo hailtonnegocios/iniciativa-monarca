@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "webservicecep")
 public class Endereco {
 
-	private String resultado;
-	private String resultado_txt;
-	private String uf;
-	private String cidade;
-	private String bairro;
-	private String tipo_logradouro;
-	private String logradouro;
-	private String numero;
-	private String cep;
-	private String complemento;
+	 String resultado;
+	 String resultado_txt;
+	 String uf;
+	 String cidade;
+	 String bairro;
+	 String tipo_logradouro;
+	 String logradouro;
+	 String numero;
+	 String cep;
+	 String complemento;
 
 	public Endereco() {
 

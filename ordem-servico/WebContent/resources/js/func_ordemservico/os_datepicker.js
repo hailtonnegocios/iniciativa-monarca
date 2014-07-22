@@ -1,4 +1,4 @@
-//  ---------------------------  FUNÇÕES RELACIONADAS AO COMPONENTE DATEPICKER DO JQUERY --------------------------------
+//  ---------------------------  FUNï¿½ï¿½ES RELACIONADAS AO COMPONENTE DATEPICKER DO JQUERY --------------------------------
 
 
 		  //  INICIAR A DATA DO DATE PICKER SETADO COM O ANO EM 1990          
@@ -13,10 +13,10 @@
 		      todayHighlight: true,
               yearRange: '1930:2050',
               dateFormat: 'dd/mm/yy',
-  		      dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+  		      dayNames: ['Domingo','Segunda','Terï¿½a','Quarta','Quinta','Sexta','Sï¿½bado'],
 		      dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-		      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-		      monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+		      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sï¿½b','Dom'],
+		      monthNames: ['Janeiro','Fevereiro','Marï¿½o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 		      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
 	      });
 
@@ -24,13 +24,23 @@
           // MASCARA NO CAMPO DE DATA
           $(".data").mask("99/99/9999");
 
+          // MASCARA NO CAMPO DE RG
+          $(".rg").mask("99.999.999-9");
+
+          // MASCARA NO CAMPO DE CPF
+          $(".cpf").mask("999.999.999-99");
+          
+          // MASCARA NO CAMPO DE CEP
+          $(".cep").mask("99999-999");
+          
+          
 
          /*
 		  *  Lista de efeitos com o datepicker 1 -show 2 -slideDown 3 -fadeIn
 		  *  4 -blind 5 -bounce 6 -clip 7 -drop 8 -fold 9 -slide
 		  */
 
-          // exemplo de efeito show no datepicker, caso queira outro é só
+          // exemplo de efeito show no datepicker, caso queira outro ï¿½ sï¿½
 		  // substituir o ultimo parametro
           // com o nome do efeito
           $(".data").datepicker("option", "showAnim", 'show');

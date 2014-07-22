@@ -91,6 +91,7 @@ public class Testes {
 		func.setSenha("827ccb0eea8a706c4c34a16891f84e7b");
 		
         tel.add("2453-2391");
+        tel.add("");
         tel.add("2451-2391");
         func.setTelefones(tel);
         

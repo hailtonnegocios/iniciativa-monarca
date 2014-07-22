@@ -30,46 +30,72 @@
 			<div class="tab-pane fade active in" id="cadastrarexemplo">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<form action="" method="post">
+						<form action="adicionaFuncionario" method="post">
 							<fieldset>
 							<legend><b>Dados Cadastrais</b></legend>
 							<table>
  							       <tr>
 				                    <td colspan="2">
 					                    <div style="padding-bottom:10px;">
-							                 <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Nome do Funcionário" />
-							                 <form:errors path="" cssStyle="color:red;" />
+							                 <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Nome do Funcionário" />
+							                <!--  <form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							          </td>
 							       </tr>
 							       <tr>
 							          <td>
 							              <div style="padding:0 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Rg" />
-							              	<form:errors path="" cssStyle="color:red;" />
+							            	<input class="form-control rg" maxlength="80" type="text" name="rg" id="rg" value="" placeholder="Rg" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
 							              </div>
 							          </td>
 							          <td>
 							             <div>
-							            	<input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Cpf" />
-							              	<form:errors path="" cssStyle="color:red;" />
+							            	<input class="form-control cpf" maxlength="80" type="text" name="cpf" id="cpf" value="" placeholder="Cpf" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          </tr>
 							          <tr>
 							            <td>
 							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Telefone" />
-							              	<form:errors path="" cssStyle="color:red;" />
+							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_1" value="" placeholder="Telefone 1" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
 							              </div>
 							            </td>
 							            <td>
 							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Celular" />
-							              	<form:errors path="" cssStyle="color:red;" />
+							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_2" value="" placeholder="Telefone 2" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
 							              </div>
 							            </td>
-							          </tr>
+							             <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control" maxlength="80" type="text" name="telefones" id="telefone_3" value="" placeholder="Telefone 2" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              </div>
+							            </td>
+							            </tr>
+							            <tr>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_1" value="" placeholder="Celular 1" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              </div>
+							            </td>
+							            <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_2" value="" placeholder="Celular 2" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              </div>
+							            </td>
+							             <td>
+							              <div style="padding: 10px 10px 0 0">
+							            	<input class="form-control" maxlength="80" type="text" name="celulares" id="celular_3" value="" placeholder="Celular 3" />
+							              	<!--<form:errors path="" cssStyle="color:red;" />-->
+							              </div>
+							            </td>
+							            </tr>
 							</table>
 							</fieldset>
 							<br>
@@ -78,17 +104,27 @@
                                     <table>
     							        <tr>
 							            <td>
-							               <div style="padding: 0 10px 0 0">
-							            	  <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Usuário" />
-							              	  <form:errors path="" cssStyle="color:red;" />
+							               <div style="padding: 15px 10px 0 0">
+							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="" placeholder="Usuário" />
+							              	  <!--<form:errors path="" cssStyle="color:red;" />-->
 							               </div>
 							            </td>
 							            <td>
-							               <div style="padding: 0 10px 0 0">
-							            	  <input class="form-control" maxlength="80" type="password" name="nome" id="nome" value="" placeholder="Senha" />
-							              	  <form:errors path="" cssStyle="color:red;" />
+							               <div style="padding: 15px 10px 0 0">
+							            	  <input class="form-control" maxlength="80" type="password" name="senha" id="senha" value="" placeholder="Senha" />
+							              	  <!--<form:errors path="" cssStyle="color:red;" />-->
 							               </div>
 							            </td>
+							          <td>
+							          <div style="padding:0 10px 10px 0;width:200px">
+							          <label>Permissão</label>
+							          <select class="form-control" name="permissao" id="permissao">
+							             <option value="ADMIN">ADMIN</option>
+							             <option value="FUNC">FUNC</option>
+							          </select>
+							        </div>
+							        </td>
+							            
 							            </tr>
                                      </table>  
                             </fieldset>
@@ -99,9 +135,14 @@
                                      <tr>
                                      <td>													         
 							             <div>
-                                             <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Cep" />
-							                 <form:errors path="" cssStyle="color:red;" />
+                                             <input class="form-control cep" maxlength="80" type="text" name="endereco.cep" id="cep" value="" placeholder="Cep" onblur="javascript:consultaEndereco();" />
+							                 <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
+							         </td>
+							         <td>
+							            <div id="carrega_endereco" style="padding: 0 0 0 10px"><img  src="resources/img/carregando.gif"></div>
+							            <div id="retorno_endereco_success" style="padding: 0 0 10px 10px;color:green;"><img src="resources/img/success_endereco.png"> Endereço encontrado com sucesso !</div>
+							            <div id="retorno_endereco_error" style="padding: 0 0 10px 10px;color:red;"><img src="resources/img/error_endereco.png"> Endereço não encontrado ou CEP inválido</div>
 							         </td>
 							         </tr>
 							    </table>
@@ -109,26 +150,26 @@
 							         <tr>
                                      <td>													         
 							            <div style="padding:10px 10px 10px 0;width:90px">
-                                           <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Logra." />
-							               <form:errors path="" cssStyle="color:red;" />
+                                           <input class="form-control" maxlength="80" type="text" name="endereco.tipo_logradouro" id="tipo_logradouro" value="" placeholder="Logra." />
+							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:450px">
-                                            <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Endereço" />
-							                <form:errors path="" cssStyle="color:red;" />
+                                            <input class="form-control" maxlength="80" type="text" name="endereco.logradouro" id="logradouro" value="" placeholder="Endereço" />
+							               <!-- <form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
-                                           <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Nº" />
-							               <form:errors path="" cssStyle="color:red;" />
+                                           <input class="form-control" maxlength="80" type="text" name="endereco.numero" id="numero" value="" placeholder="Nº" />
+							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
-                                           <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Compl" />
-							               <form:errors path="" cssStyle="color:red;" />
+                                           <input class="form-control" maxlength="80" type="text" name="endereco.complemento" id="complemento" value="" placeholder="Compl" />
+							               <!--<form:errors path="" cssStyle="color:red;" />-->
 							            </div>
 							         </td>
 							         </tr>
@@ -137,20 +178,20 @@
 							          <tr>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:70px">
-                                            <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="UF" />
-							                <form:errors path="" cssStyle="color:red;" />
+                                            <input class="form-control" maxlength="80" type="text" name="endereco.uf" id="uf" value="" placeholder="UF" />
+							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
-                                            <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Cidade" />
-							                <form:errors path="" cssStyle="color:red;" />
+                                            <input class="form-control" maxlength="80" type="text" name="endereco.cidade" id="cidade" value="" placeholder="Cidade" />
+							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
-                                            <input class="form-control" maxlength="80" type="text" name="" id="" value="" placeholder="Bairro" />
-							                <form:errors path="" cssStyle="color:red;" />
+                                            <input class="form-control" maxlength="80" type="text" name="endereco.bairro" id="bairro" value="" placeholder="Bairro" />
+							                <!--<form:errors path="" cssStyle="color:red;" />-->
 							             </div>
 							          </td>
 							          </tr>
@@ -164,10 +205,10 @@
 							    <tr>
 							      <td>
 							        <div style="padding:0 10px 10px 0;width:200px">
-							          <select class="form-control">
-							             <option>Compra</option>
-							             <option>Técnica</option>
-							             <option>Vendas</option>
+							          <select class="form-control" name="setor" id="setor">
+							             <option value="Compra">Compra</option>
+							             <option value="Tecninca">Técnica</option>
+							             <option value="Vendas">Vendas</option>
 							          </select>
 							        </div>
 							      </td>
