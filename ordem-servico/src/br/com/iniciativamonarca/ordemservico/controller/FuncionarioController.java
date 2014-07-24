@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.iniciativamonarca.ordemservico.criptografia.Criptografia;
+import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.FuncionarioDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Endereco;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
@@ -39,30 +40,33 @@ public class FuncionarioController {
 	// tenho que colocar essa annotation em frente ao objeto e o proximo argumento tem que ser o BindingResult,se tiver
 	// qualquer argumento depois do objeto sem ser o bindingResult ele não funciona
 	@RequestMapping("adicionaFuncionario")
-	public String adicionaFuncionario(@Valid Funcionario funcionario,BindingResult result,Endereco endereco,
-			                          Model model,RedirectAttributes redirectAttributes) {
-		
+	public String adicionaFuncionario(@Valid Funcionario funcionario,BindingResult result,
+			                                 Endereco endereco,
+			                                 Model model,
+			                                 RedirectAttributes redirectAttributes) {
 		if (!result.hasErrors()) {
-			// Retirar os valores em branco das listas 
+
+			// RETIRAR OS VALORES EM BRANCO DA LISTA DE TELEFONE E CELULAR 
 			List<String> celulares = new ArrayList<String>();
 		    List<String> telefones = new ArrayList<String>();
 
-		    for (int i=0; i < funcionario.getCelulares().size();i++) {
-		    	if(!funcionario.getCelulares().get(i).equals("")){
-		    	     celulares.add(funcionario.getCelulares().get(i).toString());
-		    	}
-			}
-		    for (int i=0; i < funcionario.getTelefones().size();i++) {
-		    	if(!funcionario.getTelefones().get(i).equals("")){
-		    	     telefones.add(funcionario.getTelefones().get(i).toString());
-		    	}
-			}
-		  
-		    funcionario.setEndereco(endereco);
-		    funcionario.setCelulares(celulares);
-		    funcionario.setTelefones(telefones);
+		    if(funcionario.getTelefones().isEmpty() && funcionario.getCelulares().isEmpty()){
+			    for (int i=0; i < funcionario.getCelulares().size();i++) {
+			    	if(!funcionario.getCelulares().get(i).equals("")){
+			    	     celulares.add(funcionario.getCelulares().get(i).toString());
+			    	}
+				}
+			    for (int i=0; i < funcionario.getTelefones().size();i++) {
+			    	if(!funcionario.getTelefones().get(i).equals("")){
+			    	     telefones.add(funcionario.getTelefones().get(i).toString());
+			    	}
+				}
+
+			    funcionario.setCelulares(celulares);
+			    funcionario.setTelefones(telefones);
+		    }
 		    
-		    // Criptografar Senha 
+		    // CRIPTOGRAFIA DA SENHA 
 		    try {
 				funcionario.setSenha(Criptografia.encriptarSenha(funcionario.getSenha(),"MD5"));
 			} catch (NoSuchAlgorithmException e) {
@@ -70,21 +74,40 @@ public class FuncionarioController {
 				e.printStackTrace();
 			}
 		    
-		    funcdao.adicionar(funcionario);
+		    funcionario.setEndereco(endereco);
+
+		    // VALIDAÇÃO DE EMAIL
+		    try {
+				if(funcdao.verificaFuncionario(funcionario.getEmail())){
+				    model.addAttribute("mensagem", "Esse email já está cadastrado !");
+				    model.addAttribute("error_email", "cadastrado");
+			        carregaCelTelFuncionario(model,funcionario);
+			       return "forward:cadastroFuncionario";
+				}else{
+				     funcdao.adicionar(funcionario);
+				     redirectAttributes.addFlashAttribute("mensagem", "Funcionário "+ funcionario.getNome().split(" ")[0] +" salvo com sucesso!");
+				    return "redirect:cadastroFuncionario";
+				}
+			} catch (DAOException e) {
+				System.out.println("Erro na verificação do email !");
+				e.printStackTrace();
+			}
 		    
-		    redirectAttributes.addFlashAttribute("mensagem", "Funcionário "+ funcionario.getNome().split(" ")[0] +" salvo com sucesso!");
-		    
-			return "redirect:cadastroFuncionario";
-		}else{
+		}else
+		  carregaCelTelFuncionario(model,funcionario);
+  		return "forward:cadastroFuncionario";
+	}
+
+	
+	public void carregaCelTelFuncionario(Model model,Funcionario funcionario){
+		if(funcionario.getTelefones() != null && funcionario.getCelulares() != null){
 			model.addAttribute("telefone_1", funcionario.getTelefones().get(0).toString());
 			model.addAttribute("telefone_2", funcionario.getTelefones().get(1).toString());
 			model.addAttribute("celular_1", funcionario.getCelulares().get(0).toString());
 			model.addAttribute("celular_2", funcionario.getCelulares().get(1).toString());
-			
-			return "forward:cadastroFuncionario";
 		}
 	}
-
+	
 	@RequestMapping("mostraFuncionario")
 	public String mostraFuncionario(Long id) {
 		return "";

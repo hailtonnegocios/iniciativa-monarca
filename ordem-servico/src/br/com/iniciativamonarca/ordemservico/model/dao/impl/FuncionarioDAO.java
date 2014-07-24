@@ -3,7 +3,9 @@ package br.com.iniciativamonarca.ordemservico.model.dao.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Repository;
@@ -67,6 +69,23 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
 	}
 
 	
+	public Boolean verificaFuncionario(String email) throws DAOException{
+        boolean b;
+		try {
+			Query query = manager.createQuery(
+					  "SELECT f FROM Funcionario f WHERE email = :email ");
+					  query.setParameter("email",email);
+				
+			Funcionario func = (Funcionario)query.getSingleResult();
+					
+			b = func!= null ? true : false;
+					  
+			return b;
+		} catch (NoResultException e) {
+			return b = false;
+		}
+
+	}
 	
 }
 

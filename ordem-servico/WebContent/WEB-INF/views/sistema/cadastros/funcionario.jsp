@@ -21,7 +21,7 @@
 		
 		    <!-- MENSAGEM DE RETORNO DO CADASTRO -->
 			<div id="seconds">
-				<div class="alert alert-info alert-dismissable">${mensagem}</div>
+				<div class="${error_email != null ? 'alert alert-danger alert-dismissable' : 'alert alert-info alert-dismissable'}">${mensagem}</div>
 			</div>
 		</c:if>
 		
@@ -165,7 +165,7 @@
     							        <td style="color:red">*</td>
 							            <td>
 							               <div style="padding: 15px 10px 0 5px;width:350px;">
-							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="${param.email}" placeholder="Email" />
+							            	  <input class="form-control"  style="${error_email != null ? 'border-color:#FF0000':'border-color:#ccc'}"  maxlength="80" type="text" name="email" id="email" value="${param.email}" placeholder="Email" />
 							               </div>
 							            </td>
 							            <td style="color:red">*</td>
