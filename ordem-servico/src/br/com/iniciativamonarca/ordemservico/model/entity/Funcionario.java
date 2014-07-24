@@ -12,7 +12,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Funcionario extends Usuario {
 
-	@NotNull
 	@NotBlank(message="{funcionario.nome.vazio}")
 	String nome;
 	String cpf;

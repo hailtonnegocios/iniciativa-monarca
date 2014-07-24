@@ -30,37 +30,37 @@
 			<div class="tab-pane fade active in" id="cadastrarexemplo">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<form action="adicionaFuncionario" method="post">
+						<form action="adicionaFuncionario" method="get">
 							<fieldset>
-							<legend><b>Dados Cadastrais</b></legend>
+							<legend><b><fmt:message key="sistema.funcionario.legend.dadoscadastrais" /></b></legend>
 							<table>
  							       <tr>
+ 							       <td style="color:red;padding-right:5px;">*</td>
 				                    <td colspan="2">
 					                    <div style="padding:0 10px 10px 0;width:400px">
-							                 <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="" placeholder="Nome Completo" />
+							                 <input class="form-control" maxlength="80" type="text" name="nome" id="nome" value="${param.nome}" placeholder="Nome Completo" />
 							            </div>
 							          </td>
 							          <td>
 							              <div style="padding:0 10px 10px 0">
-							            	<input class="form-control rg" maxlength="80" type="text" name="rg" id="rg" value="" placeholder="Rg" />
+							            	<input class="form-control rg" maxlength="80" type="text" name="rg" id="rg" value="${param.rg}" placeholder="Rg" />
 							              	
 							              </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 10px 0">
-							            	<input class="form-control cpf" maxlength="80" type="text" name="cpf" id="cpf" value="" placeholder="Cpf" />
+							            	<input class="form-control cpf" maxlength="80" type="text" name="cpf" id="cpf" value="${param.cpf}" placeholder="Cpf" />
 							              	
 							             </div>
 							          </td>
 							          </tr>
-							          <tr><td><form:errors path="funcionario.nome" cssStyle="color:red;" /><td><td><td><td><td></tr>
-							</table>
-                                <table>
+							          <tr><td></td><td><form:errors path="funcionario.nome" cssStyle="color:red;" /><td><td><td><td><td></tr>
+							   </table>
+                               <table>
                                      <tr>
                                      <td>													         
-							             <div style="padding: 0 0 0 0px">
-                                             <input class="form-control cep" maxlength="80" type="text" name="endereco.cep" id="cep" value="" placeholder="Cep" onblur="javascript:consultaEndereco();" />
-							                
+							             <div style="padding: 0 0 0 10px">
+                                             <input class="form-control cep" maxlength="80" type="text" name="cep" id="cep" value="${param.cep}" placeholder="Cep" onblur="javascript:consultaEndereco();" />
 							             </div>
 							         </td>
 							         <td>
@@ -73,23 +73,23 @@
 							    <table>
 							         <tr>
                                      <td>													         
-							            <div style="padding:10px 10px 10px 0;width:90px">
-                                           <input class="form-control" maxlength="80" type="text" name="endereco.tipo_logradouro" id="tipo_logradouro" value="" placeholder="Logra." />
+							            <div style="padding:10px 10px 10px 10px;width:90px">
+                                           <input class="form-control" maxlength="80" type="text" name="tipo_logradouro" id="tipo_logradouro" value="${param.tipo_logradouro}" placeholder="Logra." />
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:450px">
-                                            <input class="form-control" maxlength="80" type="text" name="endereco.logradouro" id="logradouro" value="" placeholder="Endereço" />
+                                            <input class="form-control" maxlength="80" type="text" name="logradouro" id="logradouro" value="${param.logradouro}" placeholder="Endereço" />
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
-                                           <input class="form-control" maxlength="80" type="text" name="endereco.numero" id="numero" value="" placeholder="Nº" />
+                                           <input class="form-control" maxlength="80" type="text" name="numero" id="numero" value="${param.numero}" placeholder="Nº" />
 							            </div>
 							         </td>
 							         <td>
 							            <div style="padding:10px 10px 10px 0;width:80px">
-                                           <input class="form-control" maxlength="80" type="text" name="endereco.complemento" id="complemento" value="" placeholder="Compl" />
+                                           <input class="form-control" maxlength="80" type="text" name="complemento" id="complemento" value="${param.complemento}" placeholder="Compl" />
 							            </div>
 							         </td>
 							         </tr>
@@ -97,18 +97,18 @@
 							     <table>
 							          <tr>
 							          <td>
-							             <div style="padding:0 10px 0 0;width:70px">
-                                            <input class="form-control" maxlength="80" type="text" name="endereco.uf" id="uf" value="" placeholder="UF" />
+							             <div style="padding:0 10px 0 10px;width:70px">
+                                            <input class="form-control" maxlength="80" type="text" name="uf" id="uf" value="${param.uf}" placeholder="UF" />
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
-                                            <input class="form-control" maxlength="80" type="text" name="endereco.cidade" id="cidade" value="" placeholder="Cidade" />
+                                            <input class="form-control" maxlength="80" type="text" name="cidade" id="cidade" value="${param.cidade}" placeholder="Cidade" />
 							             </div>
 							          </td>
 							          <td>
 							             <div style="padding:0 10px 0 0;width:300px">
-                                            <input class="form-control" maxlength="80" type="text" name="endereco.bairro" id="bairro" value="" placeholder="Bairro" />
+                                            <input class="form-control" maxlength="80" type="text" name="bairro" id="bairro" value="${param.bairro}" placeholder="Bairro" />
 							             </div>
 							          </td>
 							          </tr>
@@ -116,23 +116,23 @@
 							     <table>
 							     	 <tr>
 							            <td>
-							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_1" value="" placeholder="Telefone" />
+							              <div style="padding: 10px 10px 0 10px">
+							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_1" value="${telefone_1}" placeholder="Telefone" />
 							              </div>
 							            </td>
 							            <td>
 							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_2" value="" placeholder="Telefone Aux." />
+							            	<input class="form-control telefone" maxlength="80" type="text" name="telefones" id="telefone_2" value="${telefone_2}" placeholder="Telefone Aux." />
 							              </div>
 							            </td>
 							            <td>
 							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_1" value="" placeholder="Celular" />
+							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_1" value="${celular_1}" placeholder="Celular" />
 							              </div>
 							            </td>
 							            <td>
 							              <div style="padding: 10px 10px 0 0">
-							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_2" value="" placeholder="Celular Aux." />
+							            	<input class="form-control celular" maxlength="80" type="text" name="celulares" id="celular_2" value="${celular_2}" placeholder="Celular Aux." />
 							              </div>
 							            </td>
 							            </tr>
@@ -141,14 +141,14 @@
                              </fieldset>
                              <br>
                              
-                                                         <fieldset>
-                            <legend><b>Setor</b></legend>
+                            <fieldset>
+                            <legend><b><fmt:message key="sistema.funcionario.legend.setor" /></b></legend>
                             
                             <table>                            
 							    <tr>
 							      <td>
-							        <div style="padding:0 10px 10px 0;width:200px">
-							          <select class="form-control" name="setor" id="setor">
+							        <div style="padding:0 10px 10px 10px;width:200px">
+						          <select class="form-control" name="setor" id="setor">
 							             <option value="Compra">Compra</option>
 							             <option value="Tecninca">Técnica</option>
 							             <option value="Vendas">Vendas</option>
@@ -159,23 +159,25 @@
                             </table>                      
                             </fieldset>
                             <fieldset>
-                              <legend><b>Autenticação</b></legend>
+                              <legend><b><fmt:message key="sistema.funcionario.legend.autenticacao" /></b></legend>
                                     <table>
     							        <tr>
+    							        <td style="color:red">*</td>
 							            <td>
-							               <div style="padding: 15px 10px 0 0;width:350px;">
-							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="" placeholder="Email" />
+							               <div style="padding: 15px 10px 0 5px;width:350px;">
+							            	  <input class="form-control" maxlength="80" type="text" name="email" id="email" value="${param.email}" placeholder="Email" />
 							               </div>
 							            </td>
+							            <td style="color:red">*</td>
 							            <td>
-							               <div style="padding: 15px 10px 0 0">
-							            	  <input class="form-control" maxlength="80" type="password" name="senha" id="senha" value="" placeholder="Senha" />
+							               <div style="padding: 15px 10px 0 5px">
+							            	  <input class="form-control" maxlength="80" type="password" name="senha" id="senha" value="${param.senha}" placeholder="Senha" />
 							              	  
 							               </div>
 							            </td>
 							          <td>
 							          <div style="padding:0 10px 10px 0;width:200px">
-							          <label>Permissão</label>
+							          <label><fmt:message key="sistema.funcionario.label.permissao" /></label>
 							          <select class="form-control" name="permissao" id="permissao">
 							             <option value="ADMIN">ADMIN</option>
 							             <option value="FUNC">FUNC</option>
@@ -184,15 +186,17 @@
 							        </td>
 							        </tr>
 							          <tr>
+							              <td></td>
 							              <td><form:errors path="funcionario.email" cssStyle="color:red;" /></td>
+							              <td></td>
 							              <td><form:errors path="funcionario.senha" cssStyle="color:red;" /></td>
 							              <td><form:errors path="funcionario.permissao" cssStyle="color:red;" /></td>
 							          </tr>
                                      </table>  
                             </fieldset>
                             <br>
-                            <div align="center">
-							<button class="btn btn-danger" >Salvar</button>
+                            <div style="padding:0 0 0 10px;">
+							<button class="btn btn-danger" ><fmt:message key="sistema.funcionario.btn.salvar" /></button>
 							</div>
 						</form>
 				    </div>
