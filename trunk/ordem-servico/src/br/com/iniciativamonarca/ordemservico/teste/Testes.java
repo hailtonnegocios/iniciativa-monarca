@@ -75,7 +75,27 @@ public class Testes {
 		}
 	}
 
+	
+	
 	@Test
+	public void verificaFuncionario(){
+		try {
+			Funcionario func = new Funcionario();
+
+			func.setEmail(null);
+
+			if(funcdao.verificaFuncionario(func.getEmail())){
+				System.out.println("Esse Email ja existe em nossa base de dados");
+			}else
+				System.out.println("Email não usado ainda");
+
+		} catch (DAOException e) {
+			System.out.println(e);
+		}
+	}
+	
+	
+	@Ignore
 	public void AdicionaFuncionario() {
 		
 		Funcionario func = new Funcionario();
