@@ -23,13 +23,13 @@ public abstract class Usuario {
 	@GeneratedValue
 	Long id_usuario;
 
-	@NotNull
+
 	@NotBlank(message="{usuario.email.vazio}")
 	String email;
-	@NotNull
+
 	@NotBlank(message="{usuario.senha.vazio}")
 	String senha;
-	@NotNull
+
 	@NotBlank(message="{usuario.permissao.vazio}")
 	String permissao;
 
