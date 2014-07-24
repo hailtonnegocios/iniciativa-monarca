@@ -30,7 +30,7 @@
 			<div class="tab-pane fade active in" id="cadastrarexemplo">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<form action="adicionaFuncionario" method="get">
+						<form action="adicionaFuncionario" method="post">
 							<fieldset>
 							<legend><b><fmt:message key="sistema.funcionario.legend.dadoscadastrais" /></b></legend>
 							<table>
