@@ -87,5 +87,26 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
 
 	}
 	
+	
+	
+	public List<Funcionario> listarLike(String tipo_pesq,String name_pesq) {
+		Query query;
+		try{
+			if(!tipo_pesq.equals("Todos")){
+			   query = manager.createQuery("SELECT funcionario from Funcionario funcionario WHERE funcionario."+tipo_pesq.trim()+" like'"+name_pesq.trim()+"%' ");
+			   return query.getResultList();
+			}else{
+				query = manager.createQuery("SELECT funcionario from Funcionario funcionario");
+			    return query.getResultList();
+		    } 
+ 	    }catch(NoResultException e){
+		  System.out.println("Erro ao Consultar Funcionário");	   
+		}
+	    return null;
+	}
+
+	
+	
+	
 }
 
