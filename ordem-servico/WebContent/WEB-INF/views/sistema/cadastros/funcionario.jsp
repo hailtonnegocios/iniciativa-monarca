@@ -148,11 +148,11 @@
 							    <tr>
 							      <td>
 							        <div style="padding:0 10px 10px 10px;width:200px">
-						          <select class="form-control" name="setor" id="setor">
-							             <option value="Compra">Compra</option>
-							             <option value="Tecninca">Técnica</option>
-							             <option value="Vendas">Vendas</option>
-							          </select>
+						               <select class="form-control" name="setor" id="setor">
+  					                      <c:forEach items="${listasetor}" var="setor">
+							                 <option value="${setor.descricao}">${setor.descricao}</option>
+							              </c:forEach>
+							            </select>
 							        </div>
 							      </td>
 							     </tr>
@@ -165,7 +165,7 @@
     							        <td style="color:red">*</td>
 							            <td>
 							               <div style="padding: 15px 10px 0 5px;width:350px;">
-							            	  <input class="form-control"  style="${error_email != null ? 'border-color:#FF0000':'border-color:#ccc'}"  maxlength="80" type="text" name="email" id="email" value="${param.email}" placeholder="Email" />
+							            	  <input class="form-control"  style="${error_email != null ? 'border-color:#FF0000':'border-color:#ccc'}"  maxlength="80" type="email" name="email" id="email" value="${param.email}" placeholder="Email" />
 							               </div>
 							            </td>
 							            <td style="color:red">*</td>
@@ -179,8 +179,9 @@
 							          <div style="padding:0 10px 10px 0;width:200px">
 							          <label><fmt:message key="sistema.funcionario.label.permissao" /></label>
 							          <select class="form-control" name="permissao" id="permissao">
-							             <option value="ADMIN">ADMIN</option>
-							             <option value="FUNC">FUNC</option>
+							          <c:forEach  items="${listapermissao}" var="permissao" >
+							             <option value="${permissao.descricao}">${permissao.descricao}</option>
+							          </c:forEach>
 							          </select>
 							        </div>
 							        </td>
@@ -215,20 +216,20 @@
 							</tr>
 							<tr>
 								<td>
-	 							  <select class="form-control" id="">
-	 							  <c:forEach var="filtro" items="">
-	 							      <option value=""></option>
+	 							  <select class="form-control" id="select_val_func">
+	 							  <c:forEach var="filtro_func" items="${filtro_func}">
+	 							      <option value="${filtro_func.descricao}">${filtro_func.nome}</option>
 	 							  </c:forEach>
 								   </select>
 								</td>
-								<td><input class="form-control" type="text"	id="name_pesquisar" /></td>
-								<td><button class="btn btn-danger" id="btn_pesquisar">Pesquisar</button></td>
+								<td><input class="form-control" type="text"	id="name_pesquisar_func" /></td>
+								<td><button class="btn btn-danger" id="btn_pesquisar_func">Pesquisar</button></td>
 						    </tr>
 						</table>
-						<div id="carregando3" align="center">
+						<div id="carregando_lista_func" align="center">
 							<img src="resources/img/carregando.gif">
 						</div>
-						<div id="lista_de_exemplos" class="table-responsive"></div>
+						<div id="lista_de_funcionarios" class="table-responsive"></div>
 						<br>
 					</div>
 				</div>
@@ -236,7 +237,7 @@
   		</div>
 
         <!-- MODAL DO BOTÃO DE EXCLUIR DA LISTA -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModal_func" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -244,18 +245,18 @@
 						<h3>Atenção!</h3>
 					</div>
 					<div class="modal-body">
-						<p>Tem certeza que deseja excluir este Exemplo?</p>
+						<p>Tem certeza que deseja excluir este Funcionario?</p>
 					</div>
 					<div class="modal-footer">
-						<a id="linkExclusao" class="btn btn-danger"	onclick="">Sim</a>
-						<button class="btn" id="btncancelar" data-dismiss="modal" aria-hidden="true">Não</button>
+						<a id="linkExclusao" class="btn btn-danger"	onclick="javascript:excluirComModal();">Sim</a>
+						<button class="btn" id="btncancelar_func" data-dismiss="modal" aria-hidden="true">Não</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
         <!-- MODAL DO LINK DE EXCLUIR OS ITENS MARCADOS -->
-		<div class="modal fade" id="myModal_exclusaoLista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModal_exclusaoLista_func" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -266,8 +267,8 @@
 						<p>Tem certeza que deseja excluir os itens marcados?</p>
 					</div>
 					<div class="modal-footer">
-						<a id="linkExclusaoLista" class="btn btn-danger" onclick="">Sim</a>
-						<button class="btn" id="btncancelarmodal2" data-dismiss="modal"	aria-hidden="true">Não</button>
+						<a id="linkExclusaoLista" class="btn btn-danger" onclick="excluirComModal_list_func();">Sim</a>
+						<button class="btn" id="btncancelarmodal2_func" data-dismiss="modal"	aria-hidden="true">Não</button>
 					</div>
 				</div>
 			</div>
@@ -275,7 +276,7 @@
 
 
         <!-- MODAL DO LINK DE VERIFICAÇÃO DE ITENS MARCADOS -->
-		<div class="modal fade" id="myModalVerificaSelecionado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModalVerificaSelecionado_func" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -286,7 +287,7 @@
 						<p>A lista não possui itens selecionados !</p>
 					</div>
 					<div class="modal-footer">
-						<button class="btn" id="btncancelarmodal2" data-dismiss="modal"	aria-hidden="true">OK</button>
+						<button class="btn" id="btncancelarmodal2_func" data-dismiss="modal"	aria-hidden="true">OK</button>
 					</div>
 				</div>
 			</div>
@@ -294,9 +295,9 @@
 
 
 		<!-- INPUT PARA COLOCAR O ID DO ITEM A SER EXCLUIDO DA LISTA -->
-		<input type="hidden" id="ASerExcluido">
-		<a href="#myModal_exclusaoLista" data-toggle="modal"  type="hidden" id="chamaModalExcluirLista"></a>
-		<a href="#myModalVerificaSelecionado" data-toggle="modal"  type="hidden" id="chamaModalVerificaSelecionados"></a>
+		<input type="hidden" id="ASerExcluido_func">
+		<a href="#myModal_exclusaoLista_func" data-toggle="modal"  type="hidden" id="chamaModalExcluirLista_func"></a>
+		<a href="#myModalVerificaSelecionado_func" data-toggle="modal"  type="hidden" id="chamaModalVerificaSelecionados_func"></a>
 		
     </div>
 </div>

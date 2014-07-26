@@ -45,7 +45,8 @@ public class Testes {
 	@Autowired
 	ExemploDAO exemplodao;
 
-	@Test
+
+	@Ignore
 	public void ListarLike() {
 
 		List<Exemplo> exe = exemplodao.listarLike("id_exemplo", "1549");
@@ -57,6 +58,20 @@ public class Testes {
 
 	}
 
+	
+	@Test
+	public void ListarLike_Funcionario() {
+
+		List<Funcionario> exe = funcdao.listarLike("id_usuario","55");
+		System.out.println(exe);
+
+		for (Funcionario func : exe) {
+			System.out.println(func.getNome());
+		}
+
+	}
+	
+	
 	@Ignore
 	public void EfetuarLogin() {
 		try {
@@ -76,8 +91,7 @@ public class Testes {
 	}
 
 	
-	
-	@Test
+	@Ignore
 	public void verificaFuncionario(){
 		try {
 			Funcionario func = new Funcionario();
