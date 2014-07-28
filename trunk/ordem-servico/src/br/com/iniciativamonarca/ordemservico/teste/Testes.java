@@ -62,7 +62,7 @@ public class Testes {
 	@Test
 	public void ListarLike_Funcionario() {
 
-		List<Funcionario> exe = funcdao.listarLike("id_usuario","55");
+		List<Funcionario> exe = funcdao.listarLike("id_usuario","1");
 		System.out.println(exe);
 
 		for (Funcionario func : exe) {
