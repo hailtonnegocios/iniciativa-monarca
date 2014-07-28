@@ -117,7 +117,7 @@
 					   ' <td>'+
 						
 					   // Botao de alterar
-					   ' <a href=\"mostraExemplos?id='+obj[i].id_usuario+
+					   ' <a href=\"mostraFuncionario?id='+obj[i].id_usuario+
 					   ' \" title=\"Alterar\" class=\"btn btn-small btn-primary\" role=\"button\" class=\"btn\">'+
 					   ' <i class=\"fa fa-edit\"></i></a> '+
 					   '<td>'+		
