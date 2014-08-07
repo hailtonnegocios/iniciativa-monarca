@@ -89,11 +89,11 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
 	
 	
 	
-	public List<Funcionario> listarLike(String tipo_pesq,String name_pesq) {
+	public List<Funcionario> listarLike(String campo, String valor) {
 		Query query;
 		try{
-			if(!tipo_pesq.equals("Todos")){
-			   query = manager.createQuery("SELECT funcionario from Funcionario funcionario WHERE funcionario."+tipo_pesq.trim()+" like'"+name_pesq.trim()+"%' ");
+			if(!campo.equals("Todos")){
+			   query = manager.createQuery("SELECT funcionario from Funcionario funcionario WHERE funcionario."+campo.trim()+" like'"+valor.trim()+"%' ");
 			   return query.getResultList();
 			}else{
 				query = manager.createQuery("SELECT funcionario from Funcionario funcionario");
