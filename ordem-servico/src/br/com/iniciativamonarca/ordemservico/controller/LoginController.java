@@ -1,7 +1,15 @@
 package br.com.iniciativamonarca.ordemservico.controller;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.exceptions.DAOException;
+import br.com.iniciativamonarca.ordemservico.model.dao.ConnectionFactory;
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.LoginDAO;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
+import br.com.iniciativamonarca.ordemservico.relatorios.GeradorRelatorio;
 
 @Transactional
 @Controller
@@ -18,6 +28,7 @@ public class LoginController {
 
 	@Autowired
 	LoginDAO usuDao;
+	
 
 	@RequestMapping("/")
 	public String formlogin(HttpSession session) {

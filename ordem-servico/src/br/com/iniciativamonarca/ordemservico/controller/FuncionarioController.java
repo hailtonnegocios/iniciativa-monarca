@@ -59,22 +59,23 @@ public class FuncionarioController {
 			                                 RedirectAttributes redirectAttributes) {
 		if (!result.hasErrors()) {
 
-			// RETIRAR OS VALORES EM BRANCO DA LISTA DE TELEFONE E CELULAR 
-			List<String> celulares = new ArrayList<String>();
-		    List<String> telefones = new ArrayList<String>();
-
-		    if(funcionario.getTelefones().isEmpty() != true && funcionario.getCelulares().isEmpty() != true){
-			    for (int i=0; i < funcionario.getCelulares().size();i++) {
-			    	if(!funcionario.getCelulares().get(i).equals("")){
-			    	     celulares.add(funcionario.getCelulares().get(i).toString());
-			    	}
+		    if(!funcionario.getTelefones().isEmpty() || !funcionario.getCelulares().isEmpty()){
+		    	// RETIRAR OS VALORES EM BRANCO DA LISTA DE TELEFONE E CELULAR 
+				List<String> celulares = new ArrayList<String>();
+			    List<String> telefones = new ArrayList<String>();
+			    
+			    for (String celular : funcionario.getCelulares()) {
+			    	if (!celular.equals("")) {
+			    		celulares.add(celular);
+					}
 				}
-			    for (int i=0; i < funcionario.getTelefones().size();i++) {
-			    	if(!funcionario.getTelefones().get(i).equals("")){
-			    	     telefones.add(funcionario.getTelefones().get(i).toString());
-			    	}
+			    
+			    for (String telefone : funcionario.getTelefones()) {
+			    	if (!telefone.equals("")) {
+			    		telefones.add(telefone);
+					}
 				}
-
+			    
 			    funcionario.setCelulares(celulares);
 			    funcionario.setTelefones(telefones);
 		    }
@@ -186,9 +187,9 @@ public class FuncionarioController {
 
 	@RequestMapping("listaLikeFunc")
 	public @ResponseBody
-	String listaLike(String tipo_pesq, String name_pesq, Model model) {
+	String listaLike(String campo, String name_pesq, Model model) {
 		Gson gson = new Gson();
-		List<Funcionario> funcionario = funcdao.listarLike(tipo_pesq, name_pesq);
+		List<Funcionario> funcionario = funcdao.listarLike(campo, name_pesq);
 		String lista = gson.toJson(funcionario);
 
 		return lista;
