@@ -172,34 +172,6 @@
 	</div>
 
 
-	<div class="col-lg-3">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<div class="row">
-					<div class="col-xs-6">
-						<img src="resources/img/os.png" />
-					</div>
-					<div>
-						<p>Relatorios</p>
-					</div>
-				</div>
-			</div>
-			<a href="relatorioTeste">
-				<div class="panel-footer announcement-bottom">
-					<div class="row">
-						<div class="col-xs-6">Gerar Relatório Teste</div>
-						<div class="col-xs-6 text-right">
-							<i class="fa fa-arrow-circle-right"></i>
-						</div>
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
-
-
-
-
 	<!-- Button trigger modal -->
 	<!-- 
 	<button class="btn btn-primary btn-lg" data-toggle="modal"

@@ -2,7 +2,8 @@ package br.com.iniciativamonarca.ordemservico.model.enums;
 
 public enum CadastrosSidebarEnum {
 	 item1("Funcionário","cadastroFuncionario"),
-     item2("Clientes","");
+     item2("Clientes",""),
+	 item3("Central de Relatórios","relatorioModuloCadastros");
 	 
 	 private String referencia;
      private String nome;

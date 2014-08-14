@@ -36,7 +36,6 @@ public class FuncionarioController {
 
 	@Autowired
 	FuncionarioDAO funcdao;
-
 	
 	@RequestMapping("cadastroFuncionario")
 	public String cadastroFuncionario(Model model){

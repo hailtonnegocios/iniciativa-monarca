@@ -19,9 +19,11 @@ import net.sf.jasperreports.engine.export.JRXlsExporter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.iniciativamonarca.ordemservico.model.dao.impl.FuncionarioDAO;
+import br.com.iniciativamonarca.ordemservico.model.enums.CadastrosSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.relatorios.GeradorRelatorio;
 
 
@@ -31,7 +33,13 @@ public class RelatorioController {
 	@Autowired
 	FuncionarioDAO funcionario ;
 	
-	
+
+	@RequestMapping("relatorioModuloCadastros")
+	public String relatorioModuloCadastro(Model model){
+		model.addAttribute("listamenu", CadastrosSidebarEnum.values());
+		return "sistema/telas_de_relatorios/relatoriomodulocadastro";
+	}	
+
 	@RequestMapping("relatorioTeste")
 	public void geraRelatorio(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, FileNotFoundException, JRException, IOException{
 		Map<String, Object> parameters = new HashMap<String, Object>();
