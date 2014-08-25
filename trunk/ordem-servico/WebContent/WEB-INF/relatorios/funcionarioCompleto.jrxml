@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="usuarios" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="24776458-c8f6-488e-a0f6-267fac907e29">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="email" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="id_usuario" class="java.lang.Long"/>
+	<field name="rg" class="java.lang.String"/>
+	<field name="endereco.logradouro" class="java.lang.String"/>
+	<field name="endereco.numero" class="java.lang.String"/>
+	<field name="endereco.uf" class="java.lang.String"/>
+	<field name="endereco.cidade" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="endereco.bairro" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="86f69756-05c7-4839-8e87-d87d09a114c7"/>
+				<staticText>
+					<reportElement x="20" y="20" width="271" height="43" forecolor="#FFFFFF" uuid="ac61d7d8-9bdc-4dff-85b5-5a647b97b24e"/>
+					<textElement>
+						<font size="34" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[FUNCIONÁRIOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="43" width="236" height="20" forecolor="#FFFFFF" uuid="100cd0c0-b207-4236-9a28-3bbf347c5730"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[Relatório Completo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="5"/>
+	</columnHeader>
+	<detail>
+		<band height="93">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="80" width="555" height="1" uuid="84b22a08-6a4f-4a95-bf5b-27c5dc3b5d6e"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="46" y="20" width="147" height="20" uuid="14ed5fcc-de73-4402-b8ca-1da091411f02"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="237" y="20" width="278" height="20" uuid="4245cad5-c276-44f4-9ab5-53668e073c9d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="46" y="0" width="72" height="20" uuid="4af74862-4a10-4fbb-add5-56144e9d7b6c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="41" width="275" height="20" uuid="5cab2081-3e15-42e1-8760-8ec8573fc9a2"/>
+				<textFieldExpression><![CDATA[$F{endereco.logradouro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="0" width="100" height="20" uuid="dd10d871-fdc6-475d-bab1-bf690d79640b"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="60" width="100" height="20" uuid="4842481d-178e-4dfe-adb2-7d1ccad5fad2"/>
+				<textFieldExpression><![CDATA[$F{endereco.bairro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="60" width="100" height="20" uuid="61e092e9-7d6b-49a6-a74f-ff91d7af1676"/>
+				<textFieldExpression><![CDATA[$F{endereco.uf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="60" width="110" height="20" uuid="fa911580-f4fe-4401-a7b6-2917dc5cb542"/>
+				<textFieldExpression><![CDATA[$F{endereco.cidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="46" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="0d8e5f74-c560-4c79-b69e-c6d8dcc9c820"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="20" width="46" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="1b9f7259-4d7e-4440-a481-1f2b82b89cbc"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOME :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="193" y="20" width="44" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="19fae84f-28d2-479c-8732-afffd641ea12"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="40" width="73" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="2a43f31e-3995-4196-8363-3a1172038a20"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="60" width="46" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="1f652363-5237-46f0-ab2f-a0006baa6243"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[BAIRRO :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="0" width="84" height="20" uuid="b17735dd-310d-4c81-b0bf-c13ccdb40bc8"/>
+				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="163" y="60" width="46" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="b9b099f2-9388-4e24-894f-f1d299fc67b3"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CIDADE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="319" y="60" width="21" height="19" forecolor="#006699" backcolor="#FFFFFF" uuid="1aeea575-5454-401d-8fe4-eb4c814a8014"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[UF :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="362" y="40" width="19" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="19d930f3-8b84-41fc-a3be-8145f25a3c9d"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nº :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="381" y="41" width="110" height="20" uuid="dfcdb976-969c-4648-ba8c-2a5fa470709b"/>
+				<textFieldExpression><![CDATA[$F{endereco.numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="118" y="0" width="23" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="bb699476-72ca-4409-9af9-f3e0b2aff690"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RG :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="225" y="0" width="34" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="22e622a5-1563-413e-924c-d727573f1f3e"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CPF :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="b0bd19d7-3eb9-4f82-b2e9-fd071978f26a"/>
+				<textElement textAlignment="Right">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="518b56fd-5ddb-41e0-bc9a-de6d0be29db6"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="c23152c7-0c03-4f1f-b5b5-54cd08a56b5e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
