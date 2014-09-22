@@ -51,7 +51,7 @@
 			$("#btn_pesquisar_func").click(function() {
 				if ($("#name_pesquisar_func").val() != "" || $("#select_val_func").val() == "Todos"){
 				$("#carregando_lista_func").show();
-				   $.post("listaLikeFunc", {campo:$("#select_val_func").val() , valor:$("#name_pesquisar_func").val() }, function(data) {
+				   $.post("listaLikeFunc", {campo:$("#select_val_func").val() , name_pesq:$("#name_pesquisar_func").val() }, function(data) {
 				       var html_text = "";
 				       obj = JSON.parse(data);
 
