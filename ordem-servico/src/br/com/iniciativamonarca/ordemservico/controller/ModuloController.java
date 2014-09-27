@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.iniciativamonarca.ordemservico.model.entity.Funcionario;
 import br.com.iniciativamonarca.ordemservico.model.enums.CadastrosSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.ChamadosSidebarEnum;
+import br.com.iniciativamonarca.ordemservico.model.enums.ClientesSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.ExemploSidebarEnum;
 import br.com.iniciativamonarca.ordemservico.model.enums.OsSidebarEnum;
 
@@ -40,12 +41,17 @@ public class ModuloController {
 		model.addAttribute("listamenu", OsSidebarEnum.values());
 		return "sistema/os/os";
 	}
-	
-	
+		
 	@RequestMapping("/moduloExemplos")
 	public String abreModuloExemplos(HttpSession session,Model model) {
 		model.addAttribute("listamenu", ExemploSidebarEnum.values());
 		return "sistema/exemplos/exemplos";
+	}
+	
+	@RequestMapping("/moduloClientes")
+	public String abreModuloClientes (HttpSession session, Model model){
+		model.addAttribute("listamenu", ClientesSidebarEnum.values());
+		return "sistema/cadastros/cliente";
 	}
 	
 
