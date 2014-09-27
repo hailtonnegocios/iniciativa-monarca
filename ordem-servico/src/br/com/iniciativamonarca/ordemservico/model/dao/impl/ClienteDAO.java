@@ -52,6 +52,7 @@ public class ClienteDAO implements InterfaceDAO <Cliente>{
 		}
 	}
 
+	
 	@Override
 	public List listar() {
 		return manager.createQuery("SELECT c from Cliente c")

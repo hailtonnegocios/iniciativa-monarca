@@ -3,10 +3,17 @@ package br.com.iniciativamonarca.ordemservico.model.entity;
 import java.util.Calendar;
 import java.util.List;
 
+
+
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Cliente {
@@ -17,20 +24,22 @@ public class Cliente {
 		@GeneratedValue
 		private Integer id_cliente;  
 		
-		private String bairro;
-		private String CEP;
 		@ElementCollection
 		private List <String> celular; 
-		private String cidade;
-		private String complemento;
-		private Calendar data_nasc;
-		private String email;
-		private String endereco;
-		private String estado;
-		private String nome;
-		private String numero;
+		
 		@ElementCollection
 		private  List <String> telefone;
+		
+		@Embedded
+		Endereco endereco;
+		
+		@Temporal(TemporalType.DATE)
+		@DateTimeFormat (pattern="dd/MM/yyyy")
+		private Calendar data_nasc;
+		
+		private String email;
+		private String nome;
+
 		private String cpf;
 		private String rg;
 		
@@ -42,31 +51,7 @@ public class Cliente {
 		public void setId_cliente(Integer id_cliente) {
 			this.id_cliente = id_cliente;
 		}		
-		public String getBairro() {
-			return bairro;
-		}
-		public void setBairro(String bairro) {
-			this.bairro = bairro;
-		}
-		public String getCEP() {
-			return CEP;
-		}
-		public void setCEP(String cEP) {
-			CEP = cEP;
-		}
-
-		public String getCidade() {
-			return cidade;
-		}
-		public void setCidade(String cidade) {
-			this.cidade = cidade;
-		}
-		public String getComplemento() {
-			return complemento;
-		}
-		public void setComplemento(String complemento) {
-			this.complemento = complemento;
-		}
+		
 		public Calendar getData_nasc() {
 			return data_nasc;
 		}
@@ -79,29 +64,12 @@ public class Cliente {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public String getEndereco() {
-			return endereco;
-		}
-		public void setEndereco(String endereco) {
-			this.endereco = endereco;
-		}
-		public String getEstado() {
-			return estado;
-		}
-		public void setEstado(String estado) {
-			this.estado = estado;
-		}
+		
 		public String getNome() {
 			return nome;
 		}
 		public void setNome(String nome) {
 			this.nome = nome;
-		}
-		public String getNumero() {
-			return numero;
-		}
-		public void setNumero(String numero) {
-			this.numero = numero;
 		}
 
 		public List<String> getCelular() {
@@ -127,6 +95,12 @@ public class Cliente {
 		}
 		public void setRg(String rg) {
 			this.rg = rg;
+		}
+		public Endereco getEndereco() {
+			return endereco;
+		}
+		public void setEndereco(Endereco endereco) {
+			this.endereco = endereco;
 		}
 		
 		
