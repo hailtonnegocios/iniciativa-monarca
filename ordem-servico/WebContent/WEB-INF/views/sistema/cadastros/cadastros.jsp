@@ -25,8 +25,13 @@
 
 	<!-- Button trigger modal -->
 	 
-	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#myModal">Cadastros</button>
+	<!-- <button class="btn btn-primary btn-lg" data-toggle="modal"
+		data-target="#myModal">Cadastros</button> -->
+		
+		
+		<h1 class="page-header">Esta é a página principal</h1>
+		<br>
+		<h4 class="alert alert-info text-center">Para acessar qualquer item utilize o menu ao lado.</h4>
 
 
 	<!-- Modal -->
