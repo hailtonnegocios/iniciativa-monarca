@@ -12,7 +12,21 @@
 <!--  Inicio :  Conteudo das paginas -->
 <div id="page-wrapper">
 
-	<h3>Cadastro de Clientes</h3>
+	<!-- BREADCRUMB -->
+	<ol class="breadcrumb">
+        <li>
+            <a href="efetuaLogin"><i class="entypo-home"></i>Módulos</a>
+        </li>
+         <li class="active">
+           <a href="moduloCadastros"><i class="entypo-home"></i>Página Inicial</a>
+        </li>
+        <li class="active">
+            <strong>Cadastro de Clientes</strong>
+        </li>
+    </ol>  
+    
+    <!-- HEADER DA PAGINA  -->
+    <h3 class=page-header>Cadastro de Clientes</h3>  
 
 	<!-- COMPONENTE DE ABA - Hailton -->
 	<div class="bs-example">
@@ -198,7 +212,8 @@
 									</tr>
 								</table>
 							</fieldset>
-							<input type="submit" value="Gravar">
+							<br>
+							<input class="btn btn-succes" type="submit" value="Gravar">
 						</form>
 					</div>
 				</div>
