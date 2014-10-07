@@ -1,0 +1,286 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/08/2014, 17:23:27
+    Author     : Afonso
+*/
+@font-face			{font-family:Booksman; src:url('BOOKOS.TTF'); }
+@font-face			{font-family:BooksmanBold; src:url('BOOKOSB.TTF'); }
+*		              	{margin: 0; padding: 0; }
+body           			{background: #fff; font-family:Booksman; }
+a, a:hover                      {text-decoration: none;}
+h1,h2,h3,h4                     {font-family:Booksman;color:#363636;  }
+p                               {font-size:15px;}
+.p13                            {font-size:13px;}
+.centralizar                    {margin:auto; width:60%;}
+
+
+/* TEXT */
+.red_text                       {color:#B80000;text-decoration: none;}
+.red_blur:hover                 {color:#B80000;text-shadow: 2px 2px 5px #ccc;text-decoration: none;}
+.white_text                     {color:white;text-decoration: none;}
+.white_text_over:hover          {color:white;text-decoration: none;}
+.black_text                     {color:black;text-decoration: none;}
+.black_text_over:hover          {color:black;text-decoration: none;}
+.violet_text                    {color:#8100E6;text-decoration: none;}
+.violet_text_over:hover         {color:#8100E6;text-decoration: none;}
+.chumbo_text                    {color:#333333;text-decoration: none;}
+.chumbo_text_over:hover         {color:#333333;text-decoration: none;}
+.orange_text                    {color:#fc5b28;text-decoration: none;}
+.orange_text_over:hover         {color:#fc5b28;text-decoration: none;}
+.cinza_text                     {color:#7f7f7f;text-decoration: none;}
+.cinza_text_over:hover          {color:#7f7f7f;text-decoration: none;}
+
+/* BORDER */
+.orange_border                  {border:#fc5b28 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.orange_border_over:hover       {border:#fc5b28 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.red_border                     {border:#B80000 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.red_border_over:hover          {border:#B80000 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.violet_border                  {border:#8100E6 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.violet_border_over:hover       {border:#8100E6 solid 1px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+
+/* BG */
+.red_bg                         {background-color:#B80000; }
+.red_bg_over:hover              {background-color:#B80000; }
+.violet_bg                      {background-color:#8100E6;}
+.violet_bg_over:hover           {background-color:#8100E6;}
+.orange_bg                      {background-color:#fc5b28;}
+.orange_bg_over:hover           {background-color:#fc5b28;}
+
+
+/* FONT */
+.a_15                           {font-size:15px;}
+.a_16                           {font-size:16px;}
+.a_17                           {font-size:17px;}
+.a_18                           {font-size:18px;}
+.a_19                           {font-size:19px;}
+.a_20                           {font-size:20px;}
+.a_21                           {font-size:21px;}
+.a_22                           {font-size:22px;}
+.a_23                           {font-size:23px;}
+.a_24                           {font-size:24px;}
+.a_25                           {font-size:25px;}
+
+.grad {
+  background: -webkit-linear-gradient(#fc5b28, #B80000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fc5b28, #B80000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fc5b28, #B80000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fc5b28, #B80000); /* Standard syntax */
+}
+
+/* ALTERANDO BOOTSTRAP */
+.btn-info {
+  color: #fff;
+  background-color: #B80000;
+  border-color: #B80000;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info {
+  color: #fff;
+  background-color: #8100E6;
+  border-color: #8100E6;
+  
+}
+
+
+/* HEADER */
+.header{
+    height: 160px;
+    background-color: white;
+    border-bottom: red 1px solid ;
+}
+
+.nav-alin_vertical{
+    margin-top:9%;
+}
+
+.nav-alin_vertical_toggle{
+    margin-top:1%;
+}
+
+.back_menu:hover{
+    background-color:#fc5b28 ;
+    font-family:Booksman;
+    
+    -moz-border-radius:4px; 
+    -webkit-border-radius:4px; 
+    border-radius:4px;
+}
+
+
+.back_a{
+    color:blue;font-family:Booksman;
+     font-size:1.5em;
+}
+
+.xpto2{
+    height:38px;
+    width:fit-content;
+    display:inline;
+    float:left;
+    position:absolute;
+    top:38%;
+    
+    
+}
+
+/* Full Page Image Header Area - BANNER INICIAL*/
+
+
+.banner_inicial {
+  display: table;
+  margin-top:160px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url(../img/banner.jpg) no-repeat center center scroll;
+  
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.banner_1{
+    float:left; 
+    display:block; 
+    height:fit-content; 
+    background:#fff; 
+    margin-top:13%;
+    margin-bottom:4%;
+    line-height: 20px;
+    
+    -moz-border-radius:4px; 
+    -webkit-border-radius:4px; 
+    border-radius:4px; 
+
+    border:#848688 solid 1px;
+}
+
+.banner					{ width:100%; height:580px; background:url('../img/banner.jpg') no-repeat center; }
+.t141					{ padding-top:141px; }
+.leftContent                            { width:600px; float:left; display:block; height:299px; background:#fff; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; }
+.rightContent                           { width:335px; float:right; text-align:center; display:block; height:299px; background:#fc5b28; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; }
+.leftInterna_1                          { padding:2px 20px 0px 20px;margin-bottom:0px;}
+.leftInterna_2                          { padding:20px 20px 22px 25px; }
+.rightInterna                           { line-height: 35px; font-size: 13px; font-family:Booksman; }
+.rightInterna hr                        { color:#000;}
+.titulo-banner                          { font-size:18px; display:block; padding:25px 0 8px 0; color:#000; }
+
+.xpto {font-size: 0.6009em; margin:0px 10px 0px 0px; padding-left:23px;}
+
+/* SOBRE NÓS*/
+
+
+/* CONSULTANTS */
+
+.img_testemonial{
+    display:inline;
+    border-radius:100%;
+    float:right;
+    
+}
+
+.footer_testemonial{
+    padding:0;
+}
+
+.consultant {
+  background: white;
+  padding: 150px 0 150px 0;
+  
+}
+
+.social_icon_contact:hover {
+    -webkit-transform:scale(1.1); 
+    -moz-transform:scale(1.1); 
+    -o-transform:scale(1.1); 
+}
+.social_icon_contact {
+    -webkit-transform:scale(0.8);
+    /* Browser Variations: */
+    -moz-transform:scale(0.8);
+    -o-transform:scale(0.8); 
+    -webkit-transition-duration: 0.5s; 
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}           
+
+.desc_consultant_border{
+    border:#ccc solid 1px;
+    
+    -moz-border-radius:4px; 
+    -webkit-border-radius:4px; 
+    border-radius:4px; 
+    
+}
+
+.desc_consultant{
+   padding:10px;
+}
+
+/* CONTACT */
+
+.contact_back{
+    height:fit-content;
+    background-color: white;
+    border:#848688 solid 1px;
+    padding:0;
+    
+    -moz-border-radius:4px; 
+    -webkit-border-radius:4px; 
+    border-radius:4px; 
+    
+}
+.map {
+  /*height:300px;*/
+}
+.contact_block{
+    padding:10px 40px;
+}
+
+
+/* SETA */
+#seta_up{
+    z-index:9998;
+}
+
+i.scroll {
+  color: #333333;
+}
+
+i.scroll:hover {
+  color: #B80000;
+}
+
+/* SOCIAL MIDIA */
+
+.class_social_midia{
+    background-color: #B80000;
+    padding-top:2%;
+    padding-bottom:5%;
+    margin-top:2%;
+    height: fit-content;
+    border-top:#8100E6 solid 1.5px;
+    border-bottom:#8100E6 solid 1.5px;
+}
+
+
+    
+/* RODAPE */
+#rodape	{ 
+    /*background:#363636;*/ 
+    position:fixed;
+    width:100%;
+    bottom:0%;
+}
+.rodapeContent p     { padding-top:18px; color:#fff !important; font-size:12px; }
+
