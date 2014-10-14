@@ -21,20 +21,13 @@
            <a href="moduloCadastros"><i class="entypo-home"></i>Página Inicial</a>
         </li>
         <li class="active">
-            <strong>Cadastro de Clientes</strong>
+            <strong>Cadastro de Clientes - PJ</strong>
         </li>
     </ol>  
     
-    <!-- BOTOES NAVEGAÇAO -->
-    <ul class="nav nav-pills">
-    	<li class="btn btn-default "><a href="#">Pessoa Física</a></li>
-    	<li class="btn btn-default "><a href="/WebContent/WEB-INF/views/sistema/cadastros/clientePJ.jsp">Pessoa Jurídica</a></li>    	
-    </ul>
-    
     <!-- HEADER DA PAGINA  -->
-    <h3 class=page-header>Cadastro de Clientes - Pessoa Física</h3>  
-    
-    
+    <h3 class=page-header>Cadastro de Clientes - Pessoa Jurídica</h3>  
+
 	<!-- COMPONENTE DE ABA - Hailton -->
 	<div class="bs-example">
 
@@ -49,18 +42,18 @@
 
 		<!-- ABA DE INCLUIR E PESQUISAR -->
 		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-			<li class="active"><a href="#cadastrarCliente" data-toggle="tab">Incluir</a></li>
-			<li ><a href="#pesquisaClientes" data-toggle="tab">Pesquisar</a></li>
+			<li class="active"><a href="#cadastrarClientePJ" data-toggle="tab">Incluir</a></li>
+			<li ><a href="#pesquisaClientesPJ" data-toggle="tab">Pesquisar</a></li>
 		</ul>
 
 		<!--  ABA DE INCLUIR -->
 		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade active in" id="cadastrarCliente">
+			<div class="tab-pane fade active in" id="cadastrarClientePJ">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<form action="adicionaCliente" method="post">
+						<form action="adicionaClientePJ" method="post">
 							<fieldset>
-								<legend>Dados Cadastrais</legend>
+								<legend>Dados Cadastrais - PJ</legend>
 								<table>
 									<tr>
 										<td style="color: red; padding-right: 5px;">*</td>
@@ -227,7 +220,7 @@
 			</div>
 
  <!-- ABA DE PESQUISAR -->
-			<div class="tab-pane fade" id="pesquisaClientes">
+			<div class="tab-pane fade" id="pesquisaClientesPJ">
 	  	    	<div class="panel panel-default">
 		   		    <div class="panel-body">
 						<table class="table">
@@ -244,14 +237,14 @@
 	 							  </c:forEach>
 								   </select>
 								</td>
-								<td><input class="form-control" type="text"	id="name_pesquisar_clientes" /></td>
-								<td><button class="btn btn-danger" id="btn_pesquisar_clientes">Pesquisar</button></td>
+								<td><input class="form-control" type="text"	id="name_pesquisar_clientes_PJ" /></td>
+								<td><button class="btn btn-danger" id="btn_pesquisar_clientes_PJ">Pesquisar</button></td>
 						    </tr>
 						</table>
-						<div id="carregando_lista_clientes" align="center">
+						<div id="carregando_lista_clientes_PJ" align="center">
 							<img src="resources/img/carregando.gif">
 						</div>
-						<div id="lista_de_clientes" class="table-responsive"></div>
+						<div id="lista_de_clientes_PJ" class="table-responsive"></div>
 						<br>
 					</div>
 				</div>
