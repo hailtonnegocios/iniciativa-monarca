@@ -21,9 +21,15 @@
            <a href="moduloCadastros"><i class="entypo-home"></i>Página Inicial</a>
         </li>
         <li class="active">
-            <strong>Cadastro de Clientes - PJ</strong>
+            <strong>Cadastro de Clientes</strong>
         </li>
     </ol>  
+    
+    <!-- BOTOES NAVEGAÇAO -->
+    <ul class="nav nav-pills">
+    	<li class="btn btn-default "><a href="Cliente">Pessoa Física</a></li>
+    	<li class="btn btn-default "><a href="ClientePJ">Pessoa Jurídica</a></li>    	
+    </ul>
     
     <!-- HEADER DA PAGINA  -->
     <h3 class=page-header>Cadastro de Clientes - Pessoa Jurídica</h3>  
@@ -53,7 +59,7 @@
 					<div class="panel-body">
 						<form action="adicionaClientePJ" method="post">
 							<fieldset>
-								<legend>Dados Cadastrais - PJ</legend>
+								<legend>Dados Cadastrais</legend>
 								<table>
 									<tr>
 										<td style="color: red; padding-right: 5px;">*</td>
