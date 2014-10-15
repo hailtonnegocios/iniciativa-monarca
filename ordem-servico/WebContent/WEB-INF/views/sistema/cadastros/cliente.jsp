@@ -28,7 +28,7 @@
     <!-- BOTOES NAVEGAÇAO -->
     <ul class="nav nav-pills">
     	<li class="btn btn-default "><a href="#">Pessoa Física</a></li>
-    	<li class="btn btn-default "><a href="/WebContent/WEB-INF/views/sistema/cadastros/clientePJ.jsp">Pessoa Jurídica</a></li>    	
+    	<li class="btn btn-default "><a href="ClientePJ">Pessoa Jurídica</a></li>    	
     </ul>
     
     <!-- HEADER DA PAGINA  -->
