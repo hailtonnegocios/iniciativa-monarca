@@ -24,6 +24,11 @@ public class ClienteController {
 		clienteDao.adicionar(cliente);
 	}
 	
+
+	@RequestMapping ("Cliente")
+	public String abreCliente (){
+		return "sistema/cadastros/cliente";
+	}
 	
 	
 }
