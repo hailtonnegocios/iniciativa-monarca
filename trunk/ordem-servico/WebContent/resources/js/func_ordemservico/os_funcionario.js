@@ -41,6 +41,24 @@
 
 				   $("#carrega_endereco").hide();
 				   $('#numero').focus();
+				   
+				   
+				   // ESTA PARTE DO CODIGO É PARA FUNCIONAR APENAS NA PAGINA CLIENTE PJ POIS SEU DESENHO FOI ALTERADO
+				   // EM RELAÇAO A PAGINA CLIENTE (QUE SERIA APENAS PARA CLIENTES PF)
+				   if(obj.resultado == 1){
+						  $('.endereco').show();
+						  $('.email_empresa').show();
+						  $('.tel_empresa').show();
+						  $('#numero').focus();
+						  $('.btn_gravar').removeClass("disabled");
+						 
+					   }else{
+						  $('.endereco').hide();
+						  $('.email_empresa').hide();
+						  $('.tel_empresa').hide();
+						  $('.btn_gravar').addClass("disabled");
+						  $('#cep').focus();
+					   }
 
 			    });
           }
