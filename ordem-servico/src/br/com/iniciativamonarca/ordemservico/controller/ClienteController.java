@@ -18,6 +18,11 @@ public class ClienteController {
 	@Autowired
 	ClienteDAO clienteDao;
 	
+	@RequestMapping ("Cliente")
+	public String abrePaginaPrincipalCliente (){
+		return "sistema/cadastros/cliente";
+	}
+	
 	@RequestMapping ("adicionaCliente")
 	public void adicionaCliente (@Valid Cliente cliente){
 		System.out.println(cliente);
@@ -25,10 +30,5 @@ public class ClienteController {
 	}
 	
 
-	@RequestMapping ("Cliente")
-	public String abreCliente (){
-		return "sistema/cadastros/cliente";
-	}
-	
 	
 }
