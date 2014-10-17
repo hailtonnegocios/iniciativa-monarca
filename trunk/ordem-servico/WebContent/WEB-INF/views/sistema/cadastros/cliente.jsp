@@ -27,7 +27,8 @@
     
     <!-- BOTOES NAVEGAÇAO -->
     <ul class="nav nav-pills">
-    	<li class="btn btn-default "><a href="#">Pessoa Física</a></li>
+    	<li class="btn btn-default "><a href="moduloCadastros">Menu Principal</a></li>
+    	<li class="btn btn-default "><a href="Cliente">Pessoa Física</a></li>
     	<li class="btn btn-default "><a href="ClientePJ">Pessoa Jurídica</a></li>    	
     </ul>
     
@@ -57,10 +58,12 @@
 		<div id="myTabContent" class="tab-content">
 			<div class="tab-pane fade active in" id="cadastrarCliente">
 				<div class="panel panel-default">
-					<div class="panel-body">
+					<div class="panel-body" style="background-color: #D6D6D6">
+						
 						<form action="adicionaCliente" method="post">
 							<fieldset>
 								<legend>Dados Cadastrais</legend>
+								
 								<table>
 									<tr>
 										<td style="color: red; padding-right: 5px;">*</td>
@@ -220,8 +223,9 @@
 								</table>
 							</fieldset>
 							<br>
-							<input class="btn btn-succes" type="submit" value="Gravar">
+							<input class="btn btn-info" type="submit" value="Gravar">
 						</form>
+						
 					</div>
 				</div>
 			</div>
