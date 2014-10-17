@@ -27,6 +27,7 @@
     
     <!-- BOTOES NAVEGAÇAO -->
     <ul class="nav nav-pills">
+    	<li class="btn btn-default "><a href="moduloCadastros">Menu Principal</a></li>
     	<li class="btn btn-default "><a href="Cliente">Pessoa Física</a></li>
     	<li class="btn btn-default "><a href="ClientePJ">Pessoa Jurídica</a></li>    	
     </ul>
@@ -53,55 +54,48 @@
 		</ul>
 
 		<!--  ABA DE INCLUIR -->
-		<div id="myTabContent" class="tab-content">
+		
+		<div id="myTabContent" class="tab-content">				
 			<div class="tab-pane fade active in" id="cadastrarClientePJ">
 				<div class="panel panel-default">
-					<div class="panel-body">
-						<form action="adicionaClientePJ" method="post">
-							<fieldset>
-								<legend>Dados Cadastrais</legend>
-								<table>
-									<tr>
-										<td style="color: red; padding-right: 5px;">*</td>
-										<td>
-											<div style="padding: 0 10px 10px 0; width: 400px;">
-												<input class="form-control" type="text" name="nome"
-													id="Nome" value="${param.nome}" placeholder="Nome Completo"
-													maxlength="80">
+					<div class="panel-body" style="background-color: #E0E0E0">
+					
+						<form action="adicionaClientePJ" method="post" class="">
+									<h3>Dados Cadastrais</h3>	
+									<hr>	
+									<div class="row dados_empresa">							
+										<div  class="form-group">
+											<div class=" col-sm-5" >
+												<input class="form-control" type="text" name="razaoSocial" class="form-control"
+														id="razaoSocial" value="${param.razaoSocial}" placeholder="Razão Social"
+														maxlength="180"/>
 											</div>
-										</td>
-										<td>
-											<div style="padding: 0 10px 10px 0; width: 200px;">
-												<input class="form-control rg" type="text" name="rg" id="rg"
-													value="${param.rg}" placeholder="RG" maxlength="20">
+											<div class=" col-sm-2">
+												<input class="form-control cnpj" type="text" name="cnpj" id="cnpj" class="form-control"
+														value="${param.cnpj}" placeholder="CNPJ" maxlength="18"/>
 											</div>
-										</td>
-										<td>
-											<div style="padding: 0 10px 10px 0; width: 200px;">
-												<input class="form-control cpf" type="text" name="cpf"
-													id="cpf" value="${param.cpf}" placeholder="CPF"
-													maxlength="20">
+											<div class=" col-sm-2">
+												<input class="form-control inscEstadual" type="text" name="inscEstadual" class="form-control"
+													id="inscEstadual" value="${param.inscEstadual}" placeholder="Inscrição Estadual"
+													maxlength="16"/>
 											</div>
-										</td>
-										<td>
-											<div style="padding: 0 10px 10px 0; width: 200px;">
+											<div class=" col-sm-2" hidden >
 												<input class="form-control " type="date"
-													name="data_nasc" id="data_nasc" value="${param.data_nasc}" 
-													placeholder="Nascimento" maxlength="20">
+														name="data_cadastro" id="data_cadastro" value="${param.data_cadastro}" 
+														placeholder="Data Cadastro" maxlength="10"/>
 											</div>
-										</td>
-									</tr>
-								</table>
-								<table>
-									<tr>
-										<td>
-											<div style="padding: 0 0 0 10px">
-												<input class="form-control cep" maxlength="20" type="text"
-													name="cep" id="cep" value="${param.cep}" placeholder="Cep"
-													onblur="javascript:consultaEndereco();" />
-											</div>
-										</td>
-										<td>
+										</div>	
+									</div>	
+									<br>
+									<div class="row">
+										<div class="col-sm-3 text-right"><p> Digite o CEP para achar o endereço automaticamente:</p></div>
+										<div class="col-sm-2">
+												<input class="form-control cep col-lg-2" maxlength="9" type="text" 
+												name="cep" id="cep" value="${param.cep}" placeholder="Cep"
+												onblur="javascript:consultaEndereco();" 
+												/>					
+										</div>									
+										<div class="col-sm-4">
 											<div id="carrega_endereco" style="padding: 0 0 0 10px">
 												<img src="resources/img/carregando.gif">
 											</div>
@@ -114,116 +108,103 @@
 												style="padding: 0 0 10px 10px; color: red;">
 												<img src="resources/img/error_endereco.png"> Endereço
 												não encontrado ou CEP inválido
-											</div>
-										</td>
-									</tr>
-								</table>
-								<table>
-									<tr>
-										<td>
-											<div style="padding: 10px 10px 10px 10px; width: 90px">
-												<input class="form-control" maxlength="80" type="text"
+											</div>		
+										</div>	
+									</div>
+									<br>
+									<!--  ENDEREÇO -->
+									<div class="row endereco" hidden>
+										<div class="form-group">
+											<div class=" col-sm-2">
+												<input class="form-control" maxlength="10" type="text"
 													name="tipo_logradouro" id="tipo_logradouro"
 													value="${param.tipo_logradouro}" placeholder="Logra." />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 10px 0; width: 450px">
-												<input class="form-control" maxlength="80" type="text"
+											<div class=" col-sm-6">	
+												<input class="form-control" maxlength="100" type="text"
 													name="logradouro" id="logradouro"
 													value="${param.logradouro}" placeholder="Endereço" />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 10px 0; width: 80px">
+											<div class=" col-sm-1">
+												<input class="form-control" maxlength="6" type="text"
+														name="numero" id="numero" value="${param.numero}"
+														placeholder="Nº" />
+											</div>
+											<div class=" col-sm-2">
 												<input class="form-control" maxlength="80" type="text"
-													name="numero" id="numero" value="${param.numero}"
-													placeholder="Nº" />
+														name="complemento" id="complemento"
+														value="${param.complemento}" placeholder="Compl" />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 10px 0; width: 80px">
+										</div>
+										<br>										
+										<br>
+										<div class="form-group">
+											<div class=" col-sm-4">
 												<input class="form-control" maxlength="80" type="text"
-													name="complemento" id="complemento"
-													value="${param.complemento}" placeholder="Compl" />
-											</div>
-										</td>
-									</tr>
-								</table>
-								<table>
-									<tr>
-										<td >
-											<div style="padding: 0 10px 0 10px; width: 70px">
+														name="bairro" id="bairro" value="${param.bairro}"
+														placeholder="Bairro" />
+											</div>		
+											<div class=" col-sm-4">
 												<input class="form-control" maxlength="80" type="text"
-													name="uf" id="uf" value="${param.uf}" placeholder="UF" />
+														name="cidade" id="cidade" value="${param.cidade}"
+														placeholder="Cidade" />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 0 10px 0 0; width: 300px">
-												<input class="form-control" maxlength="80" type="text"
-													name="cidade" id="cidade" value="${param.cidade}"
-													placeholder="Cidade" />
+											<div class=" col-sm-1">
+												<input class="form-control" maxlength="2" type="text"
+														name="uf" id="uf" value="${param.uf}" placeholder="UF" />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 0 10px 0 0; width: 300px">
-												<input class="form-control" maxlength="80" type="text"
-													name="bairro" id="bairro" value="${param.bairro}"
-													placeholder="Bairro" />
+																				
+										</div>
+									</div>
+									<br>
+									<div class="row email_empresa" hidden>
+										<div class="form-group">
+											<div class=" col-sm-5">
+												<div class="input-group">
+												      <div class="input-group-addon">@</div>
+												      
+														<input class="form-control email" maxlength="200" type="text"
+														name="email" id="email" value="${param.email}"
+														placeholder="Email de contato na empresa" />
+													</div>
 											</div>
-										</td>
-									</tr>
-
-									<tr>
-										<td>
-											<div style="padding: 10px 10px 0 10px; width: 400px">
-												<input class="form-control email" maxlength="200" type="text"
-													name="email" id="email" value="${param.email}"
-													placeholder="Email" />
+										</div>
+									</div>
+									<br>
+									<div class="row tel_empresa" hidden>
+										<div class="form-group">
+											<div class=" col-sm-3">
+												<input class="form-control telefone" maxlength="10"
+														type="text" name="telefones" id="telefone_1"
+														value="${telefone_1}" placeholder="Telefone" />
 											</div>
-										</td>
-									</tr>
-
-								</table>
-								<table>
-									<tr>
-										<td>
-											<div style="padding: 10px 10px 0 10px">
-												<input class="form-control telefone" maxlength="80"
-													type="text" name="telefones" id="telefone_1"
-													value="${telefone_1}" placeholder="Telefone" />
+											<div class=" col-sm-3">
+												<input class="form-control telefone" maxlength="10"
+														type="text" name="telefones" id="telefone_2"
+														value="${telefone_2}" placeholder="Telefone Aux." />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 0 0">
-												<input class="form-control telefone" maxlength="80"
-													type="text" name="telefones" id="telefone_2"
-													value="${telefone_2}" placeholder="Telefone Aux." />
+											<div class=" col-sm-3">
+												<input class="form-control telefone" maxlength="10"
+														type="text" name="celulares" id="celular_1"
+														value="${celular_1}" placeholder="Celular" />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 0 0">
-												<input class="form-control celular" maxlength="80"
-													type="text" name="celulares" id="celular_1"
-													value="${celular_1}" placeholder="Celular" />
+											<div class=" col-sm-3">
+												<input class="form-control telefone" maxlength="10"
+														type="text" name="celulares" id="celular_2"
+														value="${celular_2}" placeholder="Celular Aux." />
 											</div>
-										</td>
-										<td>
-											<div style="padding: 10px 10px 0 0">
-												<input class="form-control celular" maxlength="80"
-													type="text" name="celulares" id="celular_2"
-													value="${celular_2}" placeholder="Celular Aux." />
-											</div>
-										</td>
-									</tr>
-								</table>
-							</fieldset>
-							<br>
-							<input class="btn btn-succes" type="submit" value="Gravar">
+										</div>
+									</div>				
+								<br>
+								<input class="btn btn-info btn_gravar disabled" type="submit" value="Gravar" >
+							
 						</form>
+					
 					</div>
 				</div>
 			</div>
+
+		
 
  <!-- ABA DE PESQUISAR -->
 			<div class="tab-pane fade" id="pesquisaClientesPJ">
@@ -266,6 +247,6 @@
 
 </div>
 
-
+<script src="resources/js/clientePJ.js" type="text/javascript"> </script>
 
 <c:import url="${footer}"></c:import>
