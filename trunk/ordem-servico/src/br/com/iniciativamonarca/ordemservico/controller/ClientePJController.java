@@ -13,5 +13,10 @@ public class ClientePJController {
 		return "sistema/cadastros/clientePJ";
 	}
 	
+	@RequestMapping ("adicionaClientePJ")
+	public String adicionaClientePJ (){
+		return "sistema/cadastros/clientePJ";
+	}
+	
 	
 }

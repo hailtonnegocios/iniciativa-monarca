@@ -24,6 +24,7 @@ public class EnderecoController {
 		System.out.println(endereco);
 
 		String json = gson.toJson(endereco);
+		System.out.println(json);
 		return json;
 	}
 

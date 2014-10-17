@@ -34,7 +34,7 @@ public class ClientePJ {
 			
 			@Temporal(TemporalType.DATE)
 			@DateTimeFormat (pattern="dd/MM/yyyy")
-			private Calendar data_fundacao;
+			private Calendar data_cadastro;
 			
 			private String email;
 			
@@ -74,10 +74,10 @@ public class ClientePJ {
 				this.endereco = endereco;
 			}
 			public Calendar getData_fundacao() {
-				return data_fundacao;
+				return data_cadastro;
 			}
-			public void setData_fundacao(Calendar data_fundacao) {
-				this.data_fundacao = data_fundacao;
+			public void setData_fundacao(Calendar data_cadastro) {
+				this.data_cadastro = data_cadastro;
 			}
 			public String getEmail() {
 				return email;
