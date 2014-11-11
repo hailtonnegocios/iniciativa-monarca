@@ -26,12 +26,17 @@
 
 	<!-- Button trigger modal -->
 	
-	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#myModal">Ordem de Serviço</button>
+	<!--<button class="btn btn-primary btn-lg" data-toggle="modal"
+		data-target="#myModal">Ordem de Serviço</button>-->
+        
+        <div class="col-lg-12">
+            <ul class="nav nav-pills">
+                <li><a href="" class="btn btn-success btn-lg"><i class="fa fa-plus"></i> Nova OS</a></li>
+            </ul>
+        </div>
+            
 
-
-	<!-- Modal -->
-	 
+	<!-- Modal -->	 
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
